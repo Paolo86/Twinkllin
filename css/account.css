@@ -1,0 +1,44 @@
+.account-update p {
+  color: #c0c0c0;
+  margin-left: 30%;
+  margin-right: 10%;
+	padding: 1pt;
+}
+
+
+
+.statementTitle
+{
+	font-size: 2em;
+
+}
+/*add tables design */
+.add-tbls table  {
+  border-collapse: collapse;
+     border-spacing: 0;
+     width: 100%;
+     border: 1px solid #ddd;
+
+}
+
+.add-tbls th, td {
+  text-align: left;
+    padding: 8px;
+}
+
+.add-tbls tr:nth-child(even) {
+  background-color: #f2f2f2
+}
+
+.add-tbls h3 {
+  text-align: center;
+  word-spacing: 4px;
+	color: #7F7F7F;
+	font-style: italic;
+  text-shadow: 1px #000000;
+}
+
+/*ends here Paintings table design*/
+.staffAcc-btns button {
+  align: center;
+}

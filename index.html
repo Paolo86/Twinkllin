@@ -1,0 +1,526 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+	<meta charset = "utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Twinkllin | Homepage</title>
+	<link rel="icon" href="images/logo.png"/>
+	<link rel="stylesheet" href="css/resetstyle.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/collection.css" />
+  <link rel="stylesheet" type="text/css" href="css/contact.css" />
+	<link rel="stylesheet" type="text/css" href="css/about.css" />
+	<link rel="stylesheet" type="text/css" href="css/account.css" />
+	<script src="js/scripts.js"></script>
+	<script src="js/jquery-3.3.1.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/email.js"></script>
+	<script src="js/databaseQueries.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+<body>
+<script>
+	loginCheck();
+
+</script>
+<div id="main">
+	<nav class="logInMen">
+		<section class="nav-container">
+			<div class="logged-out">
+			<aside class="menu" id="loginmenu">
+				<div class="menu-content" id="hidden1">
+					<li><a href="#help-page"><i class="fa fa-question-circle-o"></i>Help | </a></li>
+					<li><i class="fa fa-unlock-alt"></i></li><li id="login">Login</li>
+				</div>
+				<div class="arrow-up"></div>
+			</aside>
+		</div>
+			<aside class="menu" id="logoutmenu">
+				<div class="menu-content" id="hidden2">
+					<li><i class="fa fa-lock"></i></li>
+					<li id="welcome_statement">Hello</li>
+					<li onclick="logout()">Logout</li>
+					<li> | </li>
+					<li><i class="fa fa-user"></i></li>
+					<li onclick="toAccount()">Account</li>
+				</div>
+				<div class="arrow-up"></div>
+			</aside>
+
+			<div class="login-form">
+				<form >
+					<label>UserName</label>
+					<div>
+						<input id="userid" type="text" name="userid" placeholder="Username" required=""/>
+					</div>
+					<label>Password</label>
+					<div>
+						<input id="psw" type="text" name="pwd" placeholder="Password" required=""/>
+					</div>
+					<div>
+						<input type="button" name="login-submit" value="Log In" onclick="login()"/>
+					</div>
+					or
+					<div>
+						<a href="#register-page"><input type="button" name="registration-submit" value="Register"/></a>
+					</div>
+				</form>
+			</div>
+		</section>
+	</nav><!-- end of login reg nav-->
+	<img class="logoImg" src="images/logo.png" alt="Twinkllinlogo" />
+	<hr />
+	<nav>
+	<div class="topnav" id="myTopnav">
+		<i class="fa fa-bars" id="icon" onclick="navFunction()"></i>
+		<a href="#home">Home</a>
+	  <a href="#collection">Collection</a>
+	  <a href="#contact">Contact</a>
+	  <a href="#about">About</a>
+		<input id="searchInput" type="text" placeholder="Search.." />
+		<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
+	</div>
+	</nav>
+	<hr />
+	<!-- home page starts here-->
+	<div id="home">
+		<section class="sec1">
+		<h2 class="statement">Welcome to Twinkllin</h2><br />
+			<div class="main-banner" id="main-banner">
+				<div class="imgbanbtn imgbanbtn-prev" id="imgbanbtn-prev"></div>
+				<div class="imgban" id="imgban3">
+
+				</div>
+				<div class="imgban" id="imgban2">
+
+				</div>
+				<div class="imgban" id="imgban1">
+
+				</div>
+				<div class="imgbanbtn imgbanbtn-next" id="imgbanbtn-next"></div>
+				</div>
+			<br /><h2 class="statement">We strongly believe in the power of art !</h2>
+		</section>
+			<section>
+				<div class="index-box-one">
+					<h2 class="indCenElem">Newly crafted jewellery</h2><br />
+					<h2 class="indCenElem">comming soon...</h2>
+				</div>
+				<div class="index-box-two">
+				<h2 class="indCenElem">Featured</h2><br />
+				</div>
+				<div class="index-box-three">
+						<h2 class="indCenElem"> Please stay tuned, <br />
+							new content will be comming soon</h2>
+				</div>
+				<div class="index-box-four">
+						<h2 class="indCenElem">Any new or related news will appear here</h2><br />
+						<h2 class="indCenElem">comming soon...</h2>
+				</div>
+			</section>
+	</div> <!--div close for Homepage-->
+	<!-- home page end here-->
+	<script src="js/banner.js"></script>
+
+		<!-- registration page starts here-->
+	<div id="register-page" hidden="hidden">
+		<div id="description" class="statement">
+
+			<h2 class="statementTitle">Become a member</h2>
+
+
+				<form id="registerForm">
+					<table>
+						<tr>
+						<div class="inputSection">
+							<td class="formLabel">First name:</td>
+							<td>
+								<input  id="reg_firstnameInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+						<tr>
+						<div class="inputSection">
+						<td class="formLabel">Last name:</td>
+						<td>
+							<input id="reg_lastnameInput" class="formInput" type="text" ></input><br />
+						</td>
+						</div>
+						</tr>
+						<tr>
+						<div class="inputSection">
+						<td class="formLabel">Username:</td>
+						<td>
+							<input id="reg_usernameInput" class="formInput" type="text" ></input><br />
+						</td>
+						</div>
+						</tr>
+
+						<tr>
+						<div class="inputSection">
+						<td class="formLabel">Password:</td>
+						<td>
+							<input id="reg_pswInput" class="formInput" type="text" ></input><br />
+						</td>
+						</div>
+						</tr>
+					</table>
+
+
+
+					<input type="button" value="Register" onclick="registerUser()"></input>
+				</form>
+
+		 </div>
+	</div><!-- closing div for contact page-->
+
+
+	<!-- contact page starts here-->
+	<div id="contact" hidden="hidden">
+		<div id="description" class="statement">
+
+			<h2 class="statementTitle">Get in touch with us</h2>
+
+
+				<form id="myform">
+					<table>
+						<tr>
+						<div class="inputSection">
+							<td class="formLabel">First name:</td>
+							<td>
+								<input  id="nameInput" class="formInput" type="text" name="firstname"></input><br />
+							</td>
+						</div>
+						</tr>
+						<tr>
+						<div class="inputSection">
+						<td class="formLabel">Last name:</td>
+						<td>
+							<input id="surnameInput" class="formInput" type="text" name="lastname"></input><br />
+						</td>
+						</div>
+						</tr>
+						<tr>
+						<div class="inputSection">
+							<td class="formLabel">Your email address:</td>
+							<td>
+								<input id="emailInput" class="formInput" type="text" name="email"></input><br />
+							</td>
+						</div>
+						</tr>
+					</table>
+
+						<div class="inputSection">
+						<p class="formLabel">Your message:</p>
+						<textarea rows="25" cols="100" name="message" id="message" form="myform" placeholder="Hello..."></textarea><br />
+						</div>
+
+					<input type="button" value="Send" onclick="sendEmail()"></input>
+				</form>
+
+		 </div>
+	</div><!-- closing div for contact page-->
+	<!-- contact page ends here-->
+
+	<!-- about page starts here-->
+	<div id="about" hidden="hidden">
+		<div id="description" class="statement">
+			<h2 class="statement">We strongly believe in the power of art</h2>
+			  <p>Twinkllin was founded in 2018 by talented artist Wen Lin Liang. After her degree in art, she decided to venture in the world
+			  of jewelery to take her unique artistic vision to this new field.
+			  The brand is set to inspire others to believe in their vision of art
+			  and pursue the carrer they desire.
+			  </p>
+		  </div>
+
+	<div id="description" class="statement">
+		<h2 class="statement">Our products</h2>
+		  <p>Crafting love,
+		   Twinkllin is a brand artisan of love and a weaver of dreams – turning raw silver into beautiful visions of love;
+		  interpreting every emotion into meaningful designs with a story behind each jewel.
+
+		Inspired by surreal, fantasy worlds and mythical creatures, Twinkllin's jewellery style evokes true feelings of wonder and a sense of diiscovery and adventure.
+
+		Keeping true to her values and a respect for the basics, she strikes a harmony in her designs between prestige and authenticity.
+
+		Each creation is the birth of a story unique to one.
+		  </p>
+		  </div>
+
+		  <div id="description" class="statement">
+			<h2 class="statement">Where are we?</h2>
+			  <p>We always welcome customers to our laboratory located in Perth, WA.
+			  We are happy to show you around so come over for a coffee when you can.
+		  </div>
+	</div><!-- closing div for about page-->
+	<!-- about page ends here-->
+
+
+
+
+	<!-- collection page starts here-->
+	<div id="collection" hidden="hidden">
+		<section>
+			<h2 class="statement">Our Collection</h2><br />
+			<nav>
+	    <a href="#details" onclick="getAll('jewels')"><div class="collection-box-one">
+	      <h2 class="statement-inner">Explore our jewellery collection</h2>
+	    </div></a>
+	    <a href="#details" onclick="getAll('paintings')"><div class="collection-box-two">
+	      <h2 class="statement-inner">Explore our paintings collection</h2>
+	    </div></a>
+		</nav>
+		</section>
+	</div><!-- closing div for collection page-->
+	<!-- collection page ends here-->
+
+	<!-- detailspage starts here-->
+
+	<div id="details" hidden="hidden">
+	<nav>
+		<a href="#collection"><i class="fa fa-arrow-circle-left"></i>Back to Collection</a><br />
+	</nav>
+
+		<div id="phpResult" >
+		</div>
+
+
+	</div>
+	<!-- detailspage ends here-->
+
+
+	<!-- jewellery page ends here-->
+
+
+</div> <!-- closing div for id main-->
+
+<!-- Add new staff page-->
+	<div id="Add-Staff" hidden="hidden">
+		<div id="description" class="statement">
+				<form >
+					<table>
+						<tr>
+						<div class="inputSection">
+							<td class="formLabel">Username:</td>
+							<td>
+								<input  id="addstaff_usernameInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+						<tr>
+						<div class="inputSection">
+							<td class="formLabel">First name:</td>
+							<td>
+								<input  id="addstaff_firstnameInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+							<tr>
+						<div class="inputSection">
+							<td class="formLabel">Last name:</td>
+							<td>
+								<input  id="addstaff_lastnameInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+							<tr>
+						<div class="inputSection">
+							<td class="formLabel">Password:</td>
+							<td>
+								<input  id="addstaff_pswInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+					</table>
+					<input type="button" value="Add" onclick="addStaff()"></input>
+				</form>
+		 </div>
+	</div><!-- closing div for staff page-->
+
+<!-- Add new painting page-->
+	<div id="Add-Painting" hidden="hidden">
+		<div id="description" class="statement">
+				<form >
+					<table>
+						<tr>
+						<div class="inputSection">
+							<td class="formLabel">Title:</td>
+							<td>
+								<input  id="addpan_titleInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+						<tr>
+						<div class="inputSection">
+							<td class="formLabel">Caegory:</td>
+							<td>
+								<input  id="addpan_categoryInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+							<tr>
+						<div class="inputSection">
+							<td class="formLabel">Year:</td>
+							<td>
+								<input  id="addpan_yearInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+							<tr>
+						<div class="inputSection">
+							<td class="formLabel">Size:</td>
+							<td>
+								<input  id="addpan_sizeInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+							<tr>
+						<div class="inputSection">
+							<td class="formLabel">Price:</td>
+							<td>
+								<input  id="addpan_priceInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+							<tr>
+						<div class="inputSection">
+							<td class="formLabel">Image link:</td>
+							<td>
+								<input  id="addpan_linkInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+							<tr>
+						<div class="inputSection">
+							<td class="formLabel">Stock:</td>
+							<td>
+								<input  id="addpan_stockInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+
+
+					</table>
+
+
+
+					<input type="button" value="Add" onclick="addPainting()"></input>
+				</form>
+
+		 </div>
+	</div><!-- closing div for contact page-->
+
+
+<!-- Add new jewel page-->
+	<div id="Add-Jewel" hidden="hidden">
+		<div id="description" class="statement">
+				<form >
+					<table>
+						<tr>
+						<div class="inputSection">
+							<td class="formLabel">Title:</td>
+							<td>
+								<input  id="addjewel_titleInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+						<tr>
+						<div class="inputSection">
+							<td class="formLabel">Details:</td>
+							<td>
+								<input  id="addjewel_detailsInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+							<tr>
+						<div class="inputSection">
+							<td class="formLabel">Category:</td>
+							<td>
+								<input  id="addjewel_categoryInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+							<tr>
+						<div class="inputSection">
+							<td class="formLabel">Price:</td>
+							<td>
+								<input  id="addjewel_priceInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+							<tr>
+						<div class="inputSection">
+							<td class="formLabel">Image link:</td>
+							<td>
+								<input  id="addjewel_linkInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+							<tr>
+						<div class="inputSection">
+							<td class="formLabel">Stock:</td>
+							<td>
+								<input  id="addjewel_stockInput" class="formInput" type="text" ></input><br />
+							</td>
+						</div>
+						</tr>
+
+
+					</table>
+
+
+
+					<input type="button" value="Add" onclick="addJewel()"></input>
+				</form>
+
+		 </div>
+	</div><!-- closing div for contact page-->
+
+
+<div class="account-update" id="account-page" hidden="hidden">
+
+	<div id="accountDetails"></div>
+
+</div><!-- closing div for account page-->
+<!-- account page ends here-->
+
+<div class="help-pg" id="help-page" hidden="hidden">
+	<h2 class="statement">For helping using the web page please watch the below video</h2><br />
+	<video controls>
+		<source src="videos/Help.mp4" type="video/mp4">
+
+		Your browser does not support the video tag.
+	</video>
+
+</div><!-- closing div for help page-->
+<!-- account page ends here-->
+
+	<footer>
+
+
+	<nav>
+	  <ul>
+	    <li><a href="#home">HOME</a></li>
+	    <li><a href="#collection">COLLECTION</a></li>
+	    <li><a href="#contact">CONTACT</a></li>
+	    <li><a href="#about">ABOUT</a></li>
+	    <li>© 2018 All rights reserved. Twinkllin</li>
+	  </ul>
+	</nav>
+	  <ul class="sm">
+	    <li>Follow Us:</li>
+	    <li><a href="#" class="fa fa-facebook" aria-hidden="true"></a></li>
+	    <li><a href="#" class="fa fa-twitter" aria-hidden="true"></a></li>
+	    <li><a href="#" class="fa fa-youtube" aria-hidden="true"></a></li>
+	  </ul>
+	  <img class="footlogoImg"src="images/logo.png" alt="Twinkllinlogo" />
+	</footer>
+<script>
+
+
+</script>
+</body>
+</html>
