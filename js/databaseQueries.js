@@ -671,16 +671,8 @@ function registerUser()
 		}
 }
 	
-function getAll(tableName)
+function getAll()
 	{
 		
-	 var xhr = new XMLHttpRequest();
-	 xhr.onreadystatechange = function(){
-	 if (this.readyState == 4 && this.status == 200) {
-	 document.getElementById('phpResult').innerHTML
-							 = this.responseText;
-	 }
-	 }
-	xhr.open("GET", 'server/db.php?t=' + tableName, true);
-	xhr.send();
+	$.post("server/db.php",{tname: "jewels"},function(){});
 	}

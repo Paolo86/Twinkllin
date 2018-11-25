@@ -1,38 +1,26 @@
-
 <?php
 
+$con = mysqli_connect("localhost","root","","twinkllin");
 
-$servername = "localhost";
-$username = "X33256656";
-$password = "X33256656";
+$query = "select * from jewels;";
 
-$table = $_GET['t'];
- $tableName = "'$table'";
-$dbc = mysql_pconnect($servername ,$username , $password);
+$result = mysqli_query($con,$query);
 
-mysql_select_db('X33256656');
-
-
-$query = "SELECT * FROM " . $table;
-$result = mysql_query($query);
-
-//Create thumb div for jewelery
-if($table == 'jewels')
+while($row = mysqli_fetch_array($result))
 {
-while($row=mysql_fetch_array($result))
-{
-  $id = $row['id'];
+	
+	$id = $row['ID'];
 
 
 
-echo '<div  class="pcollection-box" id=" ' . $row["id"] . '"  onclick="displayDetails(id,'.$tableName .')" >';
+echo '<div  class="pcollection-box" id=" ' . $row["ID"] . '" >';
 
 
-echo '<image class="sampleImage" src="' . $row['link'] . '"></image>' ;
-echo '<p id="title">'.  $row['title'] . '</p>';
-echo '<p id ="details-item">Price: '.  $row['price'] . '</p>';
-echo '<p id ="details-item">Available: '.  $row['stock'] . '</p>';
-$stock =  $row['stock'];
+echo '<image class="sampleImage" src="' . $row['Link'] . '"></image>' ;
+echo '<p id="title">'.  $row['Name'] . '</p>';
+echo '<p id ="details-item">Price: '.  $row['Price'] . '</p>';
+echo '<p id ="details-item">Available: '.  $row['Stock'] . '</p>';
+$stock =  $row['Stock'];
 if($stock > 0)
 {
 echo '<button class="buybutton" type="button" >Buy Now!</button>';
@@ -40,38 +28,9 @@ echo '<button class="buybutton" type="button" >Buy Now!</button>';
 
 
 echo '</div>';
-}
-}
-//Create thumb div for jewelery
-else
-{
-while($row=mysql_fetch_array($result))
-{
-  
-
-echo '<div  class="pcollection-box" id=" ' . $row["id"] . '"  onclick="displayDetails(id,'.$tableName .')" >';
-
-echo '<image class="sampleImage" src="' . $row['link'] . '""></image>' ;
-echo '<p id="title">'.  $row['title'] . '</p>';
-echo '<p id="details-item">'.  $row['year'] . '</p>';
-
-echo '<p id="details-item">Price:'.  $row['price'] . '</p>';
-echo '<p id ="details-item">Available:'.  $row['stock'] . '</p>';
-
-$stock =  $row['stock'];
-if($stock > 0)
-{
-echo '<button class="buybutton" type="button" >Buy Now!</button>';
-}
-
-echo '</div>';
-}
-
+	
+	
 }
 
 
-
-
-mysql_free_result ($result);
-mysql_close();
 ?>
