@@ -16,10 +16,11 @@
 	<script src="js/scripts.js"></script>
 	<script src="js/jquery-3.3.1.js"></script>
 	<script src="js/index.js"></script>
-	<script src="js/email.js"></script>
+
 	<script src="js/databaseQueries.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 
@@ -74,7 +75,7 @@
 	<div class="topnav" id="myTopnav">
 		<i class="fa fa-bars" id="icon" onclick="navFunction()"></i>
 		<a href="#home">Home</a>
-	  <a href="#collection">Collection</a>
+	  <a href="#collection" onclick="getAll()" >Collection</a>
 	  <a href="#contact">Contact</a>
 	  <a href="#about">About</a>
 		<input id="searchInput" type="text" placeholder="Search.." />
@@ -133,6 +134,14 @@
 					<table>
 						<tr>
 						<div class="inputSection">
+						<td class="formLabel">Username:</td>
+						<td>
+							<input id="reg_usernameInput" class="formInput" type="text" ></input><br />
+						</td>
+						</div>
+						</tr>
+						<tr>
+						<div class="inputSection">
 							<td class="formLabel">First name:</td>
 							<td>
 								<input  id="reg_firstnameInput" class="formInput" type="text" ></input><br />
@@ -147,20 +156,29 @@
 						</td>
 						</div>
 						</tr>
-						<tr>
+							<tr>
 						<div class="inputSection">
-						<td class="formLabel">Username:</td>
+						<td class="formLabel">Email:</td>
 						<td>
 							<input id="reg_usernameInput" class="formInput" type="text" ></input><br />
 						</td>
 						</div>
-						</tr>
+						</tr>					
 
 						<tr>
 						<div class="inputSection">
 						<td class="formLabel">Password:</td>
 						<td>
 							<input id="reg_pswInput" class="formInput" type="text" ></input><br />
+						</td>
+						</div>
+						</tr>
+						
+						<tr>
+						<div class="inputSection">
+						<td class="formLabel">Confirm password:</td>
+						<td>
+							<input id="reg_confpswInput" class="formInput" type="text" ></input><br />
 						</td>
 						</div>
 						</tr>
@@ -258,27 +276,13 @@
 
 
 
-	<!-- collection page starts here-->
-	<div id="collection" hidden="hidden">
-		<section>
-			<h2 class="statement">Our Collection</h2><br />
-			<nav>
-	    <a href="#details" onclick="getAll('jewels')"><div class="collection-box-one">
-	      <h2 class="statement-inner">Explore our jewellery collection</h2>
-	    </div></a>
-	    
-		</nav>
-		</section>
-	</div><!-- closing div for collection page-->
-	<!-- collection page ends here-->
+	
 
 	<!-- detailspage starts here-->
 
-	<div id="details" hidden="hidden">
-	<nav>
-		<a href="#collection"><i class="fa fa-arrow-circle-left"></i>Back to Collection</a><br />
-	</nav>
-
+	<div id="collection" hidden="hidden">
+	
+	
 		<div id="phpResult" >
 		</div>
 
@@ -292,121 +296,8 @@
 
 </div> <!-- closing div for id main-->
 
-<!-- Add new staff page-->
-	<div id="Add-Staff" hidden="hidden">
-		<div id="description" class="statement">
-				<form >
-					<table>
-						<tr>
-						<div class="inputSection">
-							<td class="formLabel">Username:</td>
-							<td>
-								<input  id="addstaff_usernameInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-						<tr>
-						<div class="inputSection">
-							<td class="formLabel">First name:</td>
-							<td>
-								<input  id="addstaff_firstnameInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-							<tr>
-						<div class="inputSection">
-							<td class="formLabel">Last name:</td>
-							<td>
-								<input  id="addstaff_lastnameInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-							<tr>
-						<div class="inputSection">
-							<td class="formLabel">Password:</td>
-							<td>
-								<input  id="addstaff_pswInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-					</table>
-					<input type="button" value="Add" onclick="addStaff()"></input>
-				</form>
-		 </div>
-	</div><!-- closing div for staff page-->
-
-<!-- Add new painting page-->
-	<div id="Add-Painting" hidden="hidden">
-		<div id="description" class="statement">
-				<form >
-					<table>
-						<tr>
-						<div class="inputSection">
-							<td class="formLabel">Title:</td>
-							<td>
-								<input  id="addpan_titleInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-						<tr>
-						<div class="inputSection">
-							<td class="formLabel">Caegory:</td>
-							<td>
-								<input  id="addpan_categoryInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-							<tr>
-						<div class="inputSection">
-							<td class="formLabel">Year:</td>
-							<td>
-								<input  id="addpan_yearInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-							<tr>
-						<div class="inputSection">
-							<td class="formLabel">Size:</td>
-							<td>
-								<input  id="addpan_sizeInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-							<tr>
-						<div class="inputSection">
-							<td class="formLabel">Price:</td>
-							<td>
-								<input  id="addpan_priceInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-							<tr>
-						<div class="inputSection">
-							<td class="formLabel">Image link:</td>
-							<td>
-								<input  id="addpan_linkInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-							<tr>
-						<div class="inputSection">
-							<td class="formLabel">Stock:</td>
-							<td>
-								<input  id="addpan_stockInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
 
 
-					</table>
-
-
-
-					<input type="button" value="Add" onclick="addPainting()"></input>
-				</form>
-
-		 </div>
-	</div><!-- closing div for contact page-->
 
 
 <!-- Add new jewel page-->
