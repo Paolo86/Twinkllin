@@ -2,7 +2,7 @@
 include("funcs.php");
 $con = connectToDb();
 
-$result = sendQuery("select * from jewels;");
+$result = sendQuery("select * from ". jewelsTable() .";");
 
 while($row = getRow($result))
 {

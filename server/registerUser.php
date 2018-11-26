@@ -15,7 +15,7 @@ $info = array();
 
 
 //Check for username
-$res = sendQuery("select username from user where username='$username';");
+$res = sendQuery("select username from ". userTable() ." where username='$username';");
 $row = getRow($res);
 $valid = 1;
 

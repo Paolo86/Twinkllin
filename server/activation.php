@@ -8,7 +8,7 @@ $code = $_GET['c'];
 
 $con = connectToDb();
 
-$result = sendQuery("select * from user where username='$username';");
+$result = sendQuery("select * from " . userTable() ." where username='$username';");
 
 $row = getRow($result);
 

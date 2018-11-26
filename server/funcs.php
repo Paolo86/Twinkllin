@@ -1,5 +1,17 @@
 <?php
 
+function userTable()
+{
+	
+	return "user";
+}
+
+function jewelsTable()
+{
+	
+	return "jewels";
+}
+
 function connectToDb()
 {
 	
