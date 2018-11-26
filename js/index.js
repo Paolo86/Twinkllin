@@ -17,6 +17,12 @@ $(document).ready(function(){
   })
 })
 
+function redirect(np)
+{
+	window.location.hash = np;
+	
+}
+
 //code below for SPA
 var pages = ["#home", "#collection", "#contact" ,"#about" ,"#allitems" ,"#shopping-bag","#details", "#account-page","#register-page","#Add-Jewel","#Add-Painting","#Add-Staff", "#help-page"];
 var curPage = pages[0];

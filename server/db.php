@@ -1,12 +1,10 @@
 <?php
+include("funcs.php");
+$con = connectToDb();
 
-$con = mysqli_connect("localhost","root","","twinkllin");
+$result = sendQuery("select * from jewels;");
 
-$query = "select * from jewels;";
-
-$result = mysqli_query($con,$query);
-
-while($row = mysqli_fetch_array($result))
+while($row = getRow($result))
 {
 	
 	$id = $row['ID'];

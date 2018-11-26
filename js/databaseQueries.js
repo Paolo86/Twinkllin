@@ -612,41 +612,7 @@ var xhr = new XMLHttpRequest();
 
 }
 
-function registerUser()
-{
-	
-	//console.log("Registration sent");
-	var firstname = document.getElementById('reg_firstnameInput').value;
-	var lastname = document.getElementById('reg_lastnameInput').value;
-	var username = document.getElementById('reg_usernameInput').value;
-	var confpsw = document.getElementById('reg_confpswInput').value;
-	var psw = document.getElementById('reg_pswInput').value;
-	var result = true;
-	
-	if(firstname == "")
-		{
-			document.write("Please enter your name");
-			result = false;
-		}
-		
-		/*if(lastname == "")
-		{
-			alert("Please enter your last name");
-			result = false;
-		}
-		if(username == "")
-		{
-			alert("Please enter your registration username");
-			result = false;
-		}
-		if(psw == "")
-		{
-			alert("Please enter your password");
-			result = false;
-		}*/
-		
-		
-}
+
 
 function sendEmail()
 	{

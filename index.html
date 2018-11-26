@@ -16,6 +16,8 @@
 	<script src="js/scripts.js"></script>
 	<script src="js/jquery-3.3.1.js"></script>
 	<script src="js/index.js"></script>
+	<script src="js/users.js"></script>
+	<script src="js/bootstrap.js"></script>
 
 	<script src="js/databaseQueries.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -61,9 +63,9 @@
 					<div>
 						<input type="button" name="login-submit" value="Log In" onclick="login()"/>
 					</div>
-					or
+					
 					<div>
-						<a href="#register-page"><input type="button" name="registration-submit" value="Register"/></a>
+						<a href="#register-page" onclick="clearInputErrors()"><input type="button" name="registration-submit" value="Register"/></a>
 					</div>
 				</form>
 			</div>
@@ -120,6 +122,7 @@
 				</div>
 			</section>
 	</div> <!--div close for Homepage-->
+	
 	<!-- home page end here-->
 	<script src="js/banner.js"></script>
 
@@ -131,12 +134,14 @@
 
 
 				<form id="registerForm">
-					<table>
+					<table style=" width: 80%; text-alig: center">
 						<tr>
 						<div class="inputSection">
 						<td class="formLabel">Username:</td>
 						<td>
-							<input id="reg_usernameInput" type="text" class="form-control" ></input><br />
+							<input id="reg_usernameInput" type="text" class="form-control" required></input>
+						
+							<br />
 							
 						</td>
 						</div>
@@ -145,7 +150,7 @@
 						<div class="inputSection">
 							<td class="formLabel">First name:</td>
 							<td>
-								<input  id="reg_firstnameInput" type="text" class="form-control" ></input><br />
+								<input  id="reg_firstnameInput" type="text" class="form-control" required></input><br />
 							</td>
 						</div>
 						</tr>
@@ -153,7 +158,7 @@
 						<div class="inputSection">
 						<td class="formLabel">Last name:</td>
 						<td>
-							<input id="reg_lastnameInput" type="text" class="form-control" ></input><br />
+							<input id="reg_lastnameInput" type="text" class="form-control" required></input><br />
 						</td>
 						</div>
 						</tr>
@@ -161,25 +166,31 @@
 						<div class="inputSection">
 						<td class="formLabel">Email:</td>
 						<td>
-							<input id="reg_usernameInput" type="text" class="form-control" ></input><br />
+							<input id="reg_emailInput" type="text" class="form-control" required ></input><br />
 						</td>
 						</div>
-						</tr>					
-
+						</tr>	
+						<tr>
+						
+						</tr>
 						<tr>
 						<div class="inputSection">
 						<td class="formLabel">Password:</td>
 						<td>
-							<input id="reg_pswInput" type="password" class="form-control" ></input><br />
+							<input id="reg_pswInput" type="password" class="form-control" required></input><br />
 						</td>
 						</div>
 						</tr>
 						
-						<tr>
+						<tr> 
+   
+
+ 	
 						<div class="inputSection">
 						<td class="formLabel">Confirm password:</td>
-						<td>
-							<input id="reg_confpswInput" type="password" class="form-control" ></input><br />
+						<td><div id="confirmContainer" class="form-group has-error">
+							<input id="reg_confpswInput" type="password" class="form-control" onkeyup="checkConfirmPassword()"required></input><br />
+						 </div>
 						</td>
 						</div>
 						</tr>
@@ -297,7 +308,26 @@
 
 </div> <!-- closing div for id main-->
 
-
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Registration successful</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+       We sent an email to your specified address. Please click on the link provided to activate your account.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="redirect('home')">Ok</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
