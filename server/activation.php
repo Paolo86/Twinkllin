@@ -8,17 +8,32 @@ $code = $_GET['c'];
 
 $con = connectToDb();
 
-$result = sendQuery("select * from " . userTable() ." where username='$username';");
+$ps = $con->prepare("select validation from " . userTable() ." where username=?;");
+$ps->bind_param("s",$username);
+$result = $ps->execute();
+ /* bind result variables */
+    $ps->bind_result($codeIn);
 
-$row = getRow($result);
+    /* fetch value */
+    $ps->fetch();
 
-$codeIn = $row['validation'];
+  
+
+    /* close statement */
+    $ps->close();
+
+
 
 if($codeIn == $code)
 {
-	$result = sendQuery("update user set active = 1, validation='' where username='$username'");
+
+	$ps = $con->prepare("update user set active = 1, validation='' where username=?");
+	$ps->bind_param("s",$username);
+	$result = $ps->execute();
 	if($result)
 	echo 'Accout activated';
+
+$ps->close();
 }
 
 

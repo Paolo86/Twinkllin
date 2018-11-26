@@ -43,15 +43,25 @@ if($valid == 1)
 {
 	$pswEnc = md5($psw);
 	$code = md5('$username' . microtime() );
-	$result = sendQuery("Insert into user (username, firstname, lastname, email, password, validation, active ) values 
-					('$username','$firstname','$lastname','$email','$psw','$code',0);");
+	$ac = 0;
+	
+	$stmt = $con->prepare("Insert into ".userTable()." (username, firstname, lastname, email, password, validation, active ) values 
+					(?,?,?,?,?,?,?);");
+	$stmt->bind_param("ssssssi", $username,$firstname,$lastname,$email,$pswEnc,$code,$ac);
+	$stmt->execute();
+
+	
+	
+	//$result = sendQuery("Insert into user (username, firstname, lastname, email, password, validation, active ) values 
+	//				('$username','$firstname','$lastname','$email','$psw','$code',0);");
 					
 	$info['info'] = 'ok';
 	$info['response'] = 'Registration successful';
 	
-	sendEmail("p.ferri1986@gmail.com","Activation code","CLick the link below:
+	sendEmail("p.ferri1986@gmail.com","Activation code","Click the link below:
 	
 	http://localhost/Twinkllin/server/activation.php?username=" . $username ."&c=". $code."");
+	$stmt->close();
 }
 
 $infoJ = json_encode($info);

@@ -12,12 +12,12 @@ while($row = getRow($result))
 
 
 echo '<div  class="pcollection-box" id=" ' . $row["ID"] . '" >';
-
-
+echo '<div >';
 echo '<image class="sampleImage" src="' . $row['Link'] . '"></image>' ;
-echo '<p id="title">'.  $row['Name'] . '</p>';
-echo '<p id ="details-item">Price: '.  $row['Price'] . '</p>';
-echo '<p id ="details-item">Available: '.  $row['Stock'] . '</p>';
+echo '</div>';
+echo '<p class="item-details" id="title">'.  $row['Name'] . '</p>';
+echo '<p class="item-details" id ="details-item">Price: '.  $row['Price'] . '</p>';
+echo '<p class="item-details" id ="details-item">Available: '.  $row['Stock'] . '</p>';
 $stock =  $row['Stock'];
 if($stock > 0)
 {
