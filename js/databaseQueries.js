@@ -619,15 +619,17 @@ function registerUser()
 	var firstname = document.getElementById('reg_firstnameInput').value;
 	var lastname = document.getElementById('reg_lastnameInput').value;
 	var username = document.getElementById('reg_usernameInput').value;
+	var confpsw = document.getElementById('reg_confpswInput').value;
 	var psw = document.getElementById('reg_pswInput').value;
 	var result = true;
+	
 	if(firstname == "")
 		{
-			alert("Please enter your name");
+			document.write("Please enter your name");
 			result = false;
 		}
 		
-		if(lastname == "")
+		/*if(lastname == "")
 		{
 			alert("Please enter your last name");
 			result = false;
@@ -641,34 +643,9 @@ function registerUser()
 		{
 			alert("Please enter your password");
 			result = false;
-		}
+		}*/
 		
-		if(result)
-		{
-		var data = {
-   			  "firstname": firstname ,
-  			  "lastname": lastname,
-			  "username": username,
-			  "psw": psw
-    			
-			};
-
-		$.ajax({
- 		   type: "POST",
-  		  url: "server/registerUser.php",
-   		 data: data,
-   		  success: function(response) { 
-		 // console.log(response);
-			if(response == 1)
-                alert("Registration completed succesfully"); 
-			else
-				alert("Something went wrong! Try using a different username"); 
-            },
-            error: function(xhr, status, error){
-              //  console.log(xhr); 
-            }		});
-	
-		}
+		
 }
 
 function sendEmail()
