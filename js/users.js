@@ -19,10 +19,10 @@ function registerUser()
 	
 	
 	if(username == "")
-		{
-	
+		{	
 		inputError.push("Username cannot be empty");
 		}
+	
 	if(firstname == "")
 		{
 			inputError.push("Firstname cannot be empty");
@@ -41,6 +41,8 @@ function registerUser()
 		{
 			inputError.push("Password cannot be empty");
 		}
+	else if(psw.length < 8)
+		inputError.push("Password must be at least 8 characters");
 	
 	var confirmation = $("#reg_confpswInput").val();
 	
@@ -67,6 +69,7 @@ function registerUser()
 		$.post("server/registerUser.php",data,function(data, status){
 			if(status == "success")
 			{
+				//Create response object to send back
 				var resp = JSON.parse(data);
 				
 				if(resp.status == 'fail')
@@ -97,6 +100,13 @@ function checkConfirmPassword()
 		$("#confirmContainer").attr("class","form-group no-error");
 	else
 		$("#confirmContainer").attr("class","form-group has-error");
+	
+}
+
+function clearAllRegistration()
+{
+	clearInputErrors();
+	document.getElementById("registerForm").reset();
 	
 }
 
