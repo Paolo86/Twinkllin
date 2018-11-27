@@ -41,8 +41,8 @@ if($row)
 	
 if($valid == 1)
 {
-	$pswEnc = md5($psw);
-	$code = md5('$username' . microtime() );
+	$pswEnc = password_hash($psw,PASSWORD_BCRYPT);
+	$code = password_hash('$username' . microtime(),PASSWORD_BCRYPT );
 	$ac = 0;
 	
 	$stmt = $con->prepare("Insert into ".userTable()." (username, firstname, lastname, email, password, validation, active ) values 
@@ -60,7 +60,7 @@ if($valid == 1)
 	
 	sendEmail("p.ferri1986@gmail.com","Activation code","Click the link below:
 	
-	http://localhost/Twinkllin/server/activation.php?username=" . $username ."&c=". $code."");
+	http://localhost/Twinkllin/server/activation.php?e=" . $email ."&c=". $code."");
 	$stmt->close();
 }
 

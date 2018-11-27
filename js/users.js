@@ -70,7 +70,7 @@ function registerUser()
 			if(status == "success")
 			{
 				//Create response object to send back
-				console.log(data);
+				//console.log(data);
 				var resp = JSON.parse(data);
 				
 				if(resp.status == 'fail')

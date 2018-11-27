@@ -1,15 +1,15 @@
 <?php
 include("funcs.php");
 
-$username = $_GET['username'];
+$email = $_GET['e'];
 $code = $_GET['c'];
 
 
 
 $con = connectToDb();
 
-$ps = $con->prepare("select validation from " . userTable() ." where username=?;");
-$ps->bind_param("s",$username);
+$ps = $con->prepare("select validation from " . userTable() ." where email=?;");
+$ps->bind_param("s",$email);
 $result = $ps->execute();
  /* bind result variables */
     $ps->bind_result($codeIn);
@@ -27,8 +27,8 @@ $result = $ps->execute();
 if($codeIn == $code)
 {
 
-	$ps = $con->prepare("update user set active = 1, validation='' where username=?");
-	$ps->bind_param("s",$username);
+	$ps = $con->prepare("update user set active = 1, validation='' where email=?");
+	$ps->bind_param("s",$email);
 	$result = $ps->execute();
 	if($result)
 	echo 'Accout activated';
