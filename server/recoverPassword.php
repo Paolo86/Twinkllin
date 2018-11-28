@@ -59,17 +59,27 @@ else
 	$code = $_GET['c'];
 	
 	$con = connectToDb();
-	$stmt = $con->prepare("select Activation_expire from user where email=?");
+	//Get expiration
+	$stmt = $con->prepare("select Activation_expire from ". userTable(). " where email=?");
 	$stmt->bind_param("s", $email);
 	$stmt->execute();	
 	$stmt->bind_result($expiration);
 	$stmt->fetch();
 	$stmt->close();
+	//Get code
+	$stmt = $con->prepare("select validation from ". userTable(). "  where email=?");
+	$stmt->bind_param("s", $email);
+	$stmt->execute();	
+	$stmt->bind_result($codeStored);
+	$stmt->fetch();
+	$stmt->close();
+	
+	
 	$result = sendQuery("select now()");
 	$row = getRow($result);
 
 	//Check if time expired
-	if($expiration < $row[0])
+	if($expiration < $row[0] || $code != $codeStored)
 	{
 	echo '
 	<link rel="stylesheet" href="../css/resetstyle.css" />
