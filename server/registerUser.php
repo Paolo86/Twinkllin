@@ -2,6 +2,7 @@
 
 include("funcs.php");
 include ("email.php");
+include ("response.php");
 
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
@@ -10,7 +11,7 @@ $psw = $_POST['psw'];
 $email = $_POST['email'];
 
 $con = connectToDb();
-$info = array();
+$info = new Response();
 
 
 
@@ -21,8 +22,8 @@ $valid = 1;
 
 if($row)
 {
-	$info['status'] = 'fail';
-	$info['response'] = 'Username is already taken';
+	$info->success = false;
+	$info->info= 'Username is already taken';
 	$valid = 0;
 }
 
@@ -33,16 +34,16 @@ $row = getRow($res);
 
 if($row)
 {
-	$info['status'] = 'fail';
-	$info['response'] = 'Email is already taken';
+	$info->success = false;
+	$info->info = 'Email is already taken';
 	$valid = 0;
 }
 
 	
 if($valid == 1)
 {
-	$pswEnc = password_hash($psw,PASSWORD_BCRYPT);
-	$code = password_hash('$username' . microtime(),PASSWORD_BCRYPT );
+	$pswEnc = enc($psw);
+	$code = enc('$username' . microtime());
 	$ac = 0;
 	
 	$stmt = $con->prepare("Insert into ".userTable()." (username, firstname, lastname, email, password, validation, active ) values 
@@ -51,12 +52,10 @@ if($valid == 1)
 	$stmt->execute();
 
 	
-	
-	//$result = sendQuery("Insert into user (username, firstname, lastname, email, password, validation, active ) values 
-	//				('$username','$firstname','$lastname','$email','$psw','$code',0);");
+
 					
-	$info['info'] = 'ok';
-	$info['response'] = 'Registration successful';
+	$info->success = true;
+	$info->info = 'Registration successful';
 	
 	sendEmail("p.ferri1986@gmail.com","Activation code","Click the link below:
 	

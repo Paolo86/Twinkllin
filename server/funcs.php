@@ -35,6 +35,13 @@ function getRow($result)
 }
 
 
+function enc($val)
+{
+	
+	return password_hash($val,PASSWORD_BCRYPT );
+}
+
+
 
 
 

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+	<meta charset = "utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Twinkllin | Recovery</title>
+	<link rel="icon" href="images/logo.png"/>
+	<link rel="stylesheet" href="css/resetstyle.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<link rel="stylesheet" type="text/css" href="css/collection.css" />
+  <link rel="stylesheet" type="text/css" href="css/contact.css" />
+	<link rel="stylesheet" type="text/css" href="css/about.css" />
+	<link rel="stylesheet" type="text/css" href="css/account.css" />
+	<script src="js/scripts.js"></script>
+	<script src="js/jquery-3.3.1.js"></script>
+	<script src="js/index.js"></script>
+	<script src="js/users.js"></script>
+	<script src="js/bootstrap.js"></script>
+
+	<script src="js/databaseQueries.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+<a href="index.html">
+<img class="logoImg" src="images/logo.png" alt="Twinkllinlogo" />
+</a>
+<hr/>
+
+	<div class="inputSection" style="margin: auto; width: 50%; text-align: center">
+	
+						<p class="formLabel" style="color: #c0c0c0 ">Enter your email address:</p><br/>
+						<div id="emailContainer" class="form-group has-error">
+						<input id="reg_emailInput" type="text" class="form-control" style="display: inline-block" onkeyup="checkEmptyField(id,'emailContainer')" required ></input>
+						</div>
+						<br />
+						<button type="button" class="btn btn-primary btn-lg" onclick="recoverPassword()">Recover password</button>
+							
+						
+						</div>
+						
+						<!-- Modal -->
+<div class="modal fade" id="genericModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalTitle">Registration successful</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div id="modalBody" class="modal-body">
+       We sent an email to your specified address. Please click on the link provided to activate your account.
+      </div>
+      <div class="modal-footer">
+	
+        <button  class="btn btn-secondary" data-dismiss="modal" onclick="toHome()" >Ok</button>
+	
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+$('#genericModal').on('hidden.bs.modal', function () {
+   toHome();
+})
+</script>
+
+</body>
+</html>

@@ -32,7 +32,7 @@
 			<div class="logged-out">
 			<aside class="menu" id="loginmenu">
 				<div class="menu-content" id="hidden1">
-					<li><a href="#help-page"><i class="fa fa-question-circle-o"></i>Help | </a></li>
+					<li><a class="inner-page-link" href="#help-page"><i class="fa fa-question-circle-o"></i>Help | </a></li>
 					<li><i class="fa fa-unlock-alt"></i></li><li id="login">Login</li>
 				</div>
 				<div class="arrow-up"></div>
@@ -62,10 +62,11 @@
 					</div>
 					<div>
 						<input type="button" name="login-submit" value="Log In" onclick="login()"/>
+						<a href="recovery.html">Forgot your password?</a>
 					</div>
 					or
 					<div>
-						<a href="#register-page" onclick="clearAllRegistration()"><input type="button" name="registration-submit" value="Register"/></a>
+						<a class="inner-page-link" href="#register-page" onclick="clearAllRegistration()"><input type="button" name="registration-submit" value="Register"/></a>
 					</div>
 				</form>
 			</div>
@@ -76,10 +77,10 @@
 	<nav>
 	<div class="topnav" id="myTopnav">
 		<i class="fa fa-bars" id="icon" onclick="navFunction()"></i>
-		<a href="#home">Home</a>
-	  <a href="#collection" onclick="getAll()" >Collection</a>
-	  <a href="#contact">Contact</a>
-	  <a href="#about">About</a>
+		<a class="inner-page-link" href="#home">Home</a>
+	  <a class="inner-page-link" href="#collection" onclick="getAll()" >Collection</a>
+	  <a class="inner-page-link" href="#contact">Contact</a>
+	  <a class="inner-page-link" href="#about">About</a>
 		<input id="searchInput" type="text" placeholder="Search.." />
 		<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
 	</div>
@@ -197,7 +198,7 @@
 
 
 
-					<input type="button" value="Register" onclick="registerUser()"></input>
+					<button type="button"  class="btn btn-primary btn-lg"  onclick="registerUser()">Submit</button>
 				</form>
 
 		 </div>
@@ -308,16 +309,16 @@
 </div> <!-- closing div for id main-->
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="genericModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Registration successful</h5>
+        <h5 class="modal-title" id="modalTitle">Registration successful</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div id="modalBody" class="modal-body">
        We sent an email to your specified address. Please click on the link provided to activate your account.
       </div>
       <div class="modal-footer">
@@ -419,18 +420,17 @@
 
 	<nav>
 	  <ul>
-	    <li><a href="#home">HOME</a></li>
-	    <li><a href="#collection">COLLECTION</a></li>
-	    <li><a href="#contact">CONTACT</a></li>
-	    <li><a href="#about">ABOUT</a></li>
+	    <li><a class="inner-page-link" href="#home">HOME</a></li>
+	    <li><a class="inner-page-link" href="#collection">COLLECTION</a></li>
+	    <li><a class="inner-page-link" href="#contact">CONTACT</a></li>
+	    <li><a class="inner-page-link" href="#about">ABOUT</a></li>
 	    <li>© 2018 All rights reserved. Twinkllin</li>
 	  </ul>
 	</nav>
 	  <ul class="sm">
 	    <li>Follow Us:</li>
 	    <li><a href="#" class="fa fa-facebook" aria-hidden="true"></a></li>
-	    <li><a href="#" class="fa fa-twitter" aria-hidden="true"></a></li>
-	    <li><a href="#" class="fa fa-youtube" aria-hidden="true"></a></li>
+	  
 	  </ul>
 	  <img class="footlogoImg"src="images/logo.png" alt="Twinkllinlogo" />
 	</footer>

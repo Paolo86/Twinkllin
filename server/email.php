@@ -26,7 +26,10 @@ $mail->Password   = "evh5150jigendaisuke";        // SMTP account password
 $mail->From = "p.ferri1986@gmail.com";
 $mail->addAddress("p.ferri1986@gmail.com", "Pueblo");
 $mail->Subject = $subject;
-$mail->Body = $message;
+$mail->AddEmbeddedImage('../images/logo.png', 'Twinkllin');
+$mail->Body = '<img src=\"cid:Twinkllin\" /></p> 
+				<p>'.$message.'</p>';
+$mail-> IsHTML(true);
 $mail->send();
 }
 catch (Exception $e)

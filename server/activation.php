@@ -11,10 +11,10 @@ $con = connectToDb();
 $ps = $con->prepare("select validation from " . userTable() ." where email=?;");
 $ps->bind_param("s",$email);
 $result = $ps->execute();
- /* bind result variables */
+
     $ps->bind_result($codeIn);
 
-    /* fetch value */
+
     $ps->fetch();
 
   

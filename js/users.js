@@ -73,11 +73,13 @@ function registerUser()
 				//console.log(data);
 				var resp = JSON.parse(data);
 				
-				if(resp.status == 'fail')
-					inputError.push(resp.response);
+				if(!resp.success)
+					inputError.push(resp.info);
 				else
 				{
-					$('#exampleModal').modal('show');
+					$('#modalTitle').html('Registration successful dio cane');
+					$('#modalBody').html('We sent an email to your specified address. Please click on the link provided to activate your account.');
+					$('#genericModal').modal('show');
 				}
 				
 				
@@ -132,5 +134,58 @@ function displayErrors()
 		$("#errors").prepend('<div class="alert alert-warning" role="alert">' + msg+ '</div>');
 	}
 	
+	
+}
+
+function checkEmptyField(id,containerid)
+{
+	
+	var current = $("#" + id).val();
+	
+	
+
+	if(current == "")
+		$("#" + containerid).attr("class","form-group has-error");
+	else
+		$("#" + containerid).attr("class","form-group no-error");
+	
+}
+
+function recoverPassword()
+{
+	
+	var email = $("#reg_emailInput").val();
+	
+	if(email!="")
+	{
+		$.post("server/recoverPassword.php",{email: email},function(data,status){
+			
+			if(status=='success')
+			{
+					var resp = JSON.parse(data);
+				
+					if(resp.success)
+					{
+					$('#modalTitle').html('Email sent');
+				
+					
+					}
+					else
+					{
+						
+					$('#modalTitle').html('Error');
+					
+					
+					}
+					$('#modalBody').html(resp.info);
+					$('#genericModal').modal('show');
+					console.log(data);
+			}
+			
+			
+		});
+	
+		
+	}
 	
 }

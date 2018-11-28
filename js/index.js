@@ -17,6 +17,12 @@ $(document).ready(function(){
   })
 })
 
+function toHome()
+{
+	
+	window.location.href = "index.html";
+}
+
 function redirect(np)
 {
 	window.location.hash = np;
@@ -37,7 +43,7 @@ $(document).ready(function(){
    // click event handler:
    // 1) prevent loading of the new url
    // 2) may trigger hashchange event
-   $('nav a').click(function(e){
+   $('.inner-page-link').click(function(e){
        e.preventDefault();
        var newPage = $(this).attr('href');
        window.location.hash=newPage;
