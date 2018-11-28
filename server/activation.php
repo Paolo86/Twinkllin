@@ -8,11 +8,11 @@ $code = $_GET['c'];
 
 $con = connectToDb();
 
-$ps = $con->prepare("select validation from " . userTable() ." where email=?;");
+$ps = $con->prepare("select validation,active from " . userTable() ." where email=?;");
 $ps->bind_param("s",$email);
 $result = $ps->execute();
 
-    $ps->bind_result($codeIn);
+    $ps->bind_result($codeIn,$isActive);
 
 
     $ps->fetch();
@@ -24,7 +24,7 @@ $result = $ps->execute();
 
 
 
-if($codeIn == $code)
+if($codeIn == $code && $isActive == 0)
 {
 
 	$ps = $con->prepare("update user set active = 1, validation='' where email=?");
@@ -49,6 +49,22 @@ if($codeIn == $code)
 
 $ps->close();
 }
+else if($isActive == 1)
+{
+	echo '
+	<link rel="stylesheet" href="../css/resetstyle.css" />
+	<link rel="stylesheet" type="text/css" href="../css/main.css" />
+	<a href="../index.html">
+	<img class="logoImg" src="../images/logo.png" alt="Twinkllinlogo" />
+	</a>
+	<div id="newPswMessage" style="margin: auto; width: 50%; text-align: center">
+	
+						<p class="formLabel" style="color: #c0c0c0;  ">The account is already active.</p>
+										
+						
+	</div>';
+}
+
 
 
 
