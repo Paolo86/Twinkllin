@@ -166,6 +166,9 @@ input[type="submit"]:hover {
 }
 
 .statement{
+
+	
+	width: 80%;
 	text-align: center;
   word-spacing: 4px;
 	color: #7F7F7F;
@@ -338,7 +341,7 @@ input[type="submit"]:hover {
 }
 
 footer {
-  width: calc(100% - 80px);
+  width: 100% ;
   padding: 40px 40px;
   margin-top: 20px;
   background-color: #c0c0c0;

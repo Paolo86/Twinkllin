@@ -106,23 +106,7 @@
 				</div>
 			<br /><h2 class="statement">We strongly believe in the power of art !</h2>
 		</section>
-			<section>
-				<div class="index-box-one">
-					<h2 class="indCenElem">Newly crafted jewellery</h2><br />
-					<h2 class="indCenElem">comming soon...</h2>
-				</div>
-				<div class="index-box-two">
-				<h2 class="indCenElem">Featured</h2><br />
-				</div>
-				<div class="index-box-three">
-						<h2 class="indCenElem"> Please stay tuned, <br />
-							new content will be comming soon</h2>
-				</div>
-				<div class="index-box-four">
-						<h2 class="indCenElem">Any new or related news will appear here</h2><br />
-						<h2 class="indCenElem">comming soon...</h2>
-				</div>
-			</section>
+		
 	</div> <!--div close for Homepage-->
 	
 	<!-- home page end here-->
@@ -207,7 +191,7 @@
 
 
 	<!-- contact page starts here-->
-	<div id="contact" hidden="hidden">
+	<div id="contact" hidden="hidden" class="container center_div">
 		<div id="description" class="statement">
 
 			<h2 class="statementTitle">Get in touch with us</h2>
@@ -219,7 +203,7 @@
 						<div class="inputSection">
 							<td class="formLabel">First name:</td>
 							<td>
-								<input  id="nameInput" class="formInput" type="text" name="firstname"></input><br />
+								<input  id="nameInput" class="form-control formInput" type="text" name="firstname"></input><br />
 							</td>
 						</div>
 						</tr>
@@ -227,7 +211,7 @@
 						<div class="inputSection">
 						<td class="formLabel">Last name:</td>
 						<td>
-							<input id="surnameInput" class="formInput" type="text" name="lastname"></input><br />
+							<input id="surnameInput" class="form-control formInput" type="text" name="lastname"></input><br />
 						</td>
 						</div>
 						</tr>
@@ -235,7 +219,7 @@
 						<div class="inputSection">
 							<td class="formLabel">Your email address:</td>
 							<td>
-								<input id="emailInput" class="formInput" type="text" name="email"></input><br />
+								<input id="emailInput" class=" form-control formInput" type="text" name="email"></input><br />
 							</td>
 						</div>
 						</tr>
@@ -243,7 +227,7 @@
 
 						<div class="inputSection">
 						<p class="formLabel">Your message:</p>
-						<textarea rows="25" cols="100" name="message" id="message" form="myform" placeholder="Hello..."></textarea><br />
+						<textarea rows="25" cols="100" class="form-control" name="message" id="message" form="myform" placeholder="Hello..."></textarea><br />
 						</div>
 
 					<input type="button" value="Send" onclick="sendEmail()"></input>

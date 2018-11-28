@@ -1,31 +1,19 @@
-#description
+#contact
 {
-	margin: auto;
-	//background-color: red;
-	width: 70%;
-	padding: 5pt;
+	
+	//sbackground-color: red;
 }
+
+
 
 table{
 
 	margin: auto;
 }
 
-.formLabel
-{
 
-	font-size: 1.5em;
-	margin-left: 10pt;
-	margin-top: 15pt;
 
-}
 
-.formInput
-{
-
-	margin-left: 10pt;
-	text-align: right;
-}
 
 textArea
 {
