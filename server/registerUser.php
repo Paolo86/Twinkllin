@@ -53,7 +53,13 @@ if($valid == 1)
 		
 	$stmt->close();
 	
-	if(sendEmail("p.ferri1986@gmail.com","Activation code","Click the link below: http://localhost/Twinkllin/server/activation.php?e=" . $email ."&c=". $code.""))
+	//$emailResult = sendEmail("p.ferri1986@gmail.com","Activation code","Click the link below: http://localhost/Twinkllin/server/activation.php?e=" . $email ."&c=". $code."");
+	$emailResult = sendEmail("p.ferri1986@gmail.com","Activation code","<p>Click the link below:</p>
+															<a href='http://localhost/Twinkllin/server/activation.php?e=" . $email . "&c=".$code."'>Activate account</a>
+															");
+	
+	
+	if($emailResult)
 	{
 	$info->success = true;
 	$info->info = 'We sent an email to your specified address. Please click on the link provided to activate your account.';	

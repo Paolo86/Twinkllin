@@ -31,7 +31,21 @@ if($codeIn == $code)
 	$ps->bind_param("s",$email);
 	$result = $ps->execute();
 	if($result)
-	echo 'Accout activated';
+	{
+	echo '
+	<link rel="stylesheet" href="../css/resetstyle.css" />
+	<link rel="stylesheet" type="text/css" href="../css/main.css" />
+	<a href="../index.html">
+	<img class="logoImg" src="../images/logo.png" alt="Twinkllinlogo" />
+	</a>
+	<div id="newPswMessage" style="margin: auto; width: 50%; text-align: center">
+	
+						<p class="formLabel" style="color: #c0c0c0;  ">Your account was activated.</p>
+										
+						
+	</div>';	
+	}
+	
 
 $ps->close();
 }

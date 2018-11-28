@@ -31,8 +31,12 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 	$info->success = true;
 	$info->info = 'We sent an email to your specified address. Please click on the link provided to recover your password.';
 
-	sendEmail("p.ferri1986@gmail.com","Password recovery","Click the link below:http://localhost/Twinkllin/server/recoverPassword.php?e=" . $email . "&c=".$code . ".\n
-				The link will be active for 10 minutes.");
+	//sendEmail("p.ferri1986@gmail.com","Password recovery","Click the link below:http://localhost/Twinkllin/server/recoverPassword.php?e=" . $email . "&c=".$code . ".\n
+	//			The link will be active for 10 minutes.");
+				
+	sendEmail("p.ferri1986@gmail.com","Password recovery","<p>Click the link below:</p>
+															<a href='http://localhost/Twinkllin/server/recoverPassword.php?e=" . $email . "&c=".$code."'>Recover password</a>
+															<br/><p>The link will be active for 10 minutes.</p>");
 	$stmt->close();
 	}
 	else{
@@ -46,6 +50,8 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 
 
 }
+
+//If user clicked on link
 else
 {
 
@@ -86,7 +92,7 @@ else
 		$encPsw = enc($psw);
 		
 	
-		$stmt = $con->prepare("update ". userTable() . " set password ='$encPsw' where email=? AND validation=?");
+		$stmt = $con->prepare("update ". userTable() . " set password ='$encPsw', activation_expire=NOW() where email=? AND validation=?");
 		$stmt-> bind_param("ss",$email,$code);
 		$stmt->execute();	
 		$affected = mysqli_affected_rows($con);
