@@ -67,24 +67,33 @@ function registerUser()
 		};
 		//send to php
 		$.post("server/registerUser.php",data,function(data, status){
+			
+			
 			if(status == "success")
 			{
 				//Create response object to send back
 				//console.log(data);
 				var resp = JSON.parse(data);
 				
-				if(!resp.success)
-					inputError.push(resp.info);
-				else
-				{
-					$('#modalTitle').html('Registration successful dio cane');
-					$('#modalBody').html('We sent an email to your specified address. Please click on the link provided to activate your account.');
-					$('#genericModal').modal('show');
-				}
+		
+			if(resp.success)
+			{
+				
+				$('#modalTitle').html('Registration successful');
+				$("#modalTitle").css("background-color","#11ff11aa");
+			}
+			else
+			{
+				
+				$('#modalTitle').html('Registration failed');
+				$("#modalTitle").css("background-color","#ff1111aa");
+			}
+				$('#modalBody').html(resp.info);
+				$('#genericModal').modal('show');
 				
 				
-				if(inputError.length != 0)
-					displayErrors();
+				
+			
 				
 			}
 			
@@ -167,6 +176,7 @@ function recoverPassword()
 					if(resp.success)
 					{
 					$('#modalTitle').html('Email sent');
+					$("#modalTitle").css("background-color","#11ff11aa");
 				
 					
 					}
@@ -174,6 +184,7 @@ function recoverPassword()
 					{
 						
 					$('#modalTitle').html('Error');
+					$("#modalTitle").css("background-color","#ff1111aa");
 					
 					
 					}

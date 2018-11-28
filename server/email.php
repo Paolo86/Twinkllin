@@ -10,10 +10,10 @@ require 'W:\composer\vendor\autoload.php';
 function sendEmail($to, $subject,$message)
 {
 	
-/* Create a new PHPMailer object. Passing TRUE to the constructor enables exceptions. */
+
 $mail = new PHPMailer(TRUE);
 
-/* Open the try/catch block. */
+
 try {
 
 $mail->IsSMTP();                           // telling the class to use SMTP
@@ -27,19 +27,19 @@ $mail->From = "p.ferri1986@gmail.com";
 $mail->addAddress("p.ferri1986@gmail.com", "Pueblo");
 $mail->Subject = $subject;
 $mail->AddEmbeddedImage('../images/logo.png', 'Twinkllin');
-$mail->Body = '<img src=\"cid:Twinkllin\" /></p> 
-				<p>'.$message.'</p>';
+$mail->Body = '<img src=\"cid:Twinkllin\" /><div>'.$message.'</div>';
 $mail-> IsHTML(true);
+
 $mail->send();
-}
-catch (Exception $e)
-{
+return true;
+
 
 }
 catch (Exception $e)
 {
-
+return false;
 }
+
 
 
 }

@@ -37,7 +37,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 	}
 	else{
 		$info->success = false;
-		$info->info = 'Email not found';
+		$info->info = 'The specified email was not found :(';
 		
 		
 	}
