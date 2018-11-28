@@ -48,8 +48,10 @@ if($_SERVER['REQUEST_METHOD']=='POST')
 }
 else
 {
+
 	$email = $_GET['e'];
 	$code = $_GET['c'];
+	
 	$con = connectToDb();
 	$stmt = $con->prepare("select Activation_expire from user where email=?");
 	$stmt->bind_param("s", $email);
@@ -62,11 +64,80 @@ else
 
 	//Check if time expired
 	if($expiration < $row[0])
-		echo 'Too late';
+	{
+	echo '
+	<link rel="stylesheet" href="../css/resetstyle.css" />
+	<link rel="stylesheet" type="text/css" href="../css/main.css" />
+	<a href="../index.html">
+	<img class="logoImg" src="../images/logo.png" alt="Twinkllinlogo" />
+	</a>
+	<div id="newPswMessage" style="margin: auto; width: 50%; text-align: center">
+	
+						<p class="formLabel" style="color: #c0c0c0;  ">Sorry, the link expired. Please try again.</p>
+										
+						
+	</div>';
+	}
 	else
-		echo 'Will send new password';
+	{
+		
+		//Generate random password
+		$psw = generateRandomString();
+		$encPsw = enc($psw);
+		
+	
+		$stmt = $con->prepare("update ". userTable() . " set password ='$encPsw' where email=? AND validation=?");
+		$stmt-> bind_param("ss",$email,$code);
+		$stmt->execute();	
+		$affected = mysqli_affected_rows($con);
+		if($affected == 1)
+		{
+			echo '
+			<link rel="stylesheet" href="../css/resetstyle.css" />
+			<link rel="stylesheet" type="text/css" href="../css/main.css" />
+			<a href="../index.html">
+			<img class="logoImg" src="../images/logo.png" alt="Twinkllinlogo" />
+			</a>
+			<div id="newPswMessage" style="margin: auto; width: 50%; text-align: center">
+			
+			<p class="formLabel" style="color: #c0c0c0;  ">Your new password:</p><br/>
+			<p id="newPsw">'.$psw.'</p>						
+								
+			</div>';
+		}
+		else
+		{
+			echo '
+			<link rel="stylesheet" href="../css/resetstyle.css" />
+			<link rel="stylesheet" type="text/css" href="../css/main.css" />
+			<a href="../index.html">
+			<img class="logoImg" src="../images/logo.png" alt="Twinkllinlogo" />
+			</a>
+			<div id="newPswMessage" style="margin: auto; width: 50%; text-align: center">
+			
+			<p class="formLabel" style="color: #c0c0c0;  ">There was a problem while resetting your password. Please try again.</p><br/>
+									
+								
+			</div>';
+		}
+		
+		
+
 	
 	
+	}	
+	
+
+}
+
+function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
 }
 
 

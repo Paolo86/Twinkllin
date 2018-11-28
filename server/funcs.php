@@ -19,6 +19,11 @@ function connectToDb()
 	return $con;
 }
 
+function redirectTo($page)
+{
+	header("Location: " . $page);
+}
+
 
 function sendQuery($query)
 {
