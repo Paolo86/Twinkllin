@@ -10,7 +10,7 @@ window.onscroll = function()
 	{
 		
 	
-		sticky.style.padding = "0pt";
+		sticky.style.padding = "2pt";
 		logo.style.width = "0pt";
 		logo.style.width = "0%";
 		
