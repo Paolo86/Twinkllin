@@ -15,6 +15,7 @@ window.onscroll = function()
 		logo.style.width = "0%";
 		
 		
+		
 	}
 	else
 	{
@@ -23,6 +24,7 @@ window.onscroll = function()
 		sticky.style.padding = "10pt";
 		logo.style.width = "10%";
 		logo.style.height = "10%";
+		
 	}
 	
 	
