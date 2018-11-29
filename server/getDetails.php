@@ -1,8 +1,30 @@
 <?php
 include("funcs.php");
+
+$itemid = $_POST['id'];
 $con = connectToDb();
 
-$result = sendQuery("select * from ". jewelsTable() .";");
+$result = sendQuery("select * from ". jewelsTable() ." where id = '$itemid';");
+$row = getRow($result);
+
+if($row)
+{
+	$ret = array("name"=>$row['Name'],
+					"category"=>$row['Category'],
+						"description"=>$row['Description'],
+							"price"=>$row['Price'],
+								"img"=>$row['Link']);
+
+	
+	$j = json_encode($ret);
+	echo $j;
+}
+else
+{
+	
+	echo 'ERROR';
+}
+/*
 echo '<div class="row">';
 while($row = getRow($result))
 {
@@ -24,5 +46,5 @@ while($row = getRow($result))
     </div>';	
 }
 
-echo '</div>';
+echo '</div>';*/
 ?>
