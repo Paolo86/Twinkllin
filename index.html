@@ -27,6 +27,9 @@
 </head>
 <body>
 
+
+
+
 <div id="main">
 	<nav class="logInMen">
 		<section class="nav-container">
@@ -75,6 +78,7 @@
 	</nav><!-- end of login reg nav-->
 	<img class="logoImg" src="images/logo.png" alt="Twinkllinlogo" />
 	<hr />
+
 	<nav>
 	<div class="topnav" id="myTopnav">
 		<i class="fa fa-bars" id="icon" onclick="navFunction()"></i>
@@ -82,15 +86,17 @@
 	  <a class="inner-page-link" href="#collection" onclick="getAll()" >Collection</a>
 	  <a class="inner-page-link" href="#contact">Contact</a>
 	  <a class="inner-page-link" href="#about">About</a>
-		<input id="searchInput" type="text" placeholder="Search.." />
-		<button type="submit" onclick="search()"><i class="fa fa-search"></i></button>
+
+		<input id="searchInput" type="email" placeholder="Search.." />
+		<button type="submit" onclick="search()" class="btn btn-small"><i class=" fa fa-search"></i></button>
 	</div>
 	</nav>
+	</div>
 	<hr />
 	<!-- home page starts here-->
 	<div id="home">
 		<section class="sec1">
-		<h2 class="statement">Welcome to Twinkllin</h2><br />
+		<h2 class="contentTitle">Welcome to Twinkllin</h2><br />
 			<div class="main-banner" id="main-banner">
 				<div class="imgbanbtn imgbanbtn-prev" id="imgbanbtn-prev"></div>
 				<div class="imgban" id="imgban3">
@@ -192,45 +198,53 @@
 
 	<!-- contact page starts here-->
 	<div id="contact" hidden="hidden" class="container center_div">
-		<div id="description" class="statement">
+		<div class="content">
 
-			<h2 class="statementTitle">Get in touch with us</h2>
+			<h2 class="jumbotron">Get in touch with us</h2>
 
 
-				<form id="myform">
-					<table>
-						<tr>
-						<div class="inputSection">
-							<td class="formLabel">First name:</td>
-							<td>
-								<input  id="nameInput" class="form-control formInput" type="text" name="firstname"></input><br />
-							</td>
+				<form class="form-horizontal">		
+			
+				
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="nameInput">First name:</label>
+						<div class="col-sm-10">
+						<input  id="nameInput" class="form-control" type="email" required ></input>
 						</div>
-						</tr>
-						<tr>
-						<div class="inputSection">
-						<td class="formLabel">Last name:</td>
-						<td>
-							<input id="surnameInput" class="form-control formInput" type="text" name="lastname"></input><br />
-						</td>
+					</div>
+					
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="surnameInput">Last name:</label>
+						<div class="col-sm-10">
+						<input  id="surnameInput" class="form-control" type="email" required ></input>
 						</div>
-						</tr>
-						<tr>
-						<div class="inputSection">
-							<td class="formLabel">Your email address:</td>
-							<td>
-								<input id="emailInput" class=" form-control formInput" type="text" name="email"></input><br />
-							</td>
+					</div>
+					
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="emailInput">Email:</label>
+						<div class="col-sm-10">
+						<input  id="emailInput" class="form-control" type="email" required></input>
 						</div>
-						</tr>
-					</table>
-
-						<div class="inputSection">
-						<p class="formLabel">Your message:</p>
-						<textarea rows="25" cols="100" class="form-control" name="message" id="message" form="myform" placeholder="Hello..."></textarea><br />
+					</div>
+					
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="subjectInput">Subject:</label>
+						<div class="col-sm-10">
+						<input  id="subjectInput" class="form-control" type="email" required></input>
 						</div>
-
-					<input type="button" value="Send" onclick="sendEmail()"></input>
+					</div>
+					
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="message">Message:</label>
+						<div class="col-sm-10">
+							<textarea rows="25" cols="100" class="form-control" id="message" form="myform" placeholder="Hello..."></textarea>
+						</div>
+					</div>				
+				<div class="col-12 text-center">
+				<button class="btn btn-primary btn-lg" onclick="sendEmail()">Submit</button>
+				</div>
+				
+					
 				</form>
 
 		 </div>
@@ -239,34 +253,7 @@
 
 	<!-- about page starts here-->
 	<div id="about" hidden="hidden">
-		<div id="description" class="statement">
-			<h2 class="statement">We strongly believe in the power of art</h2>
-			  <p>Twinkllin was founded in 2018 by talented artist Wen Lin Liang. After her degree in art, she decided to venture in the world
-			  of jewelery to take her unique artistic vision to this new field.
-			  The brand is set to inspire others to believe in their vision of art
-			  and pursue the carrer they desire.
-			  </p>
-		  </div>
-
-	<div id="description" class="statement">
-		<h2 class="statement">Our products</h2>
-		  <p>Crafting love,
-		   Twinkllin is a brand artisan of love and a weaver of dreams – turning raw silver into beautiful visions of love;
-		  interpreting every emotion into meaningful designs with a story behind each jewel.
-
-		Inspired by surreal, fantasy worlds and mythical creatures, Twinkllin's jewellery style evokes true feelings of wonder and a sense of diiscovery and adventure.
-
-		Keeping true to her values and a respect for the basics, she strikes a harmony in her designs between prestige and authenticity.
-
-		Each creation is the birth of a story unique to one.
-		  </p>
-		  </div>
-
-		  <div id="description" class="statement">
-			<h2 class="statement">Where are we?</h2>
-			  <p>We always welcome customers to our laboratory located in Perth, WA.
-			  We are happy to show you around so come over for a coffee when you can.
-		  </div>
+		
 	</div><!-- closing div for about page-->
 	<!-- about page ends here-->
 

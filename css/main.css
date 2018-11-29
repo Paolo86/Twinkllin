@@ -165,15 +165,20 @@ input[type="submit"]:hover {
   display: none;
 }
 
-.statement{
+.content{
 
-	
-	width: 80%;
-	text-align: center;
   word-spacing: 4px;
 	color: #7F7F7F;
 	font-style: italic;
   text-shadow: 1px #000000;
+
+}
+
+.contentTitle{
+
+text-align: center;
+font-style: italic bold;
+margin-bottom: 15pt;
 
 }
 
@@ -432,18 +437,6 @@ footer ul a {
   border-color: #c0c0c0;
 }
 
-.statement-inner {
-	text-align: center;
-  word-spacing: 4px;
-	color: #7F7F7F;
-	font-style: italic;
-  text-shadow: 1px #000000;
-}
 
-video {
-  display: block;
-  margin: 0 auto;
-  width: 80%;
-  height: auto;
-  align: center;
-}
+
+
