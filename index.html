@@ -12,6 +12,7 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
 	<link rel="stylesheet" type="text/css" href="css/collection.css" />
     <link rel="stylesheet" type="text/css" href="css/contact.css" />
+	<link rel="stylesheet" type="text/css" href="css/navbar.css" />
 	<link rel="stylesheet" type="text/css" href="css/about.css" />
 	<link rel="stylesheet" type="text/css" href="css/account.css" />
 	<script src="js/scripts.js"></script>
@@ -19,6 +20,7 @@
 	<script src="js/index.js"></script>
 	<script src="js/users.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<script src="js/navbarscroll.js"></script>
 
 	<script src="js/databaseQueries.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -29,7 +31,7 @@
 
 
 
-
+<!--
 <div id="main">
 	<nav class="logInMen">
 		<section class="nav-container">
@@ -75,12 +77,15 @@
 				</form>
 			</div>
 		</section>
-	</nav><!-- end of login reg nav-->
-	<img class="logoImg" src="images/logo.png" alt="Twinkllinlogo" />
-	<hr />
-
-	<nav>
+	</nav>-->
+	<!-- end of login reg nav-->
+	
+	
+	
+	<!--Navbar-->
 	<div class="topnav" id="myTopnav">
+	<nav id="stickyNav">
+	<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />
 		<i class="fa fa-bars" id="icon" onclick="navFunction()"></i>
 		<a class="inner-page-link" href="#home">Home</a>
 	  <a class="inner-page-link" href="#collection" onclick="getAll()" >Collection</a>
@@ -89,9 +94,11 @@
 
 		<input id="searchInput" type="email" placeholder="Search.." />
 		<button type="submit" onclick="search()" class="btn btn-small"><i class=" fa fa-search"></i></button>
+		</nav>
 	</div>
-	</nav>
+	
 	</div>
+	
 	<hr />
 	<!-- home page starts here-->
 	<div id="home">
