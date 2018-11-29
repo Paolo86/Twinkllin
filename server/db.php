@@ -3,38 +3,25 @@ include("funcs.php");
 $con = connectToDb();
 
 $result = sendQuery("select * from ". jewelsTable() .";");
-
+echo '<div class="row">';
 while($row = getRow($result))
 {
 	
 	$id = $row['ID'];
+	$title = $row['Name'];
+	$price = $row['Price'];
 
-
-
-  echo '<image style="width: 200pt" class="img-rounded img-responsive" src="' . $row['Link'] . '"></image>' ;
-    
-
-
-
-/*echo '<div  class="pcollection-box" id=" ' . $row["ID"] . '" >';
-echo '<div >';
-echo '<image class="sampleImage img-rounded" src="' . $row['Link'] . '"></image>' ;
-echo '</div>';
-echo '<p class="item-details" id="title">'.  $row['Name'] . '</p>';
-echo '<p class="item-details" id ="details-item">Price: '.  $row['Price'] . '</p>';
-echo '<p class="item-details" id ="details-item">Available: '.  $row['Stock'] . '</p>';*/
-
-$stock =  $row['Stock'];
-if($stock > 0)
-{
-echo '<button class="buybutton" type="button" >Buy Now!</button>';
+  
+  	echo '<div class="col-xs-4" >
+        <a href="#" class="thumbnail" >
+             <img src="' . $row['Link'] . '" class="img-rounded imgThumb">
+			 <div class="imgOverlay">
+			 <p class="overlayTitle">'.$title.'</p>
+			 <p>$'.$price.'</p>
+			 </div>
+        </a>
+    </div>';	
 }
 
-
 echo '</div>';
-	
-	
-}
-
-
 ?>

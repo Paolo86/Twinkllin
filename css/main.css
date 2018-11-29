@@ -1,3 +1,7 @@
+
+@font-face { font-family: Glamor; src: url('../font/Chantelli-Antiqua/Chantelli_Antiqua.ttf'); } 
+/*@font-face { font-family: Glamor; font-weight: bold; src: url('Delicious-Bold.otf');}*/
+
 * {
   text-decoration: none;
 }
@@ -10,7 +14,7 @@ html
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Glamor !important;
 
 }
 
