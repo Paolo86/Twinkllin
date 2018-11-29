@@ -35,7 +35,12 @@ function displayDetails(theid)
    </div>
   </div><!-- end row -->
 `;
-		$("#phpResult").html(html);
+		$("#phpResult").fadeOut(400,function(){
+			$("#phpResult").html(html);
+			$("#phpResult").fadeIn(400);
+			
+		});
+		
 
 
 		}

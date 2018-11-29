@@ -13,9 +13,9 @@ while($row = getRow($result))
 	$idstring = "'$id'";
 
   
-  	echo '<div class="col-xs-4" >
+  	echo '<div class="col-md-4" >
         <a class="thumbnail" onclick="displayDetails('. $idstring.')">
-             <img src="' . $row['Link'] . '" class="img-rounded imgThumb">
+             <img src="' . $row['Link'] . '" class="img-rounded img-responsive imgThumb">
 			 <div class="imgOverlay">
 			 <p class="overlayTitle">'.$title.'</p>
 			 <p>$'.$price.'</p>
