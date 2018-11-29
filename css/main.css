@@ -19,6 +19,11 @@ body {
     width: 100%;
 }
 
+.jumbotron
+{
+	background-color: #c0c0c0 !important;
+}
+
 /* this is for the login menu */
 
 nav .logInMen {
@@ -326,63 +331,6 @@ footer ul a {
 	max-height:50%;
 	display: block;
 	float: right;
-}
-
-.collection-box-one {
-  margin: 16px 16px 16px;
-  position: relative;
-  min-width: 385px;
-  width: 47.5%;
-  height: 400px;
-  background-color: #f2f2f2;
-  float: left;
-  background-image: url(../images/jewelBanner2.jpg);
-  background-repeat: no-repeat;
-  background-size: auto;
-  background-position: center;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #c0c0c0;
-}
-
-.collection-box-two {
-  margin: 16px 16px 16px;
-  position: relative;
-  min-width: 385px;
-  width: 47.5%;
-  height: 400px;
-  background-color: #f2f2f2;
-  float: left;
-  background-image: url(../images/paintbrickbnr.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: auto;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #c0c0c0;
-
-}
-
-.collection-box-one h2 {
-  margin-top: 200px;
-  background-color: #fff;
-  font-family: roundhand;
-  font-size: 30px;
-  font-weight: lighter;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #c0c0c0;
-}
-
-.collection-box-two h2 {
-  margin-top: 200px;
-  background-color: #fff;
-  font-family: roundhand;
-  font-size: 30px;
-  font-weight: lighter;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #c0c0c0;
 }
 
 
