@@ -12,6 +12,26 @@
 	cursor: pointer;
 }
 
+.backLink
+{
+	 color:#111111; 
+     text-decoration:none; 
+	 transition: all 0.3s;
+ 
+}
+
+#mainImage
+{
+	margin: auto;
+}
+
+.backLink:hover
+{
+	 opacity: 0.5;
+     text-decoration:none; 
+     cursor:pointer;
+}
+
 @media screen and (max-width: 600px) {
 	
 	.col-fixed{

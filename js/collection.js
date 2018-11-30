@@ -30,7 +30,7 @@ function displayDetails(theid)
 			var item = JSON.parse(response.info);
 		
 			//console.log(imagesNames.length);
-			changeTitleAnimation('collectionTitle',item.name);
+			changeTitleAnimation('collectionTitle','<a  onclick="getAll() "class="backLink"><span class="glyphicon glyphicon-menu-left"></span></a>' + "   " + item.name );
 			var html = getHTML(item);
 			
 			$("#phpResult").fadeOut(400,function(){
