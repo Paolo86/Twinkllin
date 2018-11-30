@@ -20,8 +20,8 @@ function displayDetails(theid)
 		
 		if(status=='success')
 		{
-		
-		var item = JSON.parse(data);
+		console.log(data);
+		/*var item = JSON.parse(data);
 		
 		changeTitleAnimation('collectionTitle',item.name);
 		
@@ -65,7 +65,7 @@ function displayDetails(theid)
 			$("#phpResult").fadeIn(400);
 			
 		});
-		
+		*/
 
 
 		}

@@ -9,15 +9,17 @@ $row = getRow($result);
 
 if($row)
 {
+	$imageDir = "../".imagesLink() . $itemid . "/";
+	$a = scandir($imageDir);
 	$ret = array("name"=>$row['Name'],
 					"category"=>$row['Category'],
 						"description"=>$row['Description'],
-							"price"=>$row['Price'],
-								"img"=>$row['Link']);
+							"price"=>$row['Price']
+								);
 
 	
 	$j = json_encode($ret);
-	echo $j;
+	echo $a[3];
 }
 else
 {
