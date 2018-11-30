@@ -8,3 +8,10 @@ function changeMainImage(src)
 	});
 	
 }
+
+function showImage(src) {
+ 
+			$('.enlargeImageModalSource').attr('src', src);
+			$('#enlargeImageModal').modal('show');
+	
+}

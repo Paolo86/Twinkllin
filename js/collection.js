@@ -49,6 +49,8 @@ function displayDetails(theid)
 
 	}	
 	
+	
+//Display product details
 function getHTML(item)
 {
 	
@@ -74,7 +76,7 @@ function getHTML(item)
   <div class="row">
    <div class="col-md-6">
    <div class="col-fixed">
-   <img id="mainImage" class="img-responsive img-rounded productImage" style=" max-height: 100%;" src='`+ linkToImageFolder + imagesNames[0]+`'/> 
+   <img id="mainImage" onclick="showImage(src) "class="img-responsive img-rounded productImage" style=" max-height: 100%;" src='`+ linkToImageFolder + imagesNames[0]+`'/> 
    </div>
    <hr/> <div class="row">
   `+
@@ -94,8 +96,22 @@ function getHTML(item)
 	<br/>
 	<p>`+item.description+`</p>
 	<br/>
+	<button type="button"  class="btn btn-primary btn-lg"  onclick="">Buy now</button>
 	
    </div>
+   
+    <div class="modal fade" id="enlargeImageModal" tabindex="-1" role="dialog" aria-labelledby="enlargeImageModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">x</button>
+        </div>
+        <div class="modal-body">
+          <img src="" class="enlargeImageModalSource img-rounded" style="width: 100%;">
+        </div>
+      </div>
+    </div>
+</div>
 
 `;
 	
