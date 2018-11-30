@@ -21,6 +21,7 @@
 	word-spacing: 4px;
 	color: #111111;
 	transition: all 0.2s;
+	cursor: pointer;
 }
 
 .imgOverlay:hover

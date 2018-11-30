@@ -37,13 +37,8 @@ function displayDetails(theid)
 			$("#phpResult").html(html);
 			$("#phpResult").fadeIn(400);
 			
-		});
+			});
 		}
-		
-		
-		
-	
-
 
 		}
 		
@@ -68,7 +63,7 @@ function getHTML(item)
 		for(; i< imagesNames.length;i++)
 		{
 		miniImages += `<div class="col-xs-3">   
-						<img onclick="changeMainImage(src)" class="img-responsive img-rounded" src='`+ linkToImageFolder + imagesNames[i]+`'/>  
+						<img onclick="changeMainImage(src)" class="img-responsive img-rounded productImage" src='`+ linkToImageFolder + imagesNames[i]+`'/>  
 						</div>`;
 			
 		}
@@ -79,7 +74,7 @@ function getHTML(item)
   <div class="row">
    <div class="col-md-6">
    <div class="col-fixed">
-   <img id="mainImage" class="img-responsive img-rounded " style=" max-height: 100%;" src='`+ linkToImageFolder + imagesNames[0]+`'/> 
+   <img id="mainImage" class="img-responsive img-rounded productImage" style=" max-height: 100%;" src='`+ linkToImageFolder + imagesNames[0]+`'/> 
    </div>
    <hr/> <div class="row">
   `+

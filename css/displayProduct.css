@@ -6,3 +6,8 @@
     z-index:1;
 	
 }
+
+.productImage:hover
+{
+	cursor: pointer;
+}
