@@ -89,10 +89,11 @@ function getHTML(item)
    
    <div class="col-md-6">
     <h2>`+item.name+`</h2>
+		<p>`+item.category+`</p>
 	<br/>
 	<h4>$`+item.price+`</h4>
-	<br/>
-	<p>`+item.category+`</p>
+	
+
 	<br/>
 	<p>`+item.description+`</p>
 	<br/>
