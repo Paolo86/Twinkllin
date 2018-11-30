@@ -11,7 +11,8 @@ while($row = getRow($result))
 	$title = $row['Name'];
 	$price = $row['Price'];
 	$idstring = "'$id'";
-
+	$stock = $row['Stock'];
+	if($stock <=0) continue;
   
   	echo '<div class="col-md-4" >
         <a class="thumbnail" onclick="displayDetails('. $idstring.')">

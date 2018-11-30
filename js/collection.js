@@ -28,12 +28,37 @@ function displayDetails(theid)
 		var html = `
   <div class="row">
    <div class="col-md-6">
-   <img class="img-responsive" src='`+ item.img+`'/>
+   <img class="img-responsive img-rounded" src='`+ item.img+`'/>
+   <hr/>
+     <div class="row">
+		<div class="col-xs-3">   
+		<img class="img-responsive img-rounded" src='`+ item.img+`'/>  
+		</div>
+		<div class="col-xs-3">   
+		<img class="img-responsive img-rounded" src='`+ item.img+`'/>  
+		</div>
+		<div class="col-xs-3">   
+		<img class="img-responsive img-rounded" src='`+ item.img+`'/>  
+		</div>
+		<div class="col-xs-3">   
+		<img class="img-responsive img-rounded" src='`+ item.img+`'/>  
+		</div>
+	</div>
+
    </div>
+   
    <div class="col-md-6">
-    <p>info</p>
+    <h2>`+item.name+`</h2>
+	<br/>
+	<h4>$`+item.price+`</h4>
+	<br/>
+	<p>`+item.category+`</p>
+	<br/>
+	<p>`+item.description+`</p>
+	<br/>
+	
    </div>
-  </div><!-- end row -->
+
 `;
 		$("#phpResult").fadeOut(400,function(){
 			$("#phpResult").html(html);
