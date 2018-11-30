@@ -12,15 +12,19 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css" />
 	<link rel="stylesheet" type="text/css" href="css/collection.css" />
     <link rel="stylesheet" type="text/css" href="css/contact.css" />
+	<link rel="stylesheet" type="text/css" href="css/navbar.css" />
 	<link rel="stylesheet" type="text/css" href="css/about.css" />
 	<link rel="stylesheet" type="text/css" href="css/account.css" />
+	<link rel="stylesheet" type="text/css" href="css/displayProduct.css" />
 	<script src="js/scripts.js"></script>
 	<script src="js/jquery-3.3.1.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/users.js"></script>
 	<script src="js/bootstrap.js"></script>
+	<script src="js/navbarscroll.js"></script>
+	<script src="js/productDisplay.js"></script>
 
-	<script src="js/databaseQueries.js"></script>
+	<script src="js/collection.js"></script>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -29,7 +33,7 @@
 
 
 
-
+<!--
 <div id="main">
 	<nav class="logInMen">
 		<section class="nav-container">
@@ -75,28 +79,37 @@
 				</form>
 			</div>
 		</section>
-	</nav><!-- end of login reg nav-->
-	<img class="logoImg" src="images/logo.png" alt="Twinkllinlogo" />
-	<hr />
-
-	<nav>
+	</nav>-->
+	<!-- end of login reg nav-->
+	
+	
+	
+	<!--Navbar-->
 	<div class="topnav" id="myTopnav">
-		<i class="fa fa-bars" id="icon" onclick="navFunction()"></i>
-		<a class="inner-page-link" href="#home">Home</a>
-	  <a class="inner-page-link" href="#collection" onclick="getAll()" >Collection</a>
-	  <a class="inner-page-link" href="#contact">Contact</a>
-	  <a class="inner-page-link" href="#about">About</a>
+		<nav id="stickyNav">
+			<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />
+			<i class="fa fa-bars" id="icon" onclick="navFunction()"></i>
+			<a class="inner-page-link" href="#home">Home</a>
+			<a class="inner-page-link" href="#collection" onclick="getAll()" >Collection</a>
+			<a class="inner-page-link" href="#contact">Contact</a>
+			<a class="inner-page-link" href="#about">About</a>
 
-		<input id="searchInput" type="email" placeholder="Search.." />
+		<div id="searchDiv">
+		<input id="searchInput" type="text" placeholder="Search.." />
 		<button type="submit" onclick="search()" class="btn btn-small"><i class=" fa fa-search"></i></button>
+		</div>
+		</nav>
 	</div>
-	</nav>
+	
 	</div>
-	<hr />
+	
+	<div id="spacer">
+    &nbsp;
+	</div>
 	<!-- home page starts here-->
-	<div id="home">
+	<div id="home" >
 		<section class="sec1">
-		<h2 class="contentTitle">Welcome to Twinkllin</h2><br />
+		
 			<div class="main-banner" id="main-banner">
 				<div class="imgbanbtn imgbanbtn-prev" id="imgbanbtn-prev"></div>
 				<div class="imgban" id="imgban3">
@@ -110,9 +123,11 @@
 				</div>
 				<div class="imgbanbtn imgbanbtn-next" id="imgbanbtn-next"></div>
 				</div>
-			<br /><h2 class="statement">We strongly believe in the power of art !</h2>
+			
 		</section>
-		
+		<div class="container">
+		<h2 class="jumbotron">Welcome to Twinkllin</h2>
+		</div>
 	</div> <!--div close for Homepage-->
 	
 	<!-- home page end here-->
@@ -197,8 +212,8 @@
 
 
 	<!-- contact page starts here-->
-	<div id="contact" hidden="hidden" class="container center_div">
-		<div class="content">
+	<div id="contact" hidden="hidden" class="container">
+	
 
 			<h2 class="jumbotron">Get in touch with us</h2>
 
@@ -247,7 +262,7 @@
 					
 				</form>
 
-		 </div>
+		
 	</div><!-- closing div for contact page-->
 	<!-- contact page ends here-->
 
@@ -264,11 +279,14 @@
 
 	<!-- detailspage starts here-->
 
-	<div id="collection" hidden="hidden">
+	<div id="collection" hidden="hidden" class="container">
 	
-	
-		<div id="phpResult" >
+		<h2 class="jumbotron" ><span id="collectionTitle">Our collection</span></h2>
+		<div id="phpResult">
+		
 		</div>
+		
+	
 
 
 	</div>

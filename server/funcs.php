@@ -1,5 +1,9 @@
 <?php
 
+function imagesLink()
+{
+	return "images/jewels/";
+}
 function userTable()
 {
 	
