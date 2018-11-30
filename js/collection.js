@@ -68,7 +68,7 @@ function getHTML(item)
 		for(; i< imagesNames.length;i++)
 		{
 		miniImages += `<div class="col-xs-3">   
-						<img class="img-responsive img-rounded" src='`+ linkToImageFolder + imagesNames[i]+`'/>  
+						<img onclick="changeMainImage(src)" class="img-responsive img-rounded" src='`+ linkToImageFolder + imagesNames[i]+`'/>  
 						</div>`;
 			
 		}
@@ -78,7 +78,9 @@ function getHTML(item)
 	var html = `
   <div class="row">
    <div class="col-md-6">
-   <img class="img-responsive img-rounded" src='`+ linkToImageFolder + imagesNames[0]+`'/> 
+   <div class="col-fixed">
+   <img id="mainImage" class="img-responsive img-rounded " style=" max-height: 100%;" src='`+ linkToImageFolder + imagesNames[0]+`'/> 
+   </div>
    <hr/> <div class="row">
   `+
   miniImages
