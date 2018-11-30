@@ -1,7 +1,7 @@
 window.onscroll = function()
 {
 	if($(window).scrollTop() + $(window).height() > $(document).height() - 100) {
-       console.log("BOTTOM");
+      // console.log("BOTTOM");
    }
 	var scroll = document.documentElement.scrollTop;
 
