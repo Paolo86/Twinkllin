@@ -65,7 +65,7 @@ function getHTML(item)
 		for(; i< imagesNames.length;i++)
 		{
 		miniImages += `<div class="col-xs-3">   
-						<img onclick="changeMainImage(src)" class="img-responsive img-rounded productImage" src='`+ linkToImageFolder + imagesNames[i]+`'/>  
+						<img style="margin-top: 5pt" onclick="changeMainImage(src)" class="img-responsive img-rounded productImage" src='`+ linkToImageFolder + imagesNames[i]+`'/>  
 						</div>`;
 			
 		}
