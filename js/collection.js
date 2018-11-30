@@ -20,31 +20,72 @@ function displayDetails(theid)
 		
 		if(status=='success')
 		{
-		console.log(data);
-		/*var item = JSON.parse(data);
 		
-		changeTitleAnimation('collectionTitle',item.name);
 		
-		var html = `
+		var response = JSON.parse(data);
+		
+		if(response.success)
+		{
+			
+			var item = JSON.parse(response.info);
+		
+			//console.log(imagesNames.length);
+			changeTitleAnimation('collectionTitle',item.name);
+			var html = getHTML(item);
+			
+			$("#phpResult").fadeOut(400,function(){
+			$("#phpResult").html(html);
+			$("#phpResult").fadeIn(400);
+			
+		});
+		}
+		
+		
+		
+	
+
+
+		}
+		
+		
+	});
+	
+ 
+
+	}	
+	
+function getHTML(item)
+{
+	
+	var imagesNames = JSON.parse(item.imagesNames);
+	var linkToImageFolder = "images/jewels/" + item.id + "/";
+	
+	var miniImages = "";
+	//Create mini images
+	if(imagesNames.length > 1)
+	{
+		var i = 0;
+		for(; i< imagesNames.length;i++)
+		{
+		miniImages += `<div class="col-xs-3">   
+						<img class="img-responsive img-rounded" src='`+ linkToImageFolder + imagesNames[i]+`'/>  
+						</div>`;
+			
+		}
+	}
+	
+	
+	var html = `
   <div class="row">
    <div class="col-md-6">
-   <img class="img-responsive img-rounded" src='`+ item.img+`'/>
-   <hr/>
-     <div class="row">
-		<div class="col-xs-3">   
-		<img class="img-responsive img-rounded" src='`+ item.img+`'/>  
-		</div>
-		<div class="col-xs-3">   
-		<img class="img-responsive img-rounded" src='`+ item.img+`'/>  
-		</div>
-		<div class="col-xs-3">   
-		<img class="img-responsive img-rounded" src='`+ item.img+`'/>  
-		</div>
-		<div class="col-xs-3">   
-		<img class="img-responsive img-rounded" src='`+ item.img+`'/>  
-		</div>
-	</div>
-
+   <img class="img-responsive img-rounded" src='`+ linkToImageFolder + imagesNames[0]+`'/> 
+   <hr/> <div class="row">
+  `+
+  miniImages
+  +
+  
+  `
+</div>
    </div>
    
    <div class="col-md-6">
@@ -60,22 +101,10 @@ function displayDetails(theid)
    </div>
 
 `;
-		$("#phpResult").fadeOut(400,function(){
-			$("#phpResult").html(html);
-			$("#phpResult").fadeIn(400);
-			
-		});
-		*/
-
-
-		}
-		
-		
-	});
 	
- 
-
-	}	
+		return html;
+	
+}
 	
 function getAll()
 	{

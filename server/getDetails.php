@@ -1,5 +1,6 @@
 <?php
 include("funcs.php");
+include("Response.php");
 
 $itemid = $_POST['id'];
 $con = connectToDb();
@@ -7,46 +8,45 @@ $con = connectToDb();
 $result = sendQuery("select * from ". jewelsTable() ." where id = '$itemid';");
 $row = getRow($result);
 
+$resp = new Response();
+
 if($row)
 {
+	
+	
 	$imageDir = "../".imagesLink() . $itemid . "/";
 	$a = scandir($imageDir);
-	$ret = array("name"=>$row['Name'],
-					"category"=>$row['Category'],
-						"description"=>$row['Description'],
-							"price"=>$row['Price']
-								);
-
 	
-	$j = json_encode($ret);
-	echo $a[3];
+	$ret = new stdClass();
+	$ret->id = $itemid;
+	$ret->name = $row['Name'];
+	$ret->description = $row['Description'];
+	$ret->price = $row['Price'];
+	$ret->category = $row['Category'];
+	
+	$imagesNames = array();
+	
+	$i = 2;
+	for(;$i < count($a); $i++)
+	{
+		$imagesNames[] = $a[$i];
+	}
+	$imagesJ = json_encode($imagesNames);
+	$ret->imagesNames = $imagesJ;
+	
+	$jsonItem = json_encode($ret); //Create JSON to return	
+	$resp->success = true;
+	$resp->info = $jsonItem;
+	
 }
 else
 {
 	
-	echo 'ERROR';
-}
-/*
-echo '<div class="row">';
-while($row = getRow($result))
-{
-	
-	$id = $row['ID'];
-	$title = $row['Name'];
-	$price = $row['Price'];
-	$idstring = "'$id'";
-
-  
-  	echo '<div class="col-xs-4" >
-        <a class="thumbnail" onclick="displayDetails('. $idstring.')">
-             <img src="' . $row['Link'] . '" class="img-rounded imgThumb">
-			 <div class="imgOverlay">
-			 <p class="overlayTitle">'.$title.'</p>
-			 <p>$'.$price.'</p>
-			 </div>
-        </a>
-    </div>';	
+	$resp->success = false;
+	$resp->info = "Database failure";
 }
 
-echo '</div>';*/
+$respJ = json_encode($resp);
+echo $respJ;
+
 ?>
