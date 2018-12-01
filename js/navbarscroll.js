@@ -1,7 +1,6 @@
 var isShrunk = false;
 
-var height = $("#myTopnav").height();	
-$("#spacer").height(height);
+
 
 window.onscroll = function()
 {
@@ -15,18 +14,21 @@ window.onscroll = function()
 	var sticky = document.getElementById("stickyNav");
 	var logo = document.getElementById("logoImg");
 
-	if(scroll > 20 && !isShrunk)
+	if(scroll > 50 && !isShrunk)
 	{
 		
 	    isShrunk = true;
 	
 
 
-	$(logo).animate({width: "0pt",height: "0pt"});		
+		$(logo).animate({width: "0%",height: "0%"},function(){
+		
+			
+		});		
 		
 	
 	}
-	else if(scroll < 20 && isShrunk)
+	else if(scroll < 50 && isShrunk)
 	{
 
 		isShrunk = false;

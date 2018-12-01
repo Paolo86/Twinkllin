@@ -17,6 +17,13 @@ var pages = ["#home", "#collection", "#contact" ,"#details"];
 var curPage = pages[0];
 
 $(document).ready(function(){
+	
+	window.scrollTo(0, 0);
+	
+	//Set up spacer height
+	var height = $("#myTopnav").height();	
+	$("#spacer").height(height);
+	
 
    // if the hash is one of page2 to page3,
    // render the page
