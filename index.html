@@ -26,58 +26,6 @@
 </head>
 <body>
 
-
-
-<!--
-<div id="main">
-	<nav class="logInMen">
-		<section class="nav-container">
-			<div class="logged-out">
-			<aside class="menu" id="loginmenu">
-				<div class="menu-content" id="hidden1">
-					<li><a class="inner-page-link" href="#help-page"><i class="fa fa-question-circle-o"></i>Help | </a></li>
-					<li><i class="fa fa-unlock-alt"></i></li><li id="login">Login</li>
-				</div>
-				<div class="arrow-up"></div>
-			</aside>
-		</div>
-			<aside class="menu" id="logoutmenu">
-				<div class="menu-content" id="hidden2">
-					<li><i class="fa fa-lock"></i></li>
-					<li id="welcome_statement">Hello</li>
-					<li onclick="logout()">Logout</li>
-					<li> | </li>
-					<li><i class="fa fa-user"></i></li>
-					<li onclick="toAccount()">Account</li>
-				</div>
-				<div class="arrow-up"></div>
-			</aside>
-
-			<div class="login-form">
-				<form >
-					<label>UserName</label>
-					<div>
-						<input id="userid" type="text" name="userid" placeholder="Username" required=""/>
-					</div>
-					<label>Password</label>
-					<div>
-						<input id="psw" type="text" name="pwd" placeholder="Password" required=""/>
-					</div>
-					<div>
-						<input type="button" name="login-submit" value="Log In" onclick="login()"/>
-						<a href="recovery.html">Forgot your password?</a>
-					</div>
-					or
-					<div>
-						<a class="inner-page-link" href="#register-page" onclick="clearAllRegistration()"><input type="button" name="registration-submit" value="Register"/></a>
-					</div>
-				</form>
-			</div>
-		</section>
-	</nav>-->
-	<!-- end of login reg nav-->
-	
-	
 	
 	<!--Navbar-->
 	
@@ -90,6 +38,7 @@
 						<a class="inner-page-link" href="#home">Home</a>
 						<a class="inner-page-link" href="#collection" onclick="getAll(false)" >Collection</a>
 						<a class="inner-page-link" href="#contact">Contact</a>
+						<a class="inner-page-link"  >Log In</a>
 						
 					<div id="searchDiv" >
 					<input id="searchInput" type="text" placeholder="Search product" />
@@ -111,23 +60,11 @@
 	</div>
 	<!-- home page starts here-->
 	<div id="home" >
-		<section class="sec1">
+		<div class="homeBanner">
 		
-			<div class="main-banner" id="main-banner">
-				<div class="imgbanbtn imgbanbtn-prev" id="imgbanbtn-prev"></div>
-				<div class="imgban" id="imgban3">
-
-				</div>
-				<div class="imgban" id="imgban2">
-
-				</div>
-				<div class="imgban" id="imgban1">
-
-				</div>
-				<div class="imgbanbtn imgbanbtn-next" id="imgbanbtn-next"></div>
-				</div>
 			
-		</section>
+			
+		</div>
 		<div class="container">
 		<h2 class="jumbotron">Welcome to Twinkllin</h2>
 		</div>
@@ -338,17 +275,19 @@
 
 </div> <!-- closing div for id main-->
 
-<!-- Modal -->
+<!-- Generic Modal -->
 <div class="modal fade" id="genericModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+	
       <div class="modal-header">
-        <h5 class="modal-title" id="modalTitle" style="padding: 10pt;">Registration successful</h5>
-    
+		<img class="logoImg" src="images/logo.png" alt="Twinkllinlogo" />
+        <h5 class="modal-title" id="modalTitle" style="padding: 10pt;">Registration successful</h5>    
       </div>
-      <div id="modalBody" class="modal-body" style="padding: 10pt;">
-       We sent an email to your specified address. Please click on the link provided to activate your account.
+	  
+      <div id="modalBody" class="modal-body" style="padding: 10pt;">   
       </div>
+	  
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="redirect('home')">Ok</button>
         
@@ -359,37 +298,39 @@
 
 
 
-	<footer>
-	<div class="row">
-		<div class="col-md-4">
-			<nav>
-				<ul>
-					<li><a class="inner-page-link" href="#home">HOME</a></li>
-					<li><a class="inner-page-link" href="#collection">COLLECTION</a></li>
-					<li><a class="inner-page-link" href="#contact">CONTACT</a></li>
-					<li><a class="inner-page-link" href="#about">ABOUT</a></li>
-					<li>© 2018 All rights reserved. Twinkllin</li>
-				</ul>
-			</nav>
-		</div>
-		<div class="col-md-4">
-			<nav>
-				  <ul class="sm">
-					<li>Follow Us:</li>
-					<li><a href="#" class="fa fa-facebook" aria-hidden="true"></a></li>				
-	  
-					</ul>
-			</nav>
-		</div>
-		<div class="col-xs-4">
-				<img class="footlogoImg"src="images/logo.png" alt="Twinkllinlogo" />
-		</div>
-	</div>
 
-	
-	 
+	<footer>
+		<div class="row">
+		
+			<div class="col-md-4">
+				<nav>
+					<ul>
+						<li><a class="inner-page-link" href="#home">HOME</a></li>
+						<li><a class="inner-page-link" href="#collection">COLLECTION</a></li>
+						<li><a class="inner-page-link" href="#contact">CONTACT</a></li>
+						<li><a class="inner-page-link" href="#about">ABOUT</a></li>
+						<li>© 2018 All rights reserved. Twinkllin</li>
+					</ul>
+				</nav>
+			</div>
+			
+			<div class="col-md-4">
+				<nav>
+					  <ul class="sm">
+						<li>Follow Us:</li>
+						<li><a href="#" class="fa fa-facebook" aria-hidden="true"></a></li>				
+		  
+						</ul>
+				</nav>
+			</div>
+			<div class="col-xs-4">
+					<img class="footlogoImg"src="images/logo.png" alt="Twinkllinlogo" />
+			</div>
+			
+		</div>	 
 	</footer>
 	<script src="js/collection.js"></script>
+	<script src="js/login.js"></script>
 	<script src="js/scripts.js"></script>
 	<script src="js/jquery-3.3.1.js"></script>
 	<script src="js/index.js"></script>

@@ -30,87 +30,6 @@ body {
 
 /* this is for the login menu */
 
-nav .logInMen {
-  width: 100%;
-  height: 65px;
-  position: relative;
-  background-color: #fff;
-  box-shadow: 0px 2px 8px 0px #333;
-}
-
-.nav-container{
-  width: 100%;
-  margin: 0 auto;
-  position: relative;
-}
-
-.menu {
-  width: 100%;
-  height: 65px;
-  background: #fff;
-}
-
-.menu .menu-content {
-  width: auto;
-  height: 65px;
-  float: right;
-  letter-spacing: -0.05em;
-  position: relative;
-  color: #c0c0c0;
-  line-height: 65px;
-}
-
-.menu .menu-content li {
-  color: #c0c0c0;
-  text-decoration: none;
-  float: left;
-  list-style: none;
-  padding: 2px;
-  cursor: pointer;
-}
-
-
-.menu .menu-content li:hover {
-  cursor: pointer;
-}
-
-.menu .menu-content li a {
-  color: #c0c0c0;
-}
-
-.arrow-up {
-  width: 0;
-  height: 0;
-  position: absolute;
-  border-left: 20px solid transparent;
-  border-right: 20px solid transparent;
-  border-bottom: 20px solid #F5F5F5;
-  right: 20px;
-  top: 50px;
-  display: none;
-}
-
-.login-form {
-  position: absolute;
-  width: 300px;
-  height: auto;
-  background: #F5F5F5;
-  right: 20px;
-  top: 70px;
-  border-radius: 2px;
-  display: none;
-}
-
-.login-form form {
-  width: 250px;
-  margin: 15px auto;
-  color: gray;
-  letter-spacing: -0.05em;
-}
-
-#logoutmenu {
-  display: none;
-}
 
 input[type="text"],
 input[type="password"]{
@@ -120,221 +39,43 @@ input[type="password"]{
   outline: none;
   box-shadow: inset 0 0 10px #eee;
   border-radius: 5px;
-  margin-bottom: 10px;
-  margin-top: 5px;
-}
-
-input[type="submit"] {
-  width: 99%;
-  height: 35px;
-  color: white;
-  outline: none;
-  border: 0px;
-  border-radius: 3px;
-  letter-spacing: -0.05em;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  background: #333;
-}
-
-.fa {
-  margin-right: 5px;
 
 }
 
 
-.content{
-
-  word-spacing: 4px;
-	color: #7F7F7F;
-	font-style: italic;
-  text-shadow: 1px #000000;
-
-}
-
-.contentTitle{
-
-text-align: center;
-font-style: italic bold;
-margin-bottom: 15pt;
-
-}
-
-.index-banner {
-  width: 100%;
-  height: calc(100vh - 100px);
-  background-image: url('../images/banner.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
-}
-
-.index-banner h2 {
-  font-family: Catermaran;
-  font-size: 60px;
-  font-weight: 900;
-  font-style: italic;
-  color: #333;
-  text-align: center;
-  text-shadow: 2px 2px 8px #111;
-
-}
-
-.main-banner {
-  margin: auto;
-  width: 100%;
-  height: 500px;
-  background-color: #fff;
-  overflow: hidden;
-  position: relative;
-}
-
-.main-banner .imgban {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0px;
-  transition: all ease-in-out 500ms;
-  -webkit-transition: all ease-in-out 500ms;
-  -moz-transition: all ease-in-out 500ms;
-  -o-transition: all ease-in-out 500ms;
-}
-
-.main-banner #imgban3 {
-  background-image: url('../images/banner3.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.main-banner #imgban2 {
-  background-image: url('../images/banner2.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.main-banner #imgban1 {
-  background-image: url('../images/banner.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.imgbanbtn {
-  width: 40px;
-  height: 40px;
-  background-color: #000;
-  border-radius: 4px;
-  position: absolute;
-  top: 180px;
-  z-index: 2000;
-  opacity: 0.8;
-  cursor: pointer;
-}
-
-.imgbanbtn:hover {
-  opacity: 0.9;
-}
-
-.imgbanbtn-prev {
-  left: 5px;
-  background-image: url('../images/arrowleft.png');
-  background-size: 60%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.imgbanbtn-next {
-  right: 5px;
-  background-image: url('../images/arrowright.png');
-  background-size: 60%;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 
 
 
-
-.index-box1 {
-  margin: 10px;
-  width: 100%;
-  height: 700px;
-}
-
-.index-box-one {
-  margin: 16px 16px 0;
-  width: calc(100% - 32px);
-  height: 400px;
-  background-color: #f2f2f2;
-}
-
-.indCenElem {
-  font-family: roundhand;
-  font-style: oblique;
-  font-size: 6vw;
-  font-weight: lighter;
-  color: #c0c0c0;
-  text-align: center;
-}
-
-.index-box-two {
-  margin: 16px 16px 0;
-  width: calc(100% - 32px);
-  height: 400px;
-  background-color: #f2d9e6;
-}
-
-.index-box-three {
-  margin: 16px 16px 0;
-  width: calc(100% - 32px);
-  height: 400px;
-  background-color: #f2f2f2;
-}
-
-.index-box-four {
-  margin: 16px 16px 0;
-  width: calc(100% - 32px);
-  height: 400px;
-  background-color: #f2d9e6;
-}
 
 footer {
   width: 100% ;
-  padding: 40px 40px;
-  margin-top: 20px;
+  padding: 10pt 10pt;
+  margin-top: 10pt;
   background-color: #c0c0c0;
   overflow: hidden;
 }
 
-footer ul {
-  width: fit-content;
-  float: left;
-  padding-left: 20px;
-}
+
 
 footer ul li {
   display: block;
   list-style: none;
   color: #fff;
-  line-height: 40px;
+  line-height: 20pt;
 }
 
 footer ul a {
   font-family: Catermaran;
   font-size: 16px;
   color: #fff;
-  line-height: 40px;
+  line-height: 20pt;
 }
 
 .footlogoImg{
 	max-width:50%;
 	max-height:50%;
 	display: block;
-	float: right;
+
 }
 
 
