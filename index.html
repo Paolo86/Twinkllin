@@ -90,9 +90,10 @@
 						<a class="inner-page-link" href="#home">Home</a>
 						<a class="inner-page-link" href="#collection" onclick="getAll(false)" >Collection</a>
 						<a class="inner-page-link" href="#contact">Contact</a>
-						<div id="searchDiv" >
-					<input id="searchInput" type="text" placeholder="Search.." />
-					<button type="submit" onclick="search()" class="btn btn-small"><i class=" fa fa-search"></i></button>
+						
+					<div id="searchDiv" >
+					<input id="searchInput" type="text" placeholder="Search product" />
+					<button type="submit" onclick="search()" class="btn btn-primary " style=" vertical-align: middle;"><i class=" fa fa-search" ></i></button>
 					</div>
 					</nav>
 				</div>
@@ -284,36 +285,44 @@
 
 	<div id="collection" hidden="hidden" class="container">
 	
-		<h2 class="jumbotron" ><span id="collectionTitle">Our collection
-		<span style="float: right; ">
-			<div class="dropdown">
-				<button id="orderByButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-					<span id="orderByButtonText" >Name</span>
-					<span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu">
-					<li onclick="setOrder('Name')"><a style="text-decoration: none; cursor: pointer" >Name</a></li>
-					<li onclick="setOrder('Price')"><a style="text-decoration: none; cursor: pointer">Price</a></li>
-				
-				</ul>
-			</div>		
-		</span>
-	
-		<span style="float: right;margin-right: 10pt;">
-		<div class="dropdown">
-				<button id="categoryButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-					<span id="categoryButtonText" >All</span>
-					<span class="caret"></span>
-				</button>
-				<ul class="dropdown-menu">
-					<li onclick="setCategory('All')"><a style="text-decoration: none; cursor: pointer" >All</a></li>
-					<li onclick="setCategory('Bracelet')"><a style="text-decoration: none; cursor: pointer">Bracelet</a></li>
-					<li onclick="setCategory('Ring')"><a style="text-decoration: none; cursor: pointer">Ring</a></li>
-				
-				</ul>
+		<h2 class="jumbotron" >
+		<div class="row">
+			<div class="col-md-10">
+				<span id="collectionTitle">Our collection
 			</div>
-		</span>
-		</span>
+			<div class="col-md-1">
+
+					<div class="dropdown">
+						<button id="orderByButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+							<span id="orderByButtonText" >Name</span>
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li onclick="setOrder('Name')"><a style="text-decoration: none; cursor: pointer" >Name</a></li>
+							<li onclick="setOrder('Price')"><a style="text-decoration: none; cursor: pointer">Price</a></li>
+						
+						</ul>
+					</div>		
+				
+			</div>
+			<div class="col-md-1">
+				
+				<div class="dropdown" style="margin-right: 10pt;">
+						<button id="categoryButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+							<span id="categoryButtonText" >All</span>
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li onclick="setCategory('All')"><a style="text-decoration: none; cursor: pointer" >All</a></li>
+							<li onclick="setCategory('Bracelet')"><a style="text-decoration: none; cursor: pointer">Bracelet</a></li>
+							<li onclick="setCategory('Ring')"><a style="text-decoration: none; cursor: pointer">Ring</a></li>
+						
+						</ul>
+					</div>
+			
+			</div>	
+				</span>
+		</div>
 		</h2>
 		<div class="loader"></div>
 		<div id="phpResult">
