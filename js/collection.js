@@ -22,11 +22,12 @@ function displayDetails(theid)
 	var lastID = theid;
 	localStorage.setItem("lastID", lastID);
 	
+	$("#detailsTitle").hide();
 	$('#phpResult').fadeTo( 400, 0 );
-	$('#collectionTitle').fadeTo( 400, 0,function(){
-		
-		$.post("server/getDetails.php",{id: theid},function(data,status){
+	$('#collectionJumboContent').fadeTo( 400, 0,function(){
 		$(".loader").show();
+		$.post("server/getDetails.php",{id: theid},function(data,status){
+		
 		if(status=='success')
 		{
 		$(".loader").hide();
@@ -176,18 +177,18 @@ function getAll(isRefresh,order = 'Name',cat="")
 		if(cat == "All")
 			cat = ""; //Set to empty so an empty value is sent to server
 		
-		//if(!isRefresh && window.location.hash == "#collection") return;
+	$("#collectionJumboContent").fadeTo(0,0);
 	
-		
+	$(".loader").show();
 	$.post("server/db.php",{orderby: order,category: cat},function(data,status){
-		$(".loader").show();
+		
 		if(status=='success')
 		{
 		$(".loader").hide();
 		$("#phpResult").hide();
 		$("#phpResult").html(data);
 		$("#phpResult").fadeTo(400,1);
-		$("#collectionTitle").fadeTo(400,1);
+		$("#collectionJumboContent").fadeTo(400,1);
 		}
 		else
 		{
