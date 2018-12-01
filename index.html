@@ -14,7 +14,8 @@
     <link rel="stylesheet" type="text/css" href="css/contact.css" />
 	<link rel="stylesheet" type="text/css" href="css/navbar.css" />
 	<link rel="stylesheet" type="text/css" href="css/about.css" />
-	<link rel="stylesheet" type="text/css" href="css/account.css" />
+	
+	<link rel="stylesheet" type="text/css" href="css/loader.css" />
 	<link rel="stylesheet" type="text/css" href="css/displayProduct.css" />
 	
 
@@ -89,7 +90,7 @@
 						<a class="inner-page-link" href="#home">Home</a>
 						<a class="inner-page-link" href="#collection" onclick="getAll(false)" >Collection</a>
 						<a class="inner-page-link" href="#contact">Contact</a>
-						<a class="inner-page-link" href="#about">About</a>
+					
 					</nav>
 				</div>
 			</div>
@@ -268,18 +269,13 @@
 	</div><!-- closing div for contact page-->
 	<!-- contact page ends here-->
 
-	<!-- about page starts here-->
-	<div id="about" hidden="hidden">
-		
-	</div><!-- closing div for about page-->
-	<!-- about page ends here-->
-
-
 
 	<div id="details" hidden="hidden" class="container">
 	
 		<h2 class="jumbotron" ><span id="detailsTitle"  ></span></h2>
+		<div class="loader"></div>
 		<div id="phpResultDetails">
+		
 		
 		</div>
 	</div>
@@ -290,7 +286,9 @@
 	<div id="collection" hidden="hidden" class="container">
 	
 		<h2 class="jumbotron" ><span id="collectionTitle">Our collection</span></h2>
+		<div class="loader"></div>
 		<div id="phpResult">
+		
 		
 		</div>
 	</div>

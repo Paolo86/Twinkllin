@@ -17,23 +17,25 @@ function changeTitleAnimation(id,title)
 
 function displayDetails(theid)
 	{
-	console.log("Details called " + theid);
+	//console.log("Details called " + theid);
+
 	var lastID = theid;
 	localStorage.setItem("lastID", lastID);
 	
 	$('#phpResult').fadeTo( 400, 0 );
 	$('#collectionTitle').fadeTo( 400, 0,function(){
 		
-			$.post("server/getDetails.php",{id: theid},function(data,status){
-		
+		$.post("server/getDetails.php",{id: theid},function(data,status){
+		$(".loader").show();
 		if(status=='success')
 		{
-		
+		$(".loader").hide();
 		
 		var response = JSON.parse(data);
 		
 		if(response.success)
 		{
+			
 			window.location.hash = "details";
 			$("#phpResultDetails").hide();
 			$("#detailsTitle").hide();
@@ -50,9 +52,16 @@ function displayDetails(theid)
 			$("#detailsTitle").show();
 			
 			
+			
 	
 		}
 
+		}
+		else{
+				$(".loader").hide();
+				$('#modalTitle').html('Error occurred');
+				$("#modalTitle").css("background-color","#ff1111aa");
+				$('#modalBody').html(response.info);
 		}
 		
 		
@@ -161,17 +170,27 @@ function checkRefresh()
 	
 function getAll(isRefresh)
 	{
-		console.log("Get all called");
+		
+		//console.log("Get all called");
 		if(!isRefresh && window.location.hash == "#collection") return;
 		
 	//Resotre original page title in jumbotron
 	
 		
 	$.post("server/db.php",{tname: "jewels"},function(data,status){
-		
+		$(".loader").show();
+		if(status=='success')
+		{
+		$(".loader").hide();
 		$("#phpResult").hide();
 		$("#phpResult").html(data);
 		$("#phpResult").fadeTo(400,1);
 		$("#collectionTitle").fadeTo(400,1);
+		}
+		else
+		{
+		$(".loader").hide();
+		}
+	
 	});
 	}

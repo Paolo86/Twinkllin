@@ -1,6 +1,6 @@
 <?php
 include("funcs.php");
-include("Response.php");
+include("response.php");
 
 $itemid = $_POST['id'];
 $con = connectToDb();
