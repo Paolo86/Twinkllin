@@ -23,12 +23,13 @@ body {
     width: 100%;
 }
 
-#homeBanner
+#banner
 {
 	background-color: red;
 	width: 100%;
-	height: 500pt;
-	overflow: hidden;
+	height: 300pt;
+	
+	overflow: hidden !important;
 }
 
 .jumbotron
