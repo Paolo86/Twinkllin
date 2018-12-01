@@ -168,16 +168,15 @@ function checkRefresh()
 		
 }
 	
-function getAll(isRefresh)
+function getAll(isRefresh,order = 'Name',cat="")
 	{
+		if(cat == "All")
+			cat = ""; //Set to empty so an empty value is sent to server
 		
-		//console.log("Get all called");
 		if(!isRefresh && window.location.hash == "#collection") return;
-		
-	//Resotre original page title in jumbotron
 	
 		
-	$.post("server/db.php",{tname: "jewels"},function(data,status){
+	$.post("server/db.php",{orderby: order,category: cat},function(data,status){
 		$(".loader").show();
 		if(status=='success')
 		{
@@ -194,3 +193,29 @@ function getAll(isRefresh)
 	
 	});
 	}
+	
+var order = 'Name'; //Set default
+var category = '';
+
+function setCategory(cat)
+{
+	category = cat;
+	$("#categoryButtonText").html(cat);
+	rearrangeCollection();
+	
+}
+
+function setOrder(ord)
+{
+	order = ord;
+	$("#orderByButtonText").html(ord);
+	rearrangeCollection();
+}
+function rearrangeCollection()
+{
+	 
+	//console.log("Rearranging by " + order + ' category: ' + category);
+	getAll(true,order,category);
+	//
+	
+}

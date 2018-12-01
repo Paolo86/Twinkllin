@@ -1,10 +1,21 @@
 <?php
 include("funcs.php");
 
+$order = $_POST['orderby'];
+$category = $_POST['category'];
 
 $con = connectToDb();
 
-$result = sendQuery("select * from ". jewelsTable() .";");
+
+
+
+//if no category specified, get all
+if($category == "")
+$result = sendQuery("select * from ". jewelsTable() ." order by ".$order.";");
+else
+	$result = sendQuery("select * from ". jewelsTable() ." where Category = '$category' order by ".$order.";");
+
+
 echo '<div class="row">';
 while($row = getRow($result))
 {

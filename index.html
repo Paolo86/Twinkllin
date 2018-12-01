@@ -284,7 +284,37 @@
 
 	<div id="collection" hidden="hidden" class="container">
 	
-		<h2 class="jumbotron" ><span id="collectionTitle">Our collection</span></h2>
+		<h2 class="jumbotron" ><span id="collectionTitle">Our collection</span>
+		<span style="float: right; ">
+			<div class="dropdown">
+				<button id="orderByButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+					<span id="orderByButtonText" >Name</span>
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li onclick="setOrder('Name')"><a style="text-decoration: none; cursor: pointer" >Name</a></li>
+					<li onclick="setOrder('Price')"><a style="text-decoration: none; cursor: pointer">Price</a></li>
+				
+				</ul>
+			</div>		
+		</span>
+	
+		<span style="float: right;margin-right: 10pt;">
+		<div class="dropdown">
+				<button id="categoryButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+					<span id="categoryButtonText" >All</span>
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li onclick="setCategory('All')"><a style="text-decoration: none; cursor: pointer" >All</a></li>
+					<li onclick="setCategory('Bracelet')"><a style="text-decoration: none; cursor: pointer">Bracelet</a></li>
+					<li onclick="setCategory('Ring')"><a style="text-decoration: none; cursor: pointer">Ring</a></li>
+				
+				</ul>
+			</div>
+		</span>
+		
+		</h2>
 		<div class="loader"></div>
 		<div id="phpResult">
 		
