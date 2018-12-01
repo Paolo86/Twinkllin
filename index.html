@@ -79,23 +79,31 @@
 	
 	
 	<!--Navbar-->
-	<div class="topnav" id="myTopnav">
-		<nav id="stickyNav">
-			<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />
-		
-			<a class="inner-page-link" href="#home">Home</a>
-			<a class="inner-page-link" href="#collection" onclick="getAll(false)" >Collection</a>
-			<a class="inner-page-link" href="#contact">Contact</a>
-			<a class="inner-page-link" href="#about">About</a>
-
-		<div id="searchDiv">
-		<input id="searchInput" type="text" placeholder="Search.." />
-		<button type="submit" onclick="search()" class="btn btn-small"><i class=" fa fa-search"></i></button>
-		</div>
-		</nav>
-	</div>
 	
-	</div>
+		<div class="row">
+		
+			<div class="col-md-6">
+				<div class="topnav" id="myTopnav">
+					<nav id="stickyNav">
+						<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />		
+						<a class="inner-page-link" href="#home">Home</a>
+						<a class="inner-page-link" href="#collection" onclick="getAll(false)" >Collection</a>
+						<a class="inner-page-link" href="#contact">Contact</a>
+						<a class="inner-page-link" href="#about">About</a>
+					</nav>
+				</div>
+			</div>
+			
+			<div id="searchDiv" class="col-md-6">
+			<input id="searchInput" type="text" placeholder="Search.." />
+			<button type="submit" onclick="search()" class="btn btn-small"><i class=" fa fa-search"></i></button>
+			</div>
+			
+		
+		</div>
+	
+	
+	
 	
 	<div id="spacer">
     &nbsp;

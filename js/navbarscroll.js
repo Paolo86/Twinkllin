@@ -12,10 +12,9 @@ window.onscroll = function()
 	{
 		
 	
-		sticky.style.padding = "2pt";
+		sticky.style.padding = "5pt";
 		logo.style.width = "0pt";
-		logo.style.width = "0%";
-		
+		logo.style.width = "0%";		
 		
 		
 	}
@@ -23,7 +22,7 @@ window.onscroll = function()
 	{
 	
 		
-		sticky.style.padding = "10pt";
+		sticky.style.padding = "5pt";
 		logo.style.width = "10%";
 		logo.style.height = "10%";
 		
