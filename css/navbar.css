@@ -64,14 +64,14 @@
 #spacer
 {
     width: 100%;
-height: 130pt;
+height: 150pt;
 }
 
 @media screen and (max-width: 600px) {
 
   
   #spacer{
-	  height: 80pt;
+	  height: 90pt;
   }
 
 
