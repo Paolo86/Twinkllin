@@ -1,4 +1,7 @@
 
+
+
+
 function changeTitleAnimation(id,title)
 {
 	var current = $("#" + id).html();
@@ -14,9 +17,14 @@ function changeTitleAnimation(id,title)
 
 function displayDetails(theid)
 	{
-	//console.log("Function called " + theid);
+	console.log("Details called " + theid);
+	var lastID = theid;
+	localStorage.setItem("lastID", lastID);
 	
-	$.post("server/getDetails.php",{id: theid},function(data,status){
+	$('#phpResult').fadeTo( 400, 0 );
+	$('#collectionTitle').fadeTo( 400, 0,function(){
+		
+			$.post("server/getDetails.php",{id: theid},function(data,status){
 		
 		if(status=='success')
 		{
@@ -26,29 +34,47 @@ function displayDetails(theid)
 		
 		if(response.success)
 		{
-			
+			window.location.hash = "details";
+			$("#phpResultDetails").hide();
+			$("#detailsTitle").hide();
 			var item = JSON.parse(response.info);
 		
-			//console.log(imagesNames.length);
-			changeTitleAnimation('collectionTitle','<a  onclick="getAll() "class="backLink"><span class="glyphicon glyphicon-menu-left"></span></a>' + "   " + item.name );
+			
 			var html = getHTML(item);
 			
-			$("#phpResult").fadeOut(400,function(){
-			$("#phpResult").html(html);
-			$("#phpResult").fadeIn(400);
 			
-			});
+			$("#phpResultDetails").html(html);
+			$("#phpResultDetails").fadeTo(400,1);
+			$("#detailsTitle").html('<a  onclick="backToCollection() "class="backLink"><span class="glyphicon glyphicon-menu-left"></span></a>' + "   " + item.name);
+			$("#detailsTitle").fadeTo(400,1);
+			$("#detailsTitle").show();
+			
+			
+	
 		}
 
 		}
 		
 		
 	});
+		
+		
+		
+		
+	});
+	
+
 	
  
 
 	}	
 	
+function backToCollection()
+{
+	getAll(false); //Call this first otherwise it's treated as refresh
+	window.location.hash = "collection";	
+	
+}
 	
 //Display product details
 function getHTML(item)
@@ -119,16 +145,33 @@ function getHTML(item)
 		return html;
 	
 }
+
+function checkRefresh()
+{
+	if(window.location.hash == "#collection")
+		getAll(true);
 	
-function getAll()
+	if(window.location.hash == "#details")
 	{
+		var lastID = localStorage.getItem("lastID");
+		displayDetails(lastID);
+	}
+		
+}
+	
+function getAll(isRefresh)
+	{
+		console.log("Get all called");
+		if(!isRefresh && window.location.hash == "#collection") return;
 		
 	//Resotre original page title in jumbotron
-	$("#collectionTitle").html('Our collection');
+	
 		
 	$.post("server/db.php",{tname: "jewels"},function(data,status){
 		
 		$("#phpResult").hide();
-		$("#phpResult").html(data).fadeIn(500);
+		$("#phpResult").html(data);
+		$("#phpResult").fadeTo(400,1);
+		$("#collectionTitle").fadeTo(400,1);
 	});
 	}
