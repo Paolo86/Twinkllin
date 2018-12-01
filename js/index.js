@@ -13,7 +13,7 @@ function redirect(np)
 }
 
 //code below for SPA
-var pages = ["#home", "#collection", "#contact" ,"#details"];
+var pages = ["#home", "#collection", "#contact" ,"#details",'#register-page'];
 var curPage = pages[0];
 
 $(document).ready(function(){
@@ -36,6 +36,9 @@ $(document).ready(function(){
    $('.inner-page-link').click(function(e){
        e.preventDefault();
        var newPage = $(this).attr('href');
+	   
+	   if(newPage == "") //If clicked on link (which has no href
+		   newPage = window.location.hash;
        window.location.hash=newPage;
    });
 
