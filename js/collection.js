@@ -169,6 +169,8 @@ function checkRefresh()
 		
 }
 	
+//IMPORTANT
+// THIS FUNCTION IS CALLED IN INDEX.JS, WHEN THE HASH CHANGE TO COLLECTION
 function getAll(isRefresh,order = 'Name',cat="")
 	{
 		if(cat == "All")

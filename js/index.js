@@ -52,7 +52,7 @@ $(document).ready(function(){
 	   if(newPage == "#collection")
 	   {
 		   getAll(false);
-		   console.log("Get all called");
+		   //console.log("Get all called");
 	   }
 		   
 	 

@@ -12,14 +12,16 @@
 
 .topnav {
 
-
+	max-width:100%;
   width: 100%;
   background-color: #eeeeee;
-  line-height: 40px;
+  line-height: 10pt;
   position: fixed;
   z-index: 99;
   text-align: center;
   top: 0;
+  left: 0;
+  margin: 0;
   
 
 }
@@ -27,6 +29,7 @@
 #stickyNav
 {
 	display: block;
+	max-width: 100%;
 	width: 100%;
 	margin:auto;
 	background-color: #dddddd11;
