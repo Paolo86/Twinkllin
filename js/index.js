@@ -48,6 +48,14 @@ $(document).ready(function(){
    $(window).on('hashchange', function(){
        var newPage = getPage(window.location.hash);
        render(newPage);
+	   
+	   if(newPage == "#collection")
+	   {
+		   getAll(false);
+		   console.log("Get all called");
+	   }
+		   
+	 
    });
 
 });

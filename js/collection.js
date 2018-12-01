@@ -80,7 +80,7 @@ function displayDetails(theid)
 	
 function backToCollection()
 {
-	getAll(false); //Call this first otherwise it's treated as refresh
+	
 	window.location.hash = "collection";	
 	
 }
@@ -157,6 +157,7 @@ function getHTML(item)
 
 function checkRefresh()
 {
+	
 	if(window.location.hash == "#collection")
 		getAll(true);
 	
@@ -173,7 +174,7 @@ function getAll(isRefresh,order = 'Name',cat="")
 		if(cat == "All")
 			cat = ""; //Set to empty so an empty value is sent to server
 		
-		if(!isRefresh && window.location.hash == "#collection") return;
+		//if(!isRefresh && window.location.hash == "#collection") return;
 	
 		
 	$.post("server/db.php",{orderby: order,category: cat},function(data,status){
