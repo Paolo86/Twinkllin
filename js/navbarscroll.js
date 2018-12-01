@@ -18,8 +18,6 @@ window.onscroll = function()
 	{
 		
 	    isShrunk = true;
-	
-
 
 		$(logo).animate({width: "0%",height: "0%"},function(){
 		

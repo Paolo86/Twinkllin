@@ -18,7 +18,7 @@ var curPage = pages[0];
 
 $(document).ready(function(){
 	
-	window.scrollTo(0, 0);
+	//window.scrollTo(0, 0);
 	
 	//Set up spacer height
 	var height = $("#myTopnav").height();	
