@@ -51,9 +51,10 @@ function registerUser()
 			
 		};
 		
-		//send to php
+		$("#reg_loader").show();
+		$("#reg_buttonInput").hide();
 		$.post("server/registerUser.php",data,function(data, status){
-			console.log(data);			
+					
 			
 			if(status == "success")
 			{
@@ -82,8 +83,11 @@ function registerUser()
 				$("#modalButton").attr("onclick","");
 		
 			}
-				$('#modalBody').html(resp.info);
-				$('#genericModal').modal('show');
+			
+			$('#modalBody').html(resp.info);
+			$('#genericModal').modal('show');
+			$("#reg_loader").hide();
+			$("#reg_buttonInput").show();
 				
 				
 				
