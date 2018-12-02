@@ -1,5 +1,15 @@
 
-
+	$.ajaxSetup({
+			type: 'POST',
+			timeout: 15000,
+			error: function(xhr) {
+				$(".loader").hide();				
+				$("#modalTitle").html("Error");
+				$("#modalBody").html("Request timeout error. Please try again later.");
+				$("#genericModal").modal('show');
+				$("#modalButton").attr("onclick","redirect('home')");
+								 }
+             });
 
 
 function changeTitleAnimation(id,title)
@@ -30,6 +40,10 @@ function displayDetails(theid)
 		$('#collectionJumboButtons').hide();
 		
 		$(".loader").show();
+		
+	
+		
+		
 		$.post("server/getDetails.php",{id: theid},function(data,status){
 		
 		if(status=='success')
@@ -68,7 +82,7 @@ function displayDetails(theid)
 		}
 		else{
 				$(".loader").hide();
-			c
+			
 		}
 		
 		
