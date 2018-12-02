@@ -34,39 +34,41 @@ function displayDetails(theid)
 		
 		if(status=='success')
 		{
-		$(".loader").hide();
-		
-		var response = JSON.parse(data);
-		
-		if(response.success)
-		{
+			$(".loader").hide();
 			
-			window.location.hash = "details";
-			$("#phpResultDetails").hide();
-			$("#detailsTitle").hide();
-			var item = JSON.parse(response.info);
-		
+			var response = JSON.parse(data);
 			
-			var html = getHTML(item);
+			if(response.success)
+			{
+				
+				window.location.hash = "details";
+				$("#phpResultDetails").hide();
+				$("#detailsTitle").hide();
+				var item = JSON.parse(response.info);
 			
-			
-			$("#phpResultDetails").html(html);
-			$("#phpResultDetails").fadeTo(400,1);
-			$("#detailsTitle").html('<a  onclick="backToCollection() "class="backLink"><span class="glyphicon glyphicon-menu-left"></span></a>' + "   " + item.name);
-			$("#detailsTitle").fadeTo(400,1);
-			$("#detailsTitle").show();
-			
-			
-			
-	
-		}
+				
+				var html = getHTML(item);
+				
+				
+				$("#phpResultDetails").html(html);
+				$("#phpResultDetails").fadeTo(400,1);
+				$("#detailsTitle").html('<a  onclick="backToCollection() "class="backLink"><span class="glyphicon glyphicon-menu-left"></span></a>' + "   " + item.name);
+				$("#detailsTitle").fadeTo(400,1);
+				$("#detailsTitle").show();	
+			}
+			else
+			{
+				$(".loader").hide();
+				//console.log(response.info);
+				$("#modalTitle").html("Error");
+				$("#modalBody").html(response.info);
+				$("#genericModal").modal('show');
+			}
 
 		}
 		else{
 				$(".loader").hide();
-				$('#modalTitle').html('Error occurred');
-				$("#modalTitle").css("background-color","#ff1111aa");
-				$('#modalBody').html(response.info);
+			c
 		}
 		
 		
@@ -197,14 +199,29 @@ function getAll(isRefresh,order = 'Name',cat="")
 	$.post("server/db.php",{orderby: order,category: cat},function(data,status){
 		
 		$(".loader").hide();
-		if(status=='success')
+		if(status=='success') //If request was ok
 		{
-	
-		$("#phpResult").hide();
-		$("#phpResult").html(data);
-		$("#phpResult").fadeTo(400,1);
-		$(".collectionJumboButtons").fadeTo(400,1);
-		$("#collectionTitle").fadeTo(400,1);
+		
+			var response = JSON.parse(data);
+			
+			if(!response.success)
+			{
+				$(".loader").hide();
+				//console.log(response.info);
+				$("#modalTitle").html("Error");
+				$("#modalBody").html(response.info);
+				$("#genericModal").modal('show');
+				
+			}
+			else
+			{
+			$("#phpResult").hide();
+			$("#phpResult").html(response.info);
+			$("#phpResult").fadeTo(400,1);
+			$(".collectionJumboButtons").fadeTo(400,1);
+			$("#collectionTitle").fadeTo(400,1);	
+			}	
+		
 		}
 		else
 		{
