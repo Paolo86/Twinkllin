@@ -28,6 +28,20 @@ function checkLogIn()
 		
 }
 
+function logOut()
+{
+	$.post('server/logOut.php',function(data,status){	
+	
+		if(status=='success')
+		{			
+			$(".logInButton").show();
+			$(".loggedInButton").hide();
+			$(".loginNameText").text("");
+		}
+	});
+	
+}
+
 function sendLogin(username, psw)
 {
 	var d = 
@@ -48,7 +62,7 @@ $.post('server/logIn.php',d,function(data,status){
 					$(".logInButton").hide();
 					$(".loggedInButton").show();
 					$(".loginNameText").text(info.info);
-					console.log("LOGGED");
+					//console.log("LOGGED");
 					
 				}
 				else
