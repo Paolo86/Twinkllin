@@ -31,8 +31,8 @@
 	<div class="container-fluid">
 		<div class="row" >
 		
-			<div class="col-md-6"  >
-				<div class="topnav" id="myTopnav">
+			<div class="col-md-12"  >
+				<div class="topnav" id="myTopnav" >
 					<nav id="stickyNav">
 						<!--<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />-->		
 						<a class="inner-page-link" href="#home">Home</a>
@@ -48,13 +48,42 @@
 					</nav>
 					
 					<nav id="mobileNav" >
-						<!--<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />-->		
-						<a class="inner-page-link" href="#home">Home</a>
-						<a class="inner-page-link" href="#collection"  >Collection</a>
-						<a class="inner-page-link" href="#contact">Contact</a>
-				
-				
-							<a class="inner-page-link"  href="" onclick="showLogIn()" >Log In</a>
+					<div class="row" >
+					
+						<div class="col-xs-1" >
+								<div class="dropdown" >
+									<button  class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+									
+									<span class="glyphicon glyphicon-align-justify"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a class="inner-page-link" href="#home">Home</a></li>
+										<br/>
+										<li><a class="inner-page-link" href="#collection"  >Collection</a></li>
+										<br/>
+										<li><a class="inner-page-link" href="#contact">Contact</a></li>
+										<br/>
+										
+									
+									</ul>
+										
+								</div>															
+						</div>
+						<div class="searchDiv col-xs-9" >
+										<input id="searchInput" type="text" placeholder="Search product" />
+										<button type="submit" onclick="search()" class="btn btn-primary " style=" vertical-align: middle;"><i class=" fa fa-search" ></i></button>
+								</div>	
+						<div class="col-xs-2"  >
+									
+						<button onclick="showLogIn()"  class="btn btn-primary" type="button" >									
+						<span class="glyphicon glyphicon-user"></span>
+						</button>
+					
+						</div>
+						
+					</div>
+							
+						
 					</nav>
 				</div>
 			</div>	
