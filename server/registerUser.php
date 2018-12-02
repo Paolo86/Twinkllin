@@ -42,7 +42,7 @@ else
 }
 
 //Check for email
-$res = sendQuery($con,"select email from user where username='$username';");
+$res = sendQuery($con,"select email from ". userTable() ." where email='$email';");
 
 if($res)
 {
@@ -52,6 +52,9 @@ if($res)
 	{
 		$info->success = false;
 		$info->info = 'Email is already taken.';
+		$infoJ = json_encode($info);
+		echo $infoJ;
+		return;	
 		
 	}
 }	

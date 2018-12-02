@@ -66,12 +66,20 @@ function registerUser()
 			{
 				
 				$('#modalTitle').html('Registration successful');
+				$("#modalButton").attr("onclick","redirect('home')");
+				
+				//Clear inputs
+				$(inputs).each(function(){
+						$(this).val("");
+		
+						});
 			
 			}
 			else
 			{
 				
 				$('#modalTitle').html('Registration failed');
+				$("#modalButton").attr("onclick","");
 		
 			}
 				$('#modalBody').html(resp.info);
