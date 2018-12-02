@@ -29,12 +29,15 @@ if($result)
 			if(password_verify($psw, $data[0][5]))
 			{
 				//Check if account is active
-				if($data[0][7] == 1)
+				if($data[0][7] == 1) //Log in OK
 				{
 				$response->success = true;
 				$response->info = $data[0][2];	
+				session_start();
+				$_SESSION['username'] = $username;
+				$_SESSION['psw'] = $psw;
 				}
-				else
+				else //Account is not active
 				{
 				$response->success = false;
 				$response->info = "Your account is not active yet. Please activate your account before logging in.";	

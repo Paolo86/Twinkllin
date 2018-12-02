@@ -3,21 +3,40 @@ function showLogIn()
 	$('#loginModal').modal('show');
 }
 
-function logInUser()
+
+function checkLogIn()
 {
-	
-	var user = $("#loginUsername").val().trim();
-	var psw = $("#loginPsw").val().trim();
-	
-	if(!isFieldEmpty('loginUsername') && !isFieldEmpty('loginPsw'))
-	{
-		var d = 
+	$.post("server/checkLogIn.php",function(data,status){
+		
+		if(status=='success')
 		{
-			username: user,
+			var response = JSON.parse(data);
+			
+			if(response.success)
+			{
+			
+				var user = JSON.parse(response.info);
+		
+				sendLogin(user.username, user.psw);
+			}
+			else
+			{
+				console.log("Nobody was logged");
+			}
+		}
+	});
+		
+}
+
+function sendLogin(username, psw)
+{
+	var d = 
+		{
+			username: username,
 			psw: psw
 			
 		};
-		$.post('server/logIn.php',d,function(data,status){
+$.post('server/logIn.php',d,function(data,status){
 			
 			if(status == 'success')
 			{
@@ -49,6 +68,18 @@ function logInUser()
 			}
 			
 			
-		});
+		});	
+}
+
+function logInUser()
+{
+	
+	var user = $("#loginUsername").val().trim();
+	var psw = $("#loginPsw").val().trim();
+	
+	if(!isFieldEmpty('loginUsername') && !isFieldEmpty('loginPsw'))
+	{
+		sendLogin(user, psw);
+		
 	}
 }
