@@ -7,7 +7,7 @@ $con = connectToDb();
 
 $result = sendQuery("select * from ". jewelsTable() ." where id = '$itemid';");
 $row = getRow($result);
-sleep(4);
+
 $resp = new Response();
 
 if($row)

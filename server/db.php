@@ -15,7 +15,6 @@ $result = sendQuery("select * from ". jewelsTable() ." order by ".$order.";");
 else
 	$result = sendQuery("select * from ". jewelsTable() ." where Category = '$category' order by ".$order.";");
 
-sleep(5);
 
 echo '<div class="row">';
 while($row = getRow($result))

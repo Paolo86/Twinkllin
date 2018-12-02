@@ -24,7 +24,11 @@ function displayDetails(theid)
 	
 	$("#detailsTitle").hide();
 	$('#phpResult').fadeTo( 400, 0 );
-	$('#collectionJumboContent').fadeTo( 400, 0,function(){
+	$("#collectionTitle").fadeTo(400,0);
+	$('.collectionJumboButtons').fadeTo( 400, 0,function(){
+		
+		$('#collectionJumboButtons').hide();
+		
 		$(".loader").show();
 		$.post("server/getDetails.php",{id: theid},function(data,status){
 		
@@ -176,23 +180,35 @@ function getAll(isRefresh,order = 'Name',cat="")
 	{
 		if(cat == "All")
 			cat = ""; //Set to empty so an empty value is sent to server
-		
-	$("#collectionJumboContent").fadeTo(0,0);
+	
+	//If the objects have been already returned and it's not a refresh, don't send another request to server
+	if ( $('#phpResult').children().length > 0 && !isRefresh) {
+    $(".collectionJumboButtons").fadeTo(400,1);
+	$("#collectionTitle").fadeTo(400,1);
+	$("#phpResult").fadeTo(400,1);
+	return;
+	}
+	
+	$(".collectionJumboButtons").hide(); //Use hide, so the buttons are not present 
+	$("#phpResult").fadeTo(0,0);
+	$("#collectionTitle").fadeTo(0,0);
 	
 	$(".loader").show();
 	$.post("server/db.php",{orderby: order,category: cat},function(data,status){
 		
+		$(".loader").hide();
 		if(status=='success')
 		{
-		$(".loader").hide();
+	
 		$("#phpResult").hide();
 		$("#phpResult").html(data);
 		$("#phpResult").fadeTo(400,1);
-		$("#collectionJumboContent").fadeTo(400,1);
+		$(".collectionJumboButtons").fadeTo(400,1);
+		$("#collectionTitle").fadeTo(400,1);
 		}
 		else
 		{
-		$(".loader").hide();
+	
 		}
 	
 	});
