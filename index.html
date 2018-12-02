@@ -92,29 +92,27 @@
 		<!-- registration page starts here-->
 	<div id="register-page" hidden="hidden" class="container">	
 
-			<h2 class="jumbotron">Become a member</h2>
-
-			
-				<form class="form-horizontal">				
+			<h2 class="jumbotron">Become a member</h2>			
+				<form id="registrationForm" class="form-horizontal">				
 				
 					<div class="form-group">
 						<label  class="control-label col-sm-2" for="reg_usernameInput">Username:</label>
 						<div class="col-sm-10">
-						<input  id="reg_usernameInput" class="form-control" type="email" required ></input>
+						<input  id="reg_usernameInput" class="form-control" type="text" required ></input>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label  class="control-label col-sm-2" for="reg_firstnameInput">First name:</label>
 						<div class="col-sm-10">
-						<input  id="reg_firstnameInput" class="form-control" type="email" required ></input>
+						<input  id="reg_firstnameInput" class="form-control" type="text" required ></input>
 						</div>
 					</div>
 					
 					<div class="form-group">
 						<label  class="control-label col-sm-2" for="reg_lastnameInput">Last name:</label>
 						<div class="col-sm-10">
-						<input  id="reg_lastnameInput" class="form-control" type="email" required ></input>
+						<input  id="reg_lastnameInput" class="form-control" type="text" required ></input>
 						</div>
 					</div>
 					
@@ -128,22 +126,24 @@
 						<div class="form-group">
 						<label  class="control-label col-sm-2" for="reg_pswInput">Password:</label>
 						<div class="col-sm-10">
-						<input  id="reg_pswInput" class="form-control" type="password" required ></input>
+						<input  id="reg_pswInput" class="form-control" type="password"  required ></input>
 						</div>
 					</div>
 					
-						<div class="form-group">
+						<div  class=" form-group ">
 						<label  class="control-label col-sm-2" for="reg_confpswInput">Confirm password:</label>
 						<div class="col-sm-10">
 							<div id="confirmContainer" class="has-error">
-								<input  id="reg_confpswInput" class="form-control" type="password" onkeyup="checkConfirmPassword" required ></input>
+								<input  id="reg_confpswInput" class="form-control" type="password" onkeyup="checkConfirmPassword()" required ></input>
 							</div>
 						</div>
 					</div>
-				</form>
+					
 				<div class="col-12 text-center">
-				<button class="btn btn-primary btn-lg" onclick="">Submit</button>
+				<button class="btn btn-primary btn-lg" onclick="registerUser()">Submit</button>
 				</div>
+				</form>
+				
 					
 				
 
@@ -376,6 +376,7 @@
 	<script src="js/jquery-3.3.1.js"></script>
 	
 	<script src="js/collection.js"></script>
+	<script src="js/fieldFuncs.js"></script>
 	<script src="js/login.js"></script>
 	<script src="js/scripts.js"></script>
 	

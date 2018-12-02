@@ -45,9 +45,6 @@ else
 
 }
 
-
-
-
 $respJ = json_encode($resp);
 echo $respJ;
 mysqli_close($con);
