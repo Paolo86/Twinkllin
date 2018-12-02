@@ -34,33 +34,49 @@
 			<div class="col-md-12"  >
 				<div class="topnav" id="myTopnav" >
 					<nav id="stickyNav">
-						<!--<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />-->		
+						<!--<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />-->	
+	
 						<a class="inner-page-link" href="#home">Home</a>
 						<a class="inner-page-link" href="#collection"  >Collection</a>
 						<a class="inner-page-link" href="#contact">Contact</a>
-				
+						
 						
 					<div class="searchDiv" >
 					<input class="searchInput" type="text" placeholder="Search product" />
 					<button type="submit" onclick="search()" class="btn btn-primary " style=" vertical-align: middle;"><i class=" fa fa-search" ></i></button>
-					</div>
+					</div>		
 					
-					<span class="logInButton" >
-					<button  onclick="showLogIn()"  class="btn btn-primary" type="button" style="float: right; position: relative;right: 50pt" >									
+					<span class="logInButton" style="float: right; position: relative;right: 50pt">
+					<button  onclick="showLogIn()"  class="btn btn-primary" type="button"  >									
 					<span class="glyphicon glyphicon-user"></span>
 					</button>
 					</span>
 					
-					<span class="loggedInButton" hidden="hidden">
-						<button  class="btn btn-primary dropdown-toggle " type="button" data-toggle="dropdown" style="float: right; position: relative;right: 50pt">
-							<span  class="glyphicon glyphicon-log-out"></span>
-							<span class="caret"></span>
-							<ul class="dropdown-menu">
-								<li onclick="setOrder('Name')"><a style="text-decoration: none; cursor: pointer" >Name</a></li>
-								<li onclick="setOrder('Price')"><a style="text-decoration: none; cursor: pointer">Price</a></li>
-							
-							</ul>
-							</button>
+					<span class="loggedInButton" hidden="hidden" style="float: right; position: relative;right: 50pt">
+					
+					<div class="row">
+					
+					<div class="col-md-4" >
+					
+								<div class="dropdown" >
+									<button  class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+									<span class="caret"></span>
+									<span class="glyphicon glyphicon-user"></span>
+									
+									<span class="loginNameText"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a class="inner-page-link" href="">Account</a></li>
+										<br/>
+										<li><a class="inner-page-link" href=""  >Log out</a></li>
+										<br/>
+															
+									
+									</ul>
+										
+								</div>															
+						</div>
+					</div>
 					</span>
 					
 					</nav>

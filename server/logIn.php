@@ -32,7 +32,7 @@ if($result)
 				if($data[0][7] == 1)
 				{
 				$response->success = true;
-				$response->info = "Logged in!";	
+				$response->info = $data[0][2];	
 				}
 				else
 				{

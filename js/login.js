@@ -26,8 +26,10 @@ function logInUser()
 				
 				if(info.success)
 				{
-					$("#logInButton").hide();
-					$("#loggedInButton").hide();
+					$(".logInButton").hide();
+					$(".loggedInButton").show();
+					$(".loginNameText").text(info.info);
+					console.log("LOGGED");
 					
 				}
 				else
