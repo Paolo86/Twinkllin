@@ -13,19 +13,22 @@ function registerUser()
 	
 	$(inputs).each(function(){
 		
-		//Trim all
-		$(this).val($(this).val().trim());
-		var label = $("label[for='"+this.id+"']");
-	
-		
-		if(isFieldEmpty($(this).attr("id")))
-			inputError.push($(label).text() + " cannot be empty");
-		else
+		if($(this).attr("type") != 'submit')
 		{
-			if(hasWhiteSpace($(this).val()))
-				inputError.push($(label).text() + " cannot contain white spaces");
-		}		
 		
+			//Trim all
+			$(this).val($(this).val().trim());
+			var label = $("label[for='"+this.id+"']");
+		
+			
+			if(isFieldEmpty($(this).attr("id")))
+				inputError.push($(label).text() + " cannot be empty");
+			else
+			{
+				if(hasWhiteSpace($(this).val()))
+					inputError.push($(label).text() + " cannot contain white spaces");
+			}		
+		}
 	});
 	
 	
@@ -87,10 +90,7 @@ function registerUser()
 			$('#modalBody').html(resp.info);
 			$('#genericModal').modal('show');
 			$("#reg_loader").hide();
-			$("#reg_buttonInput").show();
-				
-				
-				
+			$("#reg_buttonInput").show();		
 			
 				
 			}
