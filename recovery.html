@@ -37,20 +37,21 @@
 						
 						</div>
 						
-<!-- Modal -->
+<!-- Generic Modal -->
 <div class="modal fade" id="genericModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+	
       <div class="modal-header">
-	 
-        <h5 class="modal-title" id="modalTitle" style="padding: 10pt;">Registration successful</h5>
-   
+		<img class="modalLogo" src="images/logo.png" alt="Twinkllinlogo" style="width: 10%;" />
+        <h5 class="modal-title" id="modalTitle" style="padding: 10pt; display: inline-block;"></h5>  
       </div>
-      <div id="modalBody" class="modal-body" style="padding: 10pt;">
-       We sent an email to your specified address. Please click on the link provided to activate your account.
+	  
+      <div id="modalBody" class="modal-body myModalBody" >   
       </div>
+	  
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="toHome()">Ok</button>
+        <button id="modalButton" type="button" class="btn btn-primary" data-dismiss="modal" onclick="redirect('home')">Ok</button>
         
       </div>
     </div>

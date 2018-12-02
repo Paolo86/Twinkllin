@@ -18,7 +18,7 @@ function logInUser()
 			
 		};
 		$.post('server/logIn.php',d,function(data,status){
-			console.log(data);
+			
 			if(status == 'success')
 			{
 				
@@ -26,7 +26,8 @@ function logInUser()
 				
 				if(info.success)
 				{
-					
+					$("#logInButton").hide();
+					$("#loggedInButton").hide();
 					
 				}
 				else

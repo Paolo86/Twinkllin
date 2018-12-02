@@ -75,7 +75,7 @@ else
 	$stmt->close();
 	
 	
-	$result = sendQuery("select now()");
+	$result = sendQuery($con,"select now()");
 	$row = getRow($result);
 
 	//Check if time expired
