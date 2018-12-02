@@ -34,16 +34,27 @@
 			<div class="col-md-6"  >
 				<div class="topnav" id="myTopnav">
 					<nav id="stickyNav">
-						<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />		
+						<!--<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />-->		
 						<a class="inner-page-link" href="#home">Home</a>
 						<a class="inner-page-link" href="#collection"  >Collection</a>
 						<a class="inner-page-link" href="#contact">Contact</a>
-						<a class="inner-page-link"  href="" onclick="showLogIn()">Log In</a>
+				
 						
-					<div id="searchDiv" >
+					<div class="searchDiv" >
 					<input id="searchInput" type="text" placeholder="Search product" />
 					<button type="submit" onclick="search()" class="btn btn-primary " style=" vertical-align: middle;"><i class=" fa fa-search" ></i></button>
 					</div>
+							<a class="inner-page-link"  href="" onclick="showLogIn()" >Log In</a>
+					</nav>
+					
+					<nav id="mobileNav" >
+						<!--<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />-->		
+						<a class="inner-page-link" href="#home">Home</a>
+						<a class="inner-page-link" href="#collection"  >Collection</a>
+						<a class="inner-page-link" href="#contact">Contact</a>
+				
+				
+							<a class="inner-page-link"  href="" onclick="showLogIn()" >Log In</a>
 					</nav>
 				</div>
 			</div>	
@@ -336,7 +347,7 @@
 	  
       <div class="modal-footer">
 	  <button type="button" class="btn btn-primary" data-dismiss="modal" style="float: left" onclick="redirect('register-page')">New account</button>
-        <button type="button" class="btn btn-primary" data-dismiss="modal" >Log in</button>
+        <button  type="button" class="btn btn-primary" data-dismiss="modal" onclick="logInUser()" >Log in</button>
         
       </div>
     </div>

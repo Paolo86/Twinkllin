@@ -1,7 +1,9 @@
 function showLogIn()
 {
-	
-	console.log("Show log in called");
-
 	$('#loginModal').modal('show');
+}
+
+function logInUser()
+{
+	console.log('Logging in');
 }
