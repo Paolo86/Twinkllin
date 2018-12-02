@@ -1,4 +1,17 @@
 
+	$.ajaxSetup({
+			type: 'POST',
+			timeout: 15000,
+			error: function(xhr) {
+				$(".loader").hide();				
+				$("#modalTitle").html("Error");
+				$("#modalBody").html("Request timeout error. Please try again later.");
+				$("#genericModal").modal('show');
+				$("#modalButton").attr("onclick","redirect('home')");
+								 }
+             });
+
+
 function changeTitleAnimation(id,title)
 {
 	var current = $("#" + id).html();
@@ -14,41 +27,84 @@ function changeTitleAnimation(id,title)
 
 function displayDetails(theid)
 	{
-	//console.log("Function called " + theid);
+	//console.log("Details called " + theid);
+
+	var lastID = theid;
+	localStorage.setItem("lastID", lastID);
 	
-	$.post("server/getDetails.php",{id: theid},function(data,status){
+	$("#detailsTitle").hide();
+	$('#phpResult').fadeTo( 400, 0 );
+	$("#collectionTitle").fadeTo(400,0);
+	$('.collectionJumboButtons').fadeTo( 400, 0,function(){
+		
+		$('#collectionJumboButtons').hide();
+		
+		$(".loader").show();
+		
+	
+		
+		
+		$.post("server/getDetails.php",{id: theid},function(data,status){
 		
 		if(status=='success')
 		{
-		
-		
-		var response = JSON.parse(data);
-		
-		if(response.success)
-		{
+			$(".loader").hide();
 			
-			var item = JSON.parse(response.info);
-		
-			//console.log(imagesNames.length);
-			changeTitleAnimation('collectionTitle','<a  onclick="getAll() "class="backLink"><span class="glyphicon glyphicon-menu-left"></span></a>' + "   " + item.name );
-			var html = getHTML(item);
+			var response = JSON.parse(data);
 			
-			$("#phpResult").fadeOut(400,function(){
-			$("#phpResult").html(html);
-			$("#phpResult").fadeIn(400);
+			if(response.success)
+			{
+				
+				window.location.hash = "details";
+				$("#phpResultDetails").hide();
+				$("#detailsTitle").hide();
+				var item = JSON.parse(response.info);
 			
-			});
-		}
+				
+				var html = getHTML(item);
+				
+				
+				$("#phpResultDetails").html(html);
+				$("#phpResultDetails").fadeTo(400,1);
+				$("#detailsTitle").html('<a  onclick="backToCollection() "class="backLink"><span class="glyphicon glyphicon-menu-left"></span></a>' + "   " + item.name);
+				$("#detailsTitle").fadeTo(400,1);
+				$("#detailsTitle").show();	
+			}
+			else
+			{
+				$(".loader").hide();
+				//console.log(response.info);
+				$("#modalTitle").html("Error");
+				$("#modalBody").html(response.info);
+				$("#genericModal").modal('show');
+			}
 
+		}
+		else{
+				$(".loader").hide();
+			
 		}
 		
 		
 	});
+		
+		
+		
+		
+	});
+	
+
 	
  
 
 	}	
 	
+function backToCollection()
+{
+	
+	window.location.hash = "collection";	
+	
+}
 	
 //Display product details
 function getHTML(item)
@@ -119,16 +175,98 @@ function getHTML(item)
 		return html;
 	
 }
+
+function checkRefresh()
+{
 	
-function getAll()
+	if(window.location.hash == "#collection")
+		getAll(true);
+	
+	if(window.location.hash == "#details")
 	{
+		var lastID = localStorage.getItem("lastID");
+		displayDetails(lastID);
+	}
 		
-	//Resotre original page title in jumbotron
-	$("#collectionTitle").html('Our collection');
+}
+	
+//IMPORTANT
+// THIS FUNCTION IS CALLED IN INDEX.JS, WHEN THE HASH CHANGE TO COLLECTION
+function getAll(isRefresh,order = 'Name',cat="")
+	{
+		if(cat == "All")
+			cat = ""; //Set to empty so an empty value is sent to server
+	
+	//If the objects have been already returned and it's not a refresh, don't send another request to server
+	if ( $('#phpResult').children().length > 0 && !isRefresh) {
+    $(".collectionJumboButtons").fadeTo(400,1);
+	$("#collectionTitle").fadeTo(400,1);
+	$("#phpResult").fadeTo(400,1);
+	return;
+	}
+	
+	$(".collectionJumboButtons").hide(); //Use hide, so the buttons are not present 
+	$("#phpResult").fadeTo(0,0);
+	$("#collectionTitle").fadeTo(0,0);
+	
+	$(".loader").show();
+	$.post("server/db.php",{orderby: order,category: cat},function(data,status){
 		
-	$.post("server/db.php",{tname: "jewels"},function(data,status){
+		$(".loader").hide();
+		if(status=='success') //If request was ok
+		{
 		
-		$("#phpResult").hide();
-		$("#phpResult").html(data).fadeIn(500);
+			var response = JSON.parse(data);
+			
+			if(!response.success)
+			{
+				$(".loader").hide();
+				//console.log(response.info);
+				$("#modalTitle").html("Error");
+				$("#modalBody").html(response.info);
+				$("#genericModal").modal('show');
+				
+			}
+			else
+			{
+			$("#phpResult").hide();
+			$("#phpResult").html(response.info);
+			$("#phpResult").fadeTo(400,1);
+			$(".collectionJumboButtons").fadeTo(400,1);
+			$("#collectionTitle").fadeTo(400,1);	
+			}	
+		
+		}
+		else
+		{
+	
+		}
+	
 	});
 	}
+	
+var order = 'Name'; //Set default
+var category = '';
+
+function setCategory(cat)
+{
+	category = cat;
+	$("#categoryButtonText").html(cat);
+	rearrangeCollection();
+	
+}
+
+function setOrder(ord)
+{
+	order = ord;
+	$("#orderByButtonText").html(ord);
+	rearrangeCollection();
+}
+function rearrangeCollection()
+{
+	 
+	//console.log("Rearranging by " + order + ' category: ' + category);
+	getAll(true,order,category);
+	//
+	
+}

@@ -1,21 +1,4 @@
-//code for login menu to fade in and out when clicked
-$(document).ready(function(){
-  var arrow = $(".arrow-up");
-  var form = $(".login-form");
-  var status = false;
-  $("#login").click(function(event){
-    event.preventDefault();
-    if(status == false){
-      arrow.fadeIn();
-      form.fadeIn();
-      status = true;
-    }else{
-      arrow.fadeOut();
-      form.fadeOut();
-      status = false;
-    }
-  })
-})
+
 
 function toHome()
 {
@@ -30,10 +13,17 @@ function redirect(np)
 }
 
 //code below for SPA
-var pages = ["#home", "#collection", "#contact" ,"#about" ,"#allitems" ,"#shopping-bag","#details", "#account-page","#register-page","#Add-Jewel","#Add-Painting","#Add-Staff", "#help-page"];
+var pages = ["#home", "#collection", "#contact" ,"#details",'#register-page'];
 var curPage = pages[0];
 
 $(document).ready(function(){
+	
+	//window.scrollTo(0, 0);
+	
+	//Set up spacer height
+	var height = $("#myTopnav").height();	
+	$("#spacer").height(height);
+	
 
    // if the hash is one of page2 to page3,
    // render the page
@@ -46,6 +36,9 @@ $(document).ready(function(){
    $('.inner-page-link').click(function(e){
        e.preventDefault();
        var newPage = $(this).attr('href');
+	   
+	   if(newPage == "") //If clicked on link (which has no href
+		   newPage = window.location.hash;
        window.location.hash=newPage;
    });
 
@@ -55,6 +48,14 @@ $(document).ready(function(){
    $(window).on('hashchange', function(){
        var newPage = getPage(window.location.hash);
        render(newPage);
+	   
+	   if(newPage == "#collection")
+	   {
+		   getAll(false);
+		   //console.log("Get all called");
+	   }
+		   
+	 
    });
 
 });

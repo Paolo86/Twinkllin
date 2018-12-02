@@ -7,67 +7,57 @@ function registerUser()
 {
 	
 	clearInputErrors();
-	var firstname = document.getElementById('reg_firstnameInput').value;
-
-	var lastname = document.getElementById('reg_lastnameInput').value;
-	var username = document.getElementById('reg_usernameInput').value;
-	var email = document.getElementById('reg_emailInput').value;
-	var confpsw = document.getElementById('reg_confpswInput').value;
-	var psw = document.getElementById('reg_pswInput').value;
-	var result = true;
 	
+	//Trim all
+	var inputs = $('#registrationForm :input');
 	
-	
-	if(username == "")
-		{	
-		inputError.push("Username cannot be empty");
-		}
-	
-	if(firstname == "")
-		{
-			inputError.push("Firstname cannot be empty");
-		}
+	$(inputs).each(function(){
 		
-	if(lastname == "")
+		if($(this).attr("type") != 'submit')
 		{
-			inputError.push("Lastname cannot be empty");
+		
+			//Trim all
+			$(this).val($(this).val().trim());
+			var label = $("label[for='"+this.id+"']");
+		
+			
+			if(isFieldEmpty($(this).attr("id")))
+				inputError.push($(label).text() + " cannot be empty");
+			else
+			{
+				if(hasWhiteSpace($(this).val()))
+					inputError.push($(label).text() + " cannot contain white spaces");
+			}		
 		}
-	if(email == "")
-		{
-			inputError.push("Firstname cannot be empty");
-		}
-
-	if(psw == "")
-		{
-			inputError.push("Password cannot be empty");
-		}
-	else if(psw.length < 8)
+	});
+	
+	
+	
+	if(!isFieldMinLengthOK('reg_pswInput',8))
 		inputError.push("Password must be at least 8 characters");
 	
-	var confirmation = $("#reg_confpswInput").val();
+	if(!areFieldsMatching('reg_pswInput','reg_confpswInput'))
+			inputError.push("Passwords don't match");
 	
-	if(confirmation != psw)
-		inputError.push("Passwords don't match");
-	
-	
-		
+			
 	if(inputError.length != 0)
 			displayErrors();	
 	else		
 	{
 		var data = 
 		{
-			username: username,
-			firstname: firstname,
-			lastname: lastname,
-			email: email,
-			psw: psw,
-		
+			username: $("#reg_usernameInput").val(),
+			firstname: $("#reg_firstnameInput").val(),
+			lastname: $("#reg_lastnameInput").val(),
+			email: $("#reg_emailInput").val(),
+			psw: $("#reg_pswInput").val()		
 			
 		};
-		//send to php
+		
+		$("#reg_loader").show();
+		$("#reg_buttonInput").hide();
 		$.post("server/registerUser.php",data,function(data, status){
-			
+					
 			
 			if(status == "success")
 			{
@@ -80,19 +70,27 @@ function registerUser()
 			{
 				
 				$('#modalTitle').html('Registration successful');
-				$("#modalTitle").css("background-color","#11ff11aa");
+				$("#modalButton").attr("onclick","redirect('home')");
+				
+				//Clear inputs
+				$(inputs).each(function(){
+						$(this).val("");
+		
+						});
+			
 			}
 			else
 			{
 				
 				$('#modalTitle').html('Registration failed');
-				$("#modalTitle").css("background-color","#ff1111aa");
+				$("#modalButton").attr("onclick","");
+		
 			}
-				$('#modalBody').html(resp.info);
-				$('#genericModal').modal('show');
-				
-				
-				
+			
+			$('#modalBody').html(resp.info);
+			$('#genericModal').modal('show');
+			$("#reg_loader").hide();
+			$("#reg_buttonInput").show();		
 			
 				
 			}
@@ -109,9 +107,9 @@ function checkConfirmPassword()
 	
 
 	if(current === psw)
-		$("#confirmContainer").attr("class","form-group no-error");
+		$("#confirmContainer").attr("class","no-error");
 	else
-		$("#confirmContainer").attr("class","form-group has-error");
+		$("#confirmContainer").attr("class","has-error");
 	
 }
 

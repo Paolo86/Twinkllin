@@ -13,18 +13,13 @@
 	<link rel="stylesheet" type="text/css" href="css/collection.css" />
     <link rel="stylesheet" type="text/css" href="css/contact.css" />
 	<link rel="stylesheet" type="text/css" href="css/navbar.css" />
-	<link rel="stylesheet" type="text/css" href="css/about.css" />
-	<link rel="stylesheet" type="text/css" href="css/account.css" />
+	<link rel="stylesheet" type="text/css" href="css/mymodal.css" />
+	
+	<link rel="stylesheet" type="text/css" href="css/loader.css" />
 	<link rel="stylesheet" type="text/css" href="css/displayProduct.css" />
-	<script src="js/scripts.js"></script>
-	<script src="js/jquery-3.3.1.js"></script>
-	<script src="js/index.js"></script>
-	<script src="js/users.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/navbarscroll.js"></script>
-	<script src="js/productDisplay.js"></script>
+	
 
-	<script src="js/collection.js"></script>
+	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -32,182 +27,176 @@
 <body>
 
 
-
-<!--
-<div id="main">
-	<nav class="logInMen">
-		<section class="nav-container">
-			<div class="logged-out">
-			<aside class="menu" id="loginmenu">
-				<div class="menu-content" id="hidden1">
-					<li><a class="inner-page-link" href="#help-page"><i class="fa fa-question-circle-o"></i>Help | </a></li>
-					<li><i class="fa fa-unlock-alt"></i></li><li id="login">Login</li>
-				</div>
-				<div class="arrow-up"></div>
-			</aside>
-		</div>
-			<aside class="menu" id="logoutmenu">
-				<div class="menu-content" id="hidden2">
-					<li><i class="fa fa-lock"></i></li>
-					<li id="welcome_statement">Hello</li>
-					<li onclick="logout()">Logout</li>
-					<li> | </li>
-					<li><i class="fa fa-user"></i></li>
-					<li onclick="toAccount()">Account</li>
-				</div>
-				<div class="arrow-up"></div>
-			</aside>
-
-			<div class="login-form">
-				<form >
-					<label>UserName</label>
-					<div>
-						<input id="userid" type="text" name="userid" placeholder="Username" required=""/>
-					</div>
-					<label>Password</label>
-					<div>
-						<input id="psw" type="text" name="pwd" placeholder="Password" required=""/>
-					</div>
-					<div>
-						<input type="button" name="login-submit" value="Log In" onclick="login()"/>
-						<a href="recovery.html">Forgot your password?</a>
-					</div>
-					or
-					<div>
-						<a class="inner-page-link" href="#register-page" onclick="clearAllRegistration()"><input type="button" name="registration-submit" value="Register"/></a>
-					</div>
-				</form>
-			</div>
-		</section>
-	</nav>-->
-	<!-- end of login reg nav-->
-	
-	
-	
 	<!--Navbar-->
-	<div class="topnav" id="myTopnav">
-		<nav id="stickyNav">
-			<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />
-			<i class="fa fa-bars" id="icon" onclick="navFunction()"></i>
-			<a class="inner-page-link" href="#home">Home</a>
-			<a class="inner-page-link" href="#collection" onclick="getAll()" >Collection</a>
-			<a class="inner-page-link" href="#contact">Contact</a>
-			<a class="inner-page-link" href="#about">About</a>
-
-		<div id="searchDiv">
-		<input id="searchInput" type="text" placeholder="Search.." />
-		<button type="submit" onclick="search()" class="btn btn-small"><i class=" fa fa-search"></i></button>
-		</div>
-		</nav>
+	<div class="container-fluid">
+		<div class="row" >
+		
+			<div class="col-md-12"  >
+				<div class="topnav" id="myTopnav" >
+					<nav id="stickyNav">
+						<!--<img id="logoImg" src="images/logo.png" alt="Twinkllinlogo" />-->		
+						<a class="inner-page-link" href="#home">Home</a>
+						<a class="inner-page-link" href="#collection"  >Collection</a>
+						<a class="inner-page-link" href="#contact">Contact</a>
+				
+						
+					<div class="searchDiv" >
+					<input class="searchInput" type="text" placeholder="Search product" />
+					<button type="submit" onclick="search()" class="btn btn-primary " style=" vertical-align: middle;"><i class=" fa fa-search" ></i></button>
+					</div>
+					<button onclick="showLogIn()"  class="btn btn-primary" type="button" style="float: right; position: relative;right: 50pt" >									
+					<span class="glyphicon glyphicon-user"></span>
+					</button>
+					</nav>
+					
+					<nav id="mobileNav" >
+					<div class="row" >
+					
+						<div class="col-xs-2" >
+								<div class="dropdown" >
+									<button  class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+									
+									<span class="glyphicon glyphicon-align-justify"></span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a class="inner-page-link" href="#home">Home</a></li>
+										<br/>
+										<li><a class="inner-page-link" href="#collection"  >Collection</a></li>
+										<br/>
+										<li><a class="inner-page-link" href="#contact">Contact</a></li>
+										<br/>
+										
+									
+									</ul>
+										
+								</div>															
+						</div>
+						<div class="searchDiv col-xs-7" >
+										<input class="searchInput" type="text" placeholder="Search product" >
+										<button  class="btn btn-primary btn-sm" type="button" data-toggle="dropdown">
+										<span onclick="search()" class="glyphicon glyphicon-search"></span>
+										</button>
+										</input>
+									
+										
+								</div>	
+						<div class="col-xs-3"  >
+									
+						<button onclick="showLogIn()"  class="btn btn-primary" type="button" >									
+						<span class="glyphicon glyphicon-user"></span>
+						</button>
+					
+						</div>
+						
+					</div>
+							
+						
+					</nav>
+				</div>
+			</div>	
+		
+		</div>	
 	</div>
 	
-	</div>
 	
 	<div id="spacer">
     &nbsp;
 	</div>
 	<!-- home page starts here-->
 	<div id="home" >
-		<section class="sec1">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+			  <!-- Indicators -->
+			  <ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+			  </ol>
+
 		
-			<div class="main-banner" id="main-banner">
-				<div class="imgbanbtn imgbanbtn-prev" id="imgbanbtn-prev"></div>
-				<div class="imgban" id="imgban3">
+			  <div id="slideWrapper" class="carousel-inner">
+				<div class="item active">
+				  <img src="images/banner.jpg" alt="Los Angeles">
+				</div>
 
+				<div class="item">
+				  <img src="images/banner.jpg" alt="Chicago">
 				</div>
-				<div class="imgban" id="imgban2">
 
+				<div class="item">
+				  <img src="images/banner.jpg"alt="New York">
 				</div>
-				<div class="imgban" id="imgban1">
+			  </div>
 
-				</div>
-				<div class="imgbanbtn imgbanbtn-next" id="imgbanbtn-next"></div>
-				</div>
-			
-		</section>
+			 
+</div>
 		<div class="container">
 		<h2 class="jumbotron">Welcome to Twinkllin</h2>
 		</div>
 	</div> <!--div close for Homepage-->
 	
-	<!-- home page end here-->
-	<script src="js/banner.js"></script>
+
 
 		<!-- registration page starts here-->
-	<div id="register-page" hidden="hidden">
-		<div id="description" class="statement">
+	<div id="register-page" hidden="hidden" class="container">	
 
-			<h2 class="statementTitle">Become a member</h2>
-
-
-				<form id="registerForm">
-					<table style=" width: 80%; text-alig: center">
-						<tr>
-						<div class="inputSection">
-						<td class="formLabel">Username:</td>
-						<td>
-							<input id="reg_usernameInput" type="text" class="form-control" required></input>
-						
-							<br />
-							
-						</td>
+			<h2 class="jumbotron">Become a member</h2>			
+				<form id="registrationForm" class="form-horizontal">				
+				
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="reg_usernameInput">Username:</label>
+						<div class="col-sm-10">
+						<input  id="reg_usernameInput" class="form-control" type="text" required ></input>
 						</div>
-						</tr>
-						<tr>
-						<div class="inputSection">
-							<td class="formLabel">First name:</td>
-							<td>
-								<input  id="reg_firstnameInput" type="text" class="form-control" required></input><br />
-							</td>
+					</div>
+					
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="reg_firstnameInput">First name:</label>
+						<div class="col-sm-10">
+						<input  id="reg_firstnameInput" class="form-control" type="text" required ></input>
 						</div>
-						</tr>
-						<tr>
-						<div class="inputSection">
-						<td class="formLabel">Last name:</td>
-						<td>
-							<input id="reg_lastnameInput" type="text" class="form-control" required></input><br />
-						</td>
+					</div>
+					
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="reg_lastnameInput">Last name:</label>
+						<div class="col-sm-10">
+						<input  id="reg_lastnameInput" class="form-control" type="text" required ></input>
 						</div>
-						</tr>
-							<tr>
-						<div class="inputSection">
-						<td class="formLabel">Email:</td>
-						<td>
-							<input id="reg_emailInput" type="text" class="form-control" required ></input><br />
-						</td>
+					</div>
+					
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="reg_emailInput">Email:</label>
+						<div class="col-sm-10">
+						<input  id="reg_emailInput" class="form-control" type="email" required ></input>
 						</div>
-						</tr>	
-						<tr>
-						
-						</tr>
-						<tr>
-						<div class="inputSection">
-						<td class="formLabel">Password:</td>
-						<td>
-							<input id="reg_pswInput" type="password" class="form-control" required></input><br />
-						</td>
+					</div>
+					
+						<div class="form-group">
+						<label  class="control-label col-sm-2" for="reg_pswInput">Password:</label>
+						<div class="col-sm-10">
+						<input  id="reg_pswInput" class="form-control" type="password"  required ></input>
 						</div>
-						</tr>
-						
-						<tr>   
-
- 	
-						<div class="inputSection">
-						<td class="formLabel">Confirm password:</td>
-						<td><div id="confirmContainer" class="form-group has-error">
-							<input id="reg_confpswInput" type="password" class="form-control" onkeyup="checkConfirmPassword()"required></input><br />
-						 </div>
-						</td>
+					</div>
+					
+						<div  class=" form-group ">
+						<label  class="control-label col-sm-2" for="reg_confpswInput">Confirm password:</label>
+						<div class="col-sm-10">
+							<div id="confirmContainer" class="has-error">
+								<input  id="reg_confpswInput" class="form-control" type="password" onkeyup="checkConfirmPassword()" required ></input>
+							</div>
 						</div>
-						</tr>
-					</table>
-
-
-
-					<button type="button"  class="btn btn-primary btn-lg"  onclick="registerUser()">Submit</button>
+					</div>
+					
+				
+				<div class="col-12 text-center">
+				<button type="submit" id="reg_buttonInput" class="btn btn-primary btn-lg" onclick="registerUser()">Submit</button>
+				</div>
 				</form>
+				
+				<div id="reg_loader" hidden="hidden" class="loader"></div>
+					
+				
 
-		 </div>
+		
 	</div><!-- closing div for contact page-->
 
 
@@ -259,6 +248,7 @@
 				<button class="btn btn-primary btn-lg" onclick="sendEmail()">Submit</button>
 				</div>
 				
+				
 					
 				</form>
 
@@ -266,31 +256,70 @@
 	</div><!-- closing div for contact page-->
 	<!-- contact page ends here-->
 
-	<!-- about page starts here-->
-	<div id="about" hidden="hidden">
+
+	<div id="details" hidden="hidden" class="container">
+	
+		<h2 class="jumbotron" ><span id="detailsTitle"  ></span></h2>
+		<div class="loader"></div>
+		<div id="phpResultDetails">
 		
-	</div><!-- closing div for about page-->
-	<!-- about page ends here-->
-
-
-
-
+		
+		</div>
+	</div>
 	
 
-	<!-- detailspage starts here-->
+	<!-- collection page starts here-->
 
 	<div id="collection" hidden="hidden" class="container">
 	
-		<h2 class="jumbotron" ><span id="collectionTitle">Our collection</span></h2>
+		<h2 class="jumbotron" >
+		<div class="row" >
+			<div class="col-md-10">
+				<span id="collectionTitle">Our collection</span>
+			</div>
+			
+			<div class="col-md-1 collectionJumboButtons" >
+
+					<div class="dropdown"  >
+						<button id="orderByButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+							<span id="orderByButtonText" >Name</span>
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li onclick="setOrder('Name')"><a style="text-decoration: none; cursor: pointer" >Name</a></li>
+							<li onclick="setOrder('Price')"><a style="text-decoration: none; cursor: pointer">Price</a></li>
+						
+						</ul>
+					</div>		
+				
+			</div>
+			<div class="col-md-1 collectionJumboButtons" >
+				
+				<div class="dropdown" >
+						<button id="categoryButton" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+							<span id="categoryButtonText" >All</span>
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li onclick="setCategory('All')"><a style="text-decoration: none; cursor: pointer" >All</a></li>
+							<li onclick="setCategory('Bracelet')"><a style="text-decoration: none; cursor: pointer">Bracelet</a></li>
+							<li onclick="setCategory('Ring')"><a style="text-decoration: none; cursor: pointer">Ring</a></li>
+						
+						</ul>
+					</div>
+			
+			</div>	
+			
+				
+		</div>
+		</h2>
+		<div class="loader"></div>
 		<div id="phpResult">
 		
-		</div>
 		
-	
-
-
+		</div>
 	</div>
-	<!-- detailspage ends here-->
+	<!-- collection page ends here-->
 
 
 	<!-- jewellery page ends here-->
@@ -298,19 +327,63 @@
 
 </div> <!-- closing div for id main-->
 
-<!-- Modal -->
+<!-- Generic Modal -->
 <div class="modal fade" id="genericModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
+	
       <div class="modal-header">
-        <h5 class="modal-title" id="modalTitle" style="padding: 10pt;">Registration successful</h5>
-    
+		<img class="modalLogo" src="images/logo.png" alt="Twinkllinlogo" style="width: 10%;" />
+        <h5 class="modal-title" id="modalTitle" style="padding: 10pt; display: inline-block;"></h5>  
       </div>
-      <div id="modalBody" class="modal-body" style="padding: 10pt;">
-       We sent an email to your specified address. Please click on the link provided to activate your account.
+	  
+      <div id="modalBody" class="modal-body myModalBody" >   
       </div>
+	  
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="redirect('home')">Ok</button>
+        <button id="modalButton" type="button" class="btn btn-primary" data-dismiss="modal" onclick="redirect('home')">Ok</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+	
+      <div class="modal-header">
+		<img class="modalLogo" src="images/logo.png" alt="Twinkllinlogo" />
+        <h5 class="modal-title" id="modalTitle" style="padding: 10pt; display: inline-block;">Member access</h5>    
+      </div>
+	  
+      <div id="modalBody" class="modal-body myModalBody">   
+	  <form class="form-horizontal">					
+				
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="loginUsername">Username:</label>
+						<div class="col-sm-10">
+						<input  id="loginUsername" class="form-control" type="email" required ></input>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="loginPsw">Password:</label>
+						<div class="col-sm-10">
+						<input  id="loginPsw" class="form-control" type="email" required ></input>
+						<br/>
+						<a >Forgot your password?</a>
+						</div>
+					</div>
+					
+				
+	</form>
+      </div>
+	  
+      <div class="modal-footer">
+	  <button type="button" class="btn btn-primary" data-dismiss="modal" style="float: left" onclick="redirect('register-page')">New account</button>
+        <button  type="button" class="btn btn-primary" data-dismiss="modal" onclick="logInUser()" >Log in</button>
         
       </div>
     </div>
@@ -319,112 +392,52 @@
 
 
 
-<!-- Add new jewel page-->
-	<div id="Add-Jewel" hidden="hidden">
-		<div id="description" class="statement">
-				<form >
-					<table>
-						<tr>
-						<div class="inputSection">
-							<td class="formLabel">Title:</td>
-							<td>
-								<input  id="addjewel_titleInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-						<tr>
-						<div class="inputSection">
-							<td class="formLabel">Details:</td>
-							<td>
-								<input  id="addjewel_detailsInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-							<tr>
-						<div class="inputSection">
-							<td class="formLabel">Category:</td>
-							<td>
-								<input  id="addjewel_categoryInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-							<tr>
-						<div class="inputSection">
-							<td class="formLabel">Price:</td>
-							<td>
-								<input  id="addjewel_priceInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-							<tr>
-						<div class="inputSection">
-							<td class="formLabel">Image link:</td>
-							<td>
-								<input  id="addjewel_linkInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-							<tr>
-						<div class="inputSection">
-							<td class="formLabel">Stock:</td>
-							<td>
-								<input  id="addjewel_stockInput" class="formInput" type="text" ></input><br />
-							</td>
-						</div>
-						</tr>
-
-
-					</table>
-
-
-
-					<input type="button" value="Add" onclick="addJewel()"></input>
-				</form>
-
-		 </div>
-	</div><!-- closing div for contact page-->
-
-
-<div class="account-update" id="account-page" hidden="hidden">
-
-	<div id="accountDetails"></div>
-
-</div><!-- closing div for account page-->
-<!-- account page ends here-->
-
-<div class="help-pg" id="help-page" hidden="hidden">
-	<h2 class="statement">For helping using the web page please watch the below video</h2><br />
-	<video controls>
-		<source src="videos/Help.mp4" type="video/mp4">
-
-		Your browser does not support the video tag.
-	</video>
-
-</div><!-- closing div for help page-->
-<!-- account page ends here-->
 
 	<footer>
-
-
-	<nav>
-	  <ul>
-	    <li><a class="inner-page-link" href="#home">HOME</a></li>
-	    <li><a class="inner-page-link" href="#collection">COLLECTION</a></li>
-	    <li><a class="inner-page-link" href="#contact">CONTACT</a></li>
-	    <li><a class="inner-page-link" href="#about">ABOUT</a></li>
-	    <li>© 2018 All rights reserved. Twinkllin</li>
-	  </ul>
-	</nav>
-	  <ul class="sm">
-	    <li>Follow Us:</li>
-	    <li><a href="#" class="fa fa-facebook" aria-hidden="true"></a></li>
-	  
-	  </ul>
-	  <img class="footlogoImg"src="images/logo.png" alt="Twinkllinlogo" />
+		<div class="row">
+		
+			<div class="col-md-4">
+				<nav>
+					<ul>
+						<li><a class="inner-page-link" href="#home">HOME</a></li>
+						<li><a class="inner-page-link" href="#collection">COLLECTION</a></li>
+						<li><a class="inner-page-link" href="#contact">CONTACT</a></li>
+						<li><a class="inner-page-link" href="#about">ABOUT</a></li>
+						<li>© 2018 All rights reserved. Twinkllin</li>
+					</ul>
+				</nav>
+			</div>
+			
+			<div class="col-md-4">
+				<nav>
+					  <ul class="sm">
+						<li>Follow Us:</li>
+						<li><a href="#" class="fa fa-facebook" aria-hidden="true"></a></li>				
+		  
+						</ul>
+				</nav>
+			</div>
+			<div class="col-xs-4">
+					<img class="footlogoImg"src="images/logo.png" alt="Twinkllinlogo" />
+			</div>
+			
+		</div>	 
 	</footer>
-<script>
-
-
+	<script src="js/jquery-3.3.1.js"></script>
+	
+	<script src="js/collection.js"></script>
+	<script src="js/fieldFuncs.js"></script>
+	<script src="js/login.js"></script>
+	<script src="js/scripts.js"></script>
+	
+	<script src="js/index.js"></script>
+	<script src="js/users.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/navbarscroll.js"></script>
+	<script src="js/productDisplay.js"></script>
+	
+	<script>
+checkRefresh();
 </script>
 </body>
 </html>

@@ -29,10 +29,10 @@ function redirectTo($page)
 }
 
 
-function sendQuery($query)
+function sendQuery($connection,$query)
 {
-	$con = connectToDb();
-	$result = mysqli_query($con,$query);
+	
+	$result = mysqli_query($connection,$query);
 	return $result;
 }
 
