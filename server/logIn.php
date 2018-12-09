@@ -10,9 +10,9 @@ $con = connectToDb();
 
 $response = new Response();
 
-$stmt = $con->prepare("select * from ". userTable() ." where username = ?; ");
+$stmt = $con->prepare("select * from ". userTable() ." where username = ? OR email = ?; ");
 
-	$stmt->bind_param("s", $username);
+	$stmt->bind_param("ss", $username,$username);
 	$stmt->execute();					
 	$result = $stmt->get_result();
 
@@ -54,11 +54,7 @@ if($result)
 		{
 		$response->success = false;
 		$response->info = "The details provided don't match with our system. Please check you username/password and try again.";	
-		}
-		
-		
-	
-		
+		}		
 }
 else
 {

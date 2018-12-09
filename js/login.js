@@ -21,7 +21,7 @@ function checkLogIn()
 			}
 			else
 			{
-				console.log("Nobody was logged");
+				//console.log("Nobody was logged");
 			}
 		}
 	});
@@ -63,6 +63,7 @@ $.post('server/logIn.php',d,function(data,status){
 					$(".loggedInButton").show();
 					$(".loginNameText").text(info.info);
 					//console.log("LOGGED");
+			
 					
 				}
 				else
@@ -84,6 +85,13 @@ $.post('server/logIn.php',d,function(data,status){
 			
 		});	
 }
+
+//Clear inputs when login modal closes
+$('#loginModal').on('hidden.bs.modal', function () {
+			//Clear input fields
+					$("#loginUsername").val("");
+					$("#loginPsw").val("");
+});
 
 function logInUser()
 {

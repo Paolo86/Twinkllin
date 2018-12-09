@@ -5,6 +5,8 @@ var inputError = [];
 
 function registerUser()
 {
+
+		
 	
 	clearInputErrors();
 	
@@ -13,7 +15,7 @@ function registerUser()
 	
 	$(inputs).each(function(){
 		
-		if($(this).attr("type") != 'submit')
+		if($(this).attr("type") != 'button')
 		{
 		
 			//Trim all
@@ -44,7 +46,8 @@ function registerUser()
 			displayErrors();	
 	else		
 	{
-		var data = 
+		
+		var d = 
 		{
 			username: $("#reg_usernameInput").val(),
 			firstname: $("#reg_firstnameInput").val(),
@@ -56,47 +59,49 @@ function registerUser()
 		
 		$("#reg_loader").show();
 		$("#reg_buttonInput").hide();
-		$.post("server/registerUser.php",data,function(data, status){
-					
+		
+		$.post("server/registerUser.php",d,function(data, status){				
+		
 			
 			if(status == "success")
 			{
+				
 				//Create response object to send back
 				//console.log(data);
 				var resp = JSON.parse(data);
-				
-		
-			if(resp.success)
-			{
-				
-				$('#modalTitle').html('Registration successful');
-				$("#modalButton").attr("onclick","redirect('home')");
-				
-				//Clear inputs
-				$(inputs).each(function(){
-						$(this).val("");
-		
-						});
+					
 			
-			}
-			else
-			{
-				
-				$('#modalTitle').html('Registration failed');
-				$("#modalButton").attr("onclick","");
+				if(resp.success)
+				{
+					
+					$('#modalTitle').html('Registration successful');
+					$("#modalButton").attr("onclick","redirect('home')");
+					
 		
-			}
+				
+				}
+				else
+				{
+					
+					$('#modalTitle').html('Registration failed');
+					$("#modalButton").attr("onclick","");
 			
-			$('#modalBody').html(resp.info);
-			$('#genericModal').modal('show');
-			$("#reg_loader").hide();
-			$("#reg_buttonInput").show();		
+				}
+				
+				$('#modalBody').html(resp.info);
+				
+				$("#reg_loader").hide();
+				$("#reg_buttonInput").show();		
+				$('#genericModal').modal('show');
 			
 				
 			}
+			
 			
 		});
 	}
+	
+	
 		
 }
 
@@ -174,7 +179,7 @@ function recoverPassword()
 					if(resp.success)
 					{
 					$('#modalTitle').html('Email sent');
-					$("#modalTitle").css("background-color","#11ff11aa");
+				
 				
 					
 					}
@@ -182,7 +187,7 @@ function recoverPassword()
 					{
 						
 					$('#modalTitle').html('Error');
-					$("#modalTitle").css("background-color","#ff1111aa");
+				
 					
 					
 					}
