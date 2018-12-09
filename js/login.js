@@ -37,6 +37,9 @@ function logOut()
 			$(".logInButton").show();
 			$(".loggedInButton").hide();
 			$(".loginNameText").text("");
+			console.log(window.location.hash);
+			if(window.location.hash == '#account')
+				redirect('home');
 		}
 	});
 	

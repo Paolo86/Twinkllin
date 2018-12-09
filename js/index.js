@@ -13,7 +13,7 @@ function redirect(np)
 }
 
 //code below for SPA
-var pages = ["#home", "#collection", "#contact" ,"#details",'#register-page'];
+var pages = ["#home", "#collection", "#contact" ,"#details",'#register-page',"#account"];
 var curPage = pages[0];
 
 $(document).ready(function(){
