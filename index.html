@@ -235,14 +235,11 @@
 
 
 	<!-- contact page starts here-->
-	<div id="contact" hidden="hidden" class="container">
-	
+	<div id="contact" hidden="hidden" class="container">	
 
 			<h2 class="jumbotron">Get in touch with us</h2>
-
-
-				<form class="form-horizontal">		
 			
+				<form class="form-horizontal">				
 				
 					<div class="form-group">
 						<label  class="control-label col-sm-2" for="nameInput">First name:</label>
@@ -296,10 +293,53 @@
 		<h2 class="jumbotron" >
 		<div class="row" >
 			<div class="col-md-10">
-				<span id="collectionTitle">Your account</span>
-			</div>				
-		</div>
+				<span >Your account</span>
+			</div>					
+		</div>		
 		</h2>
+		
+			<form  id="accountForm" class="form-horizontal">				
+				
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="acc_usernameInput">Username:</label>
+						<div class="col-sm-10">
+						<input   id="acc_usernameInput" class="form-control" type="text"  readonly="readonly"></input>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="acc_firstnameInput">First name:</label>
+						<div class="col-sm-10">
+						<input  id="acc_firstnameInput" class="form-control" type="text" readonly="readonly" ></input>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="acc_lastnameInput">Last name:</label>
+						<div class="col-sm-10">
+						<input  id="acc_lastnameInput" class="form-control" type="text" readonly="readonly" ></input>
+						</div>
+					</div>
+					
+					<div class="form-group">
+						<label  class="control-label col-sm-2" for="acc_emailInput">Email:</label>
+						<div class="col-sm-10">
+						<input id="acc_emailInput"  class="form-control" type="email" readonly="readonly" ></input>
+						</div>
+					</div>					
+				
+				</form>
+				<hr/>
+				<div id="nonEditbutton">
+				<button class="btn btn-primary btn-lg" onclick="editAccount()">Edit</button>
+				<button class="btn btn-primary btn-lg" onclick="changePsw()">Change password</button>
+				<button class="btn btn-primary btn-lg" onclick="deleteAccountRequest()">Delete account</button>
+				</div>
+				<div id="editbutton">
+				<button class="btn btn-primary btn-lg" onclick="saveChanges()">Save changes</button>
+				<button class="btn btn-primary btn-lg" onclick="discardChanges()">Cancel</button>
+				
+				</div>
 		
 	
 	</div>
@@ -488,10 +528,10 @@
 	<script src="js/contact.js"></script>
 	<script src="js/collection.js"></script>
 	<script src="js/fieldFuncs.js"></script>
-	
+	<script src="js/account.js"></script>
 	<script src="js/scripts.js"></script>
 	<script src="js/search.js"></script>
-	
+	<script src="js/account.js"></script>
 	<script src="js/index.js"></script>
 	<script src="js/users.js"></script>
 	<script src="js/bootstrap.js"></script>

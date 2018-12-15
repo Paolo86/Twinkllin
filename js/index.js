@@ -1,4 +1,23 @@
-
+function checkRefresh()
+{
+	if(window.location.hash == "#search")
+		window.location.hash = "#collection";
+	
+	if(window.location.hash == "#collection")
+		getAll(true);
+	
+	if(window.location.hash == "#details")
+	{
+		var lastID = localStorage.getItem("lastID");
+		displayDetails(lastID);
+	}
+	
+	if(window.location.hash == "#account")
+	{
+		fillUpAccountForm();
+	}
+		
+}
 
 function toHome()
 {
@@ -59,6 +78,12 @@ $(document).ready(function(){
 	   if(newPage == "#collection")
 	   {
 		   getAll(false);
+		   //console.log("Get all called");
+	   }
+	   
+	    if(newPage == "#account")
+	   {
+		   fillUpAccountForm();
 		   //console.log("Get all called");
 	   }
 		   

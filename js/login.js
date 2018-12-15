@@ -4,6 +4,7 @@ function showLogIn()
 }
 
 var currentUser = ""; //Used in purchaseItem
+
 function checkLogIn()
 {
 	$.post("server/checkLogIn.php",function(data,status){
@@ -23,7 +24,7 @@ function checkLogIn()
 			}
 			else
 			{
-				//console.log("Nobody was logged");
+				console.log("Nobody was logged");
 			
 			}
 		}

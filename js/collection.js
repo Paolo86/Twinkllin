@@ -170,21 +170,7 @@ function getHTML(item)
 	
 }
 
-function checkRefresh()
-{
-	if(window.location.hash == "#search")
-		window.location.hash = "#collection";
-	
-	if(window.location.hash == "#collection")
-		getAll(true);
-	
-	if(window.location.hash == "#details")
-	{
-		var lastID = localStorage.getItem("lastID");
-		displayDetails(lastID);
-	}
-		
-}
+
 	
 //IMPORTANT
 // THIS FUNCTION IS CALLED IN INDEX.JS, WHEN THE HASH CHANGE TO COLLECTION
@@ -274,9 +260,41 @@ function requestPurchase()
 {
 	redirect('contact');
 	
-	$("#subjectInput").val(selectedItem.name);
-
-	$("#message").val("Hello, I would like to know if the item '" + selectedItem.name + "' is available for purchase?\nThank you!");
+	
+	//Get logged in user (if there is)
+	$.post('server/checkLogin.php',function(data,status){
+		
+		if(status=='success')
+		{
+			
+			var resp= JSON.parse(data);
+			
+			if(resp.success)
+				{
+				var user = JSON.parse(resp.info);
+				$("#nameInput").val(user.firstname);
+				$("#surnameInput").val(user.lastname);
+				$("#emailInput").val(user.email);
+				
+				}
+			else
+				{
+				
+				}
+		
+		//Pre fill form
+		$("#subjectInput").val(selectedItem.name);
+		$("#message").val("Hello, I would like to know if the item '" + selectedItem.name + "' is available for purchase?\nThank you!");
+		selectedItem = null;
+	
+	
+		
+	
+		}
+		
+	});
+	
+	
 
 
 }
@@ -295,10 +313,10 @@ function purchaseItem()
 			if(response.success)
 			{				
 			
-				selectedItem = JSON.parse(response.info);			
+				selectedItem = JSON.parse(response.info);		
 				
 
-				$("#modalTitle").html("Purchasing " + lastID);
+				$("#modalTitle").html("Purchasing");
 				$("#modalBody").html("In order to make a purchase, please contact us to ensure the availability of the item. Press OK to redirect to a pre-filled contact form.");
 				$("#modalButton").attr("onclick","requestPurchase()");
 				$("#genericModal").modal('show');				
