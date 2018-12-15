@@ -8,7 +8,7 @@ function toHome()
 
 function redirect(np)
 {
-	window.location.hash = np;
+	window.location.hash = np;	
 	
 }
 
@@ -37,8 +37,15 @@ $(document).ready(function(){
        e.preventDefault();
        var newPage = $(this).attr('href');
 	   
+	   if(newPage == window.location.hash ) return;
+	   
 	   if(newPage == "") //If clicked on link (which has no href
 		   newPage = window.location.hash;
+		   
+		if(newPage == "#contact" )
+			{
+			clearContactFields();
+			}
        window.location.hash=newPage;
    });
 

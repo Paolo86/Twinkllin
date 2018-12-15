@@ -1,3 +1,13 @@
+function clearContactFields()
+{
+	
+	$("#nameInput").val("");
+	$("#surnameInput").val("");
+	$("#emailInput").val("");
+	$("#subjectInput").val("");
+	$("#message").val("");
+}
+
 function sendEmail()
 	{
 		

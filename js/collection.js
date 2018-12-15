@@ -39,10 +39,7 @@ function displayDetails(theid)
 		
 		$('#collectionJumboButtons').hide();
 		
-		$(".loader").show();
-		
-	
-		
+		$(".loader").show();		
 		
 		$.post("server/getDetails.php",{id: theid},function(data,status){
 		
@@ -105,11 +102,13 @@ function backToCollection()
 	window.location.hash = "collection";	
 	
 }
+
+
 	
 //Display product details
 function getHTML(item)
 {
-	
+
 	var imagesNames = JSON.parse(item.imagesNames);
 	var linkToImageFolder = "images/jewels/" + item.id + "/";
 	
@@ -153,7 +152,7 @@ function getHTML(item)
 	<br/>
 	<p>`+item.description+`</p>
 	<br/>
-	<button type="button"  class="btn btn-primary btn-lg"  onclick="">Buy now</button>
+	<button type="button"  class="btn btn-primary btn-lg"  onclick="purchaseItem()">Buy now</button>
 	
    </div>
    
@@ -269,4 +268,58 @@ function rearrangeCollection()
 	getAll(true,order,category);
 	//
 	
+}
+
+
+var selectedItem = null; //Used by the 2 methods below
+
+function requestPurchase()
+{
+	redirect('contact');
+	
+	$("#subjectInput").val(selectedItem.name);
+
+	$("#message").val("Hello, I would like to know if the item '" + selectedItem.name + "' is available for purchase?\nThank you!");
+
+
+}
+
+function purchaseItem()
+{
+	var lastID = localStorage.getItem("lastID");
+	
+		$.post("server/getDetails.php",{id: lastID},function(data,status){
+		
+		if(status=='success')
+		{
+						
+			var response = JSON.parse(data);
+			
+			if(response.success)
+			{				
+			
+				selectedItem = JSON.parse(response.info);			
+				
+
+				$("#modalTitle").html("Purchasing " + lastID);
+				$("#modalBody").html("In order to make a purchase, please contact us to ensure the availability of the item. Press OK to redirect to a pre-filled contact form.");
+				$("#modalButton").attr("onclick","requestPurchase()");
+				$("#genericModal").modal('show');				
+				
+				
+			}
+			else
+			{
+			
+			}
+
+		}
+		else{			
+			
+		}
+		
+		
+	});
+		
+
 }

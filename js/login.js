@@ -3,7 +3,7 @@ function showLogIn()
 	$('#loginModal').modal('show');
 }
 
-
+var currentUser = ""; //Used in purchaseItem
 function checkLogIn()
 {
 	$.post("server/checkLogIn.php",function(data,status){
@@ -16,15 +16,20 @@ function checkLogIn()
 			{
 			
 				var user = JSON.parse(response.info);
-		
+				
 				sendLogin(user.username, user.psw);
+			
+			
 			}
 			else
 			{
 				//console.log("Nobody was logged");
+			
 			}
 		}
 	});
+	
+
 		
 }
 
@@ -33,7 +38,8 @@ function logOut()
 	$.post('server/logOut.php',function(data,status){	
 	
 		if(status=='success')
-		{			
+		{
+			currentUser = "";
 			$(".logInButton").show();
 			$(".loggedInButton").hide();
 			$(".loginNameText").text("");
@@ -66,6 +72,7 @@ $.post('server/logIn.php',d,function(data,status){
 					$(".loggedInButton").show();
 					$(".loginNameText").text(info.info);
 					//console.log("LOGGED");
+					currentUser = username;
 			
 					
 				}
