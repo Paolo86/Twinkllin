@@ -80,13 +80,8 @@ function displayDetails(theid)
 		else{
 				$(".loader").hide();
 			
-		}
-		
-		
-	});
-		
-		
-		
+		}		
+	});		
 		
 	});
 	
@@ -177,6 +172,8 @@ function getHTML(item)
 
 function checkRefresh()
 {
+	if(window.location.hash == "#search")
+		window.location.hash = "#collection";
 	
 	if(window.location.hash == "#collection")
 		getAll(true);
