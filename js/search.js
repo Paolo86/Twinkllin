@@ -1,11 +1,18 @@
-function search()
+function search(whichone)
 {
-	
+	console.log("Searching");
 	window.location.hash = "search";
-	var searchIn = $(".searchInput").val().trim();
+	var searchIn = "";
+	
+	if(whichone == 'normal')
+	searchIn = $("#searchNormal").val().trim();
+	else
+	searchIn = $("#searchMobile").val().trim();
+
 	if(searchIn != "")
 	{
-		$(".searchInput").val("");
+		$("#searchNormal").val("");
+		$("#searchMobile").val("");
 		$.post("server/search.php",{searchInput: searchIn},function(data,status){
 		
 		$(".loader").hide();

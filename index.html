@@ -42,8 +42,8 @@
 						
 						
 					<div class="searchDiv" >
-					<input class="searchInput" type="text" placeholder="Search product" />
-					<button type="submit" onclick="search()" class="btn btn-primary " style=" vertical-align: middle;"><i class=" fa fa-search" ></i></button>
+					<input id="searchNormal" class="searchInput" type="text" placeholder="Search product" />
+					<button  type="submit" onclick="search('normal')" class="btn btn-primary " style=" vertical-align: middle;"><i class=" fa fa-search" ></i></button>
 					</div>		
 					
 					<span class="logInButton" style="float: right; position: relative;right: 50pt">
@@ -104,9 +104,9 @@
 								</div>															
 						</div>
 						<div class="searchDiv col-xs-7" >
-										<input class="searchInput" type="text" placeholder="Search product" >
-										<button  class="btn btn-primary btn-sm" type="button" data-toggle="dropdown">
-										<span onclick="search()" class="glyphicon glyphicon-search"></span>
+										<input id="searchMobile"  class="searchInput" type="text" placeholder="Search product" >
+										<button  onclick="search('mobile')" class="btn btn-primary btn-sm" type="button" data-toggle="dropdown">
+										<span  class="glyphicon glyphicon-search"></span>
 										</button>
 										</input>
 									
